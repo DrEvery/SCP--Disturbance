@@ -83,8 +83,8 @@ public class ModBlocks
                     .notSolid()));
 
     public static final RegistryObject<Block> CEILING_TRAP = registerBlock("ceiling_trap",
-            () -> new BaseBlockRotation(AbstractBlock.Properties.create(Material.EARTH).hardnessAndResistance(-1f).sound(SoundType.SLIME)
-                    .notSolid()));
+            () -> new CeilingTrap(AbstractBlock.Properties.create(Material.EARTH).hardnessAndResistance(-1f).sound(SoundType.SLIME)
+                    .doesNotBlockMovement()));
 
     public static final RegistryObject<Block> MEAT_LAMP = registerBlock("meat_lamp",
             () -> new MeatLamp(AbstractBlock.Properties.create(Material.EARTH).hardnessAndResistance(-1f).harvestLevel(1).sound(SoundType.SLIME)
