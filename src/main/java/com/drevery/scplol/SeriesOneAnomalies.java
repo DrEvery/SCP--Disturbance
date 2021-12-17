@@ -79,6 +79,7 @@ public class SeriesOneAnomalies
                 RenderTypeLookup.setRenderLayer(ModBlocks.GENERATOR.get(), RenderType.getCutout());
                 RenderTypeLookup.setRenderLayer(ModBlocks.METAL_DOOR.get(), RenderType.getCutout());
                 RenderTypeLookup.setRenderLayer(ModBlocks.MEAT_NIGHTSTAND.get(), RenderType.getCutout());
+                RenderTypeLookup.setRenderLayer(ModBlocks.MEAT_PAINTING.get(), RenderType.getCutout());
             //
             });
         }

@@ -106,6 +106,10 @@ public class ModBlocks
             () -> new BaseBlockRotation(AbstractBlock.Properties.create(Material.WOOD).hardnessAndResistance(-1f).harvestLevel(1).sound(SoundType.SLIME)
                     .notSolid()));
 
+    public static final RegistryObject<Block> MEAT_PAINTING = registerBlock("meat_painting",
+            () -> new Painting(AbstractBlock.Properties.create(Material.WOOD).hardnessAndResistance(-1f).harvestLevel(1).sound(SoundType.SLIME)
+                    .notSolid()));
+
 //
 
     private static <T extends Block>RegistryObject<T> registerBlock(String name, Supplier<T> block)

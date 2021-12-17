@@ -48,7 +48,7 @@ public class CeilingTrap extends HorizontalBlock {
             Block.makeCuboidShape(7.000000000000001, 8.875, 7.833333333333333, 9, 9.875, 7.833333333333333),
             Block.makeCuboidShape(6.000000000000001, 9.875, 7.833333333333333, 7.000000000000001, 11.875, 7.833333333333333)
     ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR)).get();
-    
+
     private static final VoxelShape SHAPE_E = Stream.of(
             Block.makeCuboidShape(5.833333333333333, 15.9, 5.000000000000002, 10.833333333333332, 15.9, 10),
             Block.makeCuboidShape(7.833333333333333, 12.875, 8, 8.833333333333332, 15.875, 8),
