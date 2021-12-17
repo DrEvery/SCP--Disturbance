@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "scplol:block/floor_trap",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "scplol:block/floor_trap"
+    },
+    "facing=south": {
+      "model": "scplol:block/floor_trap",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "scplol:block/floor_trap",
+      "y": 270
+    }
+  }
+}

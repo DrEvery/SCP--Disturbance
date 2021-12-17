@@ -110,6 +110,11 @@ public class ModBlocks
             () -> new Painting(AbstractBlock.Properties.create(Material.WOOD).hardnessAndResistance(-1f).harvestLevel(1).sound(SoundType.SLIME)
                     .notSolid()));
 
+    public static final RegistryObject<Block> FLOOR_TRAP = registerBlock("floor_trap",
+            () -> new FloorTrap(AbstractBlock.Properties.create(Material.WOOD).hardnessAndResistance(-1f).harvestLevel(1).sound(SoundType.SLIME)
+                    .notSolid()));
+
+
 //
 
     private static <T extends Block>RegistryObject<T> registerBlock(String name, Supplier<T> block)
