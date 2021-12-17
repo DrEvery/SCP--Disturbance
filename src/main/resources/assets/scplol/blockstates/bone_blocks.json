@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "scplol:block/bone_blocks",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "scplol:block/bone_blocks"
+    },
+    "facing=south": {
+      "model": "scplol:block/bone_blocks",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "scplol:block/bone_blocks",
+      "y": 270
+    }
+  }
+}

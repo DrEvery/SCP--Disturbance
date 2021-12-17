@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "scplol:block/meat_wall_c",
+    "up": "scplol:block/meat_wall_b",
+    "north": "scplol:block/meat_wall_a",
+    "east": "scplol:block/meat_wall_a",
+    "south": "scplol:block/meat_wall_a",
+    "west": "scplol:block/meat_wall_a",
+    "particle": "scplol:block/meat_wall_a"
+  }
+}

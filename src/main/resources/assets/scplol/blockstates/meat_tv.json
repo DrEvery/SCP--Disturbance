@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "scplol:block/meat_tv",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "scplol:block/meat_tv"
+    },
+    "facing=south": {
+      "model": "scplol:block/meat_tv",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "scplol:block/meat_tv",
+      "y": 270
+    }
+  }
+}

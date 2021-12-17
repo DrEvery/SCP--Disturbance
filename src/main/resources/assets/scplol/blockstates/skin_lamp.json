@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "scplol:block/skin_lamp_bottom"
+    },
+    "half=upper": {
+      "model": "scplol:block/skin_lamp_top"
+    }
+  }
+}

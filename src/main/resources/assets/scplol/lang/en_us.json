@@ -1,0 +1,30 @@
+{
+  "block.scplol.skin_floor": "Skin Floor",
+  "block.scplol.face_skin_floor": "Face Skin Floor",
+  "block.scplol.meat_wall": "Meat Wall",
+  "block.scplol.stoned_meat_wall": "Stoned Meat Wall",
+  "block.scplol.solid_skin_floor": "Solid Skin Floor",
+  "block.scplol.meat_table": "Meat Table",
+  "block.scplol.bone_blocks": "Bone Blocks",
+  "block.scplol.metal_door": "Metal Door",
+  "block.scplol.meat_door": "Meat Door",
+  "block.scplol.skin_stand": "Skin Stand",
+  "block.scplol.meat_radio": "Meat Radio",
+  "block.scplol.meat_bed": "Meat Bed",
+  "block.scplol.meat_tv": "Meat TV",
+  "block.scplol.skin_lamp": "Skin Lamp",
+  "block.scplol.bone_dinosaur": "Bone Dinosaur",
+  "block.scplol.ceiling_trap": "Meat Ceiling Trap",
+  "block.scplol.bone_block": "Bone Block",
+  "block.scplol.meat_lamp": "Meat Lamp",
+  "block.scplol.meat_couch_center": "Meat Couch Center",
+  "block.scplol.generator": "Generator",
+  "block.scplol.meat_bookshelf": "Meat Bookshelf",
+  "block.scplol.meat_nightstand": "Meat Nightstand",
+
+  "item.scplol.debug": "Debug",
+
+  "itemGroup.scpBlockTab": "Series One Anomalies"
+
+
+}

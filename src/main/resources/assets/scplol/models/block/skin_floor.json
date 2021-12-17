@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "scplol:block/skin_floor_c",
+    "up": "scplol:block/skin_floor_b",
+    "north": "scplol:block/skin_floor_a",
+    "east": "scplol:block/skin_floor_a",
+    "south": "scplol:block/skin_floor_a",
+    "west": "scplol:block/skin_floor_a",
+    "particle": "scplol:block/skin_floor_a"
+  }
+}
