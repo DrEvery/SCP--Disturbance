@@ -115,7 +115,7 @@ public class ModBlocks
                     .notSolid()));
 
     public static final RegistryObject<Block> BEAR = registerBlock("bear",
-            () -> new MeatBear(AbstractBlock.Properties.create(Material.EARTH).hardnessAndResistance(-1f).harvestLevel(1).sound(SoundType.SLIME)
+            () -> new Bear(AbstractBlock.Properties.create(Material.EARTH).hardnessAndResistance(-1f).harvestLevel(1).sound(SoundType.SLIME)
                     .notSolid()));
 
 
