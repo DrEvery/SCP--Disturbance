@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "scplol:block/bear",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "scplol:block/bear"
+    },
+    "facing=south": {
+      "model": "scplol:block/bear",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "scplol:block/bear",
+      "y": 270
+    }
+  }
+}

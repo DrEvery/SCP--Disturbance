@@ -81,6 +81,7 @@ public class SeriesOneAnomalies
                 RenderTypeLookup.setRenderLayer(ModBlocks.MEAT_NIGHTSTAND.get(), RenderType.getCutout());
                 RenderTypeLookup.setRenderLayer(ModBlocks.MEAT_PAINTING.get(), RenderType.getCutout());
                 RenderTypeLookup.setRenderLayer(ModBlocks.FLOOR_TRAP.get(), RenderType.getCutout());
+                RenderTypeLookup.setRenderLayer(ModBlocks.BEAR.get(), RenderType.getCutout());
             //
             });
         }
