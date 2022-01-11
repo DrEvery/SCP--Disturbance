@@ -112,7 +112,7 @@ public class ModBlocks
 
     public static final RegistryObject<Block> FLOOR_TRAP = registerBlock("floor_trap",
             () -> new FloorTrap(AbstractBlock.Properties.create(Material.WOOD).hardnessAndResistance(-1f).harvestLevel(1).sound(SoundType.SLIME)
-                    .notSolid()));
+                    .notSolid().doesNotBlockMovement()));
 
     public static final RegistryObject<Block> BEAR = registerBlock("bear",
             () -> new Bear(AbstractBlock.Properties.create(Material.EARTH).hardnessAndResistance(-1f).harvestLevel(1).sound(SoundType.SLIME)
