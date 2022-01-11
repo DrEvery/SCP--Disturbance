@@ -1,6 +1,6 @@
 package com.drevery.scplol.block;
 
-import com.drevery.scplol.SeriesOneAnomalies;
+import com.drevery.scplol.SCPDisturbance;
 import com.drevery.scplol.block.custom.*;
 import com.drevery.scplol.item.ModItemGroup;
 import com.drevery.scplol.item.ModItems;
@@ -18,7 +18,7 @@ import java.util.function.Supplier;
 public class ModBlocks
 {
     public static final DeferredRegister<Block> BLOCKS
-            = DeferredRegister.create(ForgeRegistries.BLOCKS, SeriesOneAnomalies.MOD_ID);
+            = DeferredRegister.create(ForgeRegistries.BLOCKS, SCPDisturbance.MOD_ID);
 //SCP-002
 
     public static final RegistryObject<Block> SKIN_FLOOR = registerBlock("skin_floor",
