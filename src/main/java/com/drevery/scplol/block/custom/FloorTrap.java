@@ -1,5 +1,6 @@
 package com.drevery.scplol.block.custom;
 
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.HorizontalBlock;
@@ -15,8 +16,9 @@ import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 
 public class FloorTrap extends HorizontalBlock {
-    public FloorTrap(Properties builder) {
-        super(builder);
+    public FloorTrap(AbstractBlock.Properties properties)
+    {
+        super(properties);
     }
     private static final VoxelShape SHAPE_N = Block.makeCuboidShape(0, 0, 0, 16, 4, 16);
 
