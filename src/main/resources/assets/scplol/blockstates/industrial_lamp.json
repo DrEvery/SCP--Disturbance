@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "scplol:block/industrial_lamp_bottom"
+    },
+    "half=upper": {
+      "model": "scplol:block/industrial_lamp_top"
+    }
+  }
+}

@@ -78,6 +78,7 @@ public class SCPDisturbance
                 RenderTypeLookup.setRenderLayer(ModBlocks.GENERATOR.get(), RenderType.getCutout());
                 RenderTypeLookup.setRenderLayer(ModBlocks.METAL_DOOR.get(), RenderType.getCutout());
                 RenderTypeLookup.setRenderLayer(ModBlocks.MEAT_NIGHTSTAND.get(), RenderType.getCutout());
+                RenderTypeLookup.setRenderLayer(ModBlocks.INDUSTRIAL_LAMP.get(), RenderType.getCutout());
             //
             });
         }

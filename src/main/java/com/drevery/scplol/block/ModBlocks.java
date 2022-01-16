@@ -118,6 +118,10 @@ public class ModBlocks
             () -> new Bear(AbstractBlock.Properties.create(Material.EARTH).hardnessAndResistance(-1f).harvestLevel(1).sound(SoundType.SLIME)
                     .notSolid()));
 
+    public static final RegistryObject<Block> INDUSTRIAL_LAMP = registerBlock("industrial_lamp",
+            () -> new IndustrialLamp(AbstractBlock.Properties.create(Material.EARTH).hardnessAndResistance(-1f).harvestLevel(1).sound(SoundType.SLIME)
+                    .notSolid()));
+
 
 //
 
