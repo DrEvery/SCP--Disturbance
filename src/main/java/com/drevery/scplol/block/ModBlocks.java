@@ -95,7 +95,7 @@ public class ModBlocks
                     .notSolid()));
 
     public static final RegistryObject<Block> GENERATOR = registerBlock("generator",
-            () -> new Generator(AbstractBlock.Properties.create(Material.EARTH).hardnessAndResistance(2f).harvestLevel(1).sound(SoundType.METAL)
+            () -> new Generator(AbstractBlock.Properties.create(Material.ANVIL).hardnessAndResistance(2f).harvestLevel(1).sound(SoundType.METAL)
                     .notSolid()));
 
     public static final RegistryObject<Block> MEAT_BOOKSHELF = registerBlock("meat_bookshelf",
@@ -119,7 +119,7 @@ public class ModBlocks
                     .notSolid()));
 
     public static final RegistryObject<Block> INDUSTRIAL_LAMP = registerBlock("industrial_lamp",
-            () -> new IndustrialLamp(AbstractBlock.Properties.create(Material.EARTH).hardnessAndResistance(-1f).harvestLevel(1).sound(SoundType.SLIME)
+            () -> new IndustrialLamp(AbstractBlock.Properties.create(Material.ANVIL).hardnessAndResistance(2f).harvestLevel(1).sound(SoundType.METAL)
                     .notSolid()));
 
 
