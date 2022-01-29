@@ -29,7 +29,7 @@ public class ModBlocks
             () -> new FaceSkinFloor(AbstractBlock.Properties.create(Material.EARTH).hardnessAndResistance(-1f).sound(SoundType.SLIME)
                     .doesNotBlockMovement()));
 
-    public static final RegistryObject<Block> MEAT_WALL = registerBlock("meat_wall",
+    public static final RegistryObject<Block> MEAT_BLOCK = registerBlock("meat_block",
             () -> new MeatBlock(AbstractBlock.Properties.create(Material.EARTH).hardnessAndResistance(-1f).sound(SoundType.SLIME)
                     .doesNotBlockMovement()));
 
@@ -120,7 +120,7 @@ public class ModBlocks
 
     public static final RegistryObject<Block> INDUSTRIAL_LAMP = registerBlock("industrial_lamp",
             () -> new IndustrialLamp(AbstractBlock.Properties.create(Material.ANVIL).hardnessAndResistance(2f).harvestLevel(1).sound(SoundType.METAL)
-                    .notSolid()));
+                    .notSolid().setLightLevel((state) -> {return 12;})));
 
     public static final RegistryObject<Block> SKIN_DOOR = registerBlock("skin_door",
             () -> new DoorBlock(AbstractBlock.Properties.create(Material.EARTH).hardnessAndResistance(-1F).harvestLevel(1).sound(SoundType.SLIME)
