@@ -126,6 +126,8 @@ public class ModBlocks {
             () -> new DoorBlock(AbstractBlock.Properties.create(Material.EARTH).hardnessAndResistance(-1F).harvestLevel(1).sound(SoundType.SLIME)
                     .notSolid()));
 
+    //SCP-058
+
     //Core Reg Code
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

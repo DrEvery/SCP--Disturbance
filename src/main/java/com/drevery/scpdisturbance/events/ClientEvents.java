@@ -15,7 +15,6 @@ import static net.minecraft.client.renderer.RenderTypeLookup.setRenderLayer;
 @Mod.EventBusSubscriber(value = Dist.CLIENT, modid = SCPDisturbance.MOD_ID)
 public class ClientEvents { //Forge Events used on normal events IE. LivingDeathEvent
 
-
     @Mod.EventBusSubscriber(value = Dist.CLIENT, modid = SCPDisturbance.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
     public static class ModEvents { //Mod Events are less common and are mostly setup events
 
@@ -41,6 +40,8 @@ public class ClientEvents { //Forge Events used on normal events IE. LivingDeath
             setRenderLayer(ModBlocks.METAL_DOOR.get(), RenderType.getCutout());
             setRenderLayer(ModBlocks.MEAT_NIGHTSTAND.get(), RenderType.getCutout());
             setRenderLayer(ModBlocks.INDUSTRIAL_LAMP.get(), RenderType.getCutout());
+
+            //SCP-058
         }
     }
 }
