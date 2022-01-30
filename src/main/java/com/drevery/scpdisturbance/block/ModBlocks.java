@@ -2,6 +2,7 @@ package com.drevery.scpdisturbance.block;
 
 import com.drevery.scpdisturbance.SCPDisturbance;
 import com.drevery.scpdisturbance.block.custom.*;
+import com.drevery.scpdisturbance.block.custom.base.BaseHorizontalBlock;
 import com.drevery.scpdisturbance.item.ModItemGroup;
 import com.drevery.scpdisturbance.item.ModItems;
 import net.minecraft.block.AbstractBlock;
@@ -50,7 +51,7 @@ public class ModBlocks {
                     .notSolid()));
 
     public static final RegistryObject<Block> MEAT_TABLE = registerBlock("meat_table",
-            () -> new BaseBlockRotation(AbstractBlock.Properties.create(Material.EARTH).hardnessAndResistance(-1f).harvestLevel(1).sound(SoundType.SLIME)
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.create(Material.EARTH).hardnessAndResistance(-1f).harvestLevel(1).sound(SoundType.SLIME)
                     .notSolid()));
 
     public static final RegistryObject<Block> BONE_BLOCKS = registerBlock("bone_blocks",
@@ -98,11 +99,11 @@ public class ModBlocks {
                     .notSolid()));
 
     public static final RegistryObject<Block> SKIN_BOOKSHELF = registerBlock("skin_bookshelf",
-            () -> new BaseBlockRotation(AbstractBlock.Properties.create(Material.WOOD).hardnessAndResistance(-1f).harvestLevel(1).sound(SoundType.SLIME)
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.create(Material.WOOD).hardnessAndResistance(-1f).harvestLevel(1).sound(SoundType.SLIME)
                     .notSolid()));
 
     public static final RegistryObject<Block> MEAT_NIGHTSTAND = registerBlock("meat_nightstand",
-            () -> new BaseBlockRotation(AbstractBlock.Properties.create(Material.WOOD).hardnessAndResistance(-1f).harvestLevel(1).sound(SoundType.SLIME)
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.create(Material.WOOD).hardnessAndResistance(-1f).harvestLevel(1).sound(SoundType.SLIME)
                     .notSolid()));
 
     public static final RegistryObject<Block> MEAT_PAINTING = registerBlock("meat_painting",

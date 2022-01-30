@@ -1,11 +1,9 @@
 package com.drevery.scpdisturbance.block.custom;
 
 import com.drevery.scpdisturbance.Utils;
+import com.drevery.scpdisturbance.block.custom.base.BaseHorizontalBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.HorizontalBlock;
-import net.minecraft.item.BlockItemUseContext;
-import net.minecraft.state.StateContainer;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.IBooleanFunction;
@@ -13,15 +11,10 @@ import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
-import sun.security.provider.SHA;
 
 import java.util.stream.Stream;
 
-public class Generator extends HorizontalBlock
-{
-    public Generator(Properties builder) {
-        super(builder);
-    }
+public class Generator extends BaseHorizontalBlock {
 
     private static final VoxelShape[] SHAPE = Utils.makeHorizontalShapes(Stream.of(
             Block.makeCuboidShape(1, 1, 2, 15, 3, 13),
@@ -46,6 +39,9 @@ public class Generator extends HorizontalBlock
             Block.makeCuboidShape(9, 0, 1, 11, 1, 15)
     ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR)).get());
 
+    public Generator(Properties builder) {
+        super(builder);
+    }
 
     @Override
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
@@ -53,18 +49,11 @@ public class Generator extends HorizontalBlock
     }
 
     @Override
-    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
-        super.fillStateContainer(builder.add(HORIZONTAL_FACING));
-    }
-
-    @Override
-    public BlockState getStateForPlacement(BlockItemUseContext context) {
-        return this.getDefaultState().with(HORIZONTAL_FACING, context.getPlacementHorizontalFacing().getOpposite());
-    }
     public boolean canProvidePower(BlockState state) {
         return true;
     }
 
+    @Override
     public int getWeakPower(BlockState blockState, IBlockReader blockAccess, BlockPos pos, Direction side) {
         return 15;
     }

@@ -1,11 +1,9 @@
 package com.drevery.scpdisturbance.block.custom;
 
 import com.drevery.scpdisturbance.Utils;
+import com.drevery.scpdisturbance.block.custom.base.BaseHorizontalBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.HorizontalBlock;
-import net.minecraft.item.BlockItemUseContext;
-import net.minecraft.state.StateContainer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.shapes.IBooleanFunction;
 import net.minecraft.util.math.shapes.ISelectionContext;
@@ -15,9 +13,7 @@ import net.minecraft.world.IBlockReader;
 
 import java.util.stream.Stream;
 
-public class MeatBed extends HorizontalBlock
-{
-    public MeatBed(Properties builder) {super(builder);}
+public class MeatBed extends BaseHorizontalBlock {
 
     private static final VoxelShape[] SHAPE = Utils.makeHorizontalShapes(Stream.of(
             Block.makeCuboidShape(0, 0, 15, 16, 11, 16),
@@ -39,18 +35,12 @@ public class MeatBed extends HorizontalBlock
             Block.makeCuboidShape(15, 0, 14, 16, 2, 15)
     ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR)).get());
 
+    public MeatBed(Properties builder) {
+        super(builder);
+    }
+
     @Override
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
         return SHAPE[state.get(HORIZONTAL_FACING).getHorizontalIndex()];
-    }
-
-        @Override
-        protected void fillStateContainer(StateContainer.Builder< Block, BlockState > builder) {
-        super.fillStateContainer(builder.add(HORIZONTAL_FACING));
-    }
-
-        @Override
-        public BlockState getStateForPlacement(BlockItemUseContext context) {
-        return this.getDefaultState().with(HORIZONTAL_FACING, context.getPlacementHorizontalFacing().getOpposite());
     }
 }

@@ -21,8 +21,8 @@ import net.minecraftforge.common.util.Constants;
 import javax.annotation.Nullable;
 
 public class IndustrialLamp extends HorizontalBlock {
-    public static final EnumProperty<DoubleBlockHalf> HALF = BlockStateProperties.DOUBLE_BLOCK_HALF;
 
+    public static final EnumProperty<DoubleBlockHalf> HALF = BlockStateProperties.DOUBLE_BLOCK_HALF;
     private static final VoxelShape SHAPE = Block.makeCuboidShape(3, 0, 3, 13, 17, 13);
 
     public IndustrialLamp(AbstractBlock.Properties properties) {
@@ -73,6 +73,6 @@ public class IndustrialLamp extends HorizontalBlock {
 
     @Override
     protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
-        builder.add(HALF).add(HORIZONTAL_FACING);
+        builder.add(HORIZONTAL_FACING).add(HALF);
     }
 }

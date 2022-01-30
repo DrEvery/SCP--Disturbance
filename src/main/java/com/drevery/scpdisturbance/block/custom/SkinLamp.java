@@ -1,6 +1,5 @@
 package com.drevery.scpdisturbance.block.custom;
 
-import com.drevery.scpdisturbance.Utils;
 import net.minecraft.block.*;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.BlockItemUseContext;
@@ -25,8 +24,8 @@ import javax.annotation.Nullable;
 import java.util.stream.Stream;
 
 public class SkinLamp extends HorizontalBlock {
-    public static final EnumProperty<DoubleBlockHalf> HALF = BlockStateProperties.DOUBLE_BLOCK_HALF;
 
+    public static final EnumProperty<DoubleBlockHalf> HALF = BlockStateProperties.DOUBLE_BLOCK_HALF;
     private static final VoxelShape SHAPE = Stream.of(
             Block.makeCuboidShape(5.500000000000002, 23, 5.500000000000002, 10.500000000000002, 30, 10.500000000000002),
             Block.makeCuboidShape(5.500000000000002, 0, 5.500000000000002, 10.500000000000002, 1, 10.500000000000002),
