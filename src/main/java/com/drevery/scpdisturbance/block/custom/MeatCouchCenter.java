@@ -1,5 +1,6 @@
 package com.drevery.scpdisturbance.block.custom;
 
+import com.drevery.scpdisturbance.Utils;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.HorizontalBlock;
@@ -20,44 +21,17 @@ public class MeatCouchCenter extends HorizontalBlock
         super(builder);
     }
 
-    private static final VoxelShape SHAPE_N = Stream.of(
+    private static final VoxelShape[] SHAPE = Utils.makeHorizontalShapes(Stream.of(
             Block.makeCuboidShape(0, 0, 1, 16, 7, 11),
             Block.makeCuboidShape(0, 7, 0, 16, 8, 11),
             Block.makeCuboidShape(0, 0, 11, 16, 16, 16)
-    ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR)).get();
+    ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR)).get());
 
-    private static final VoxelShape SHAPE_S = Stream.of(
-            Block.makeCuboidShape(0, 0, 5, 16, 7, 15),
-            Block.makeCuboidShape(0, 7, 5, 16, 8, 16),
-            Block.makeCuboidShape(0, 0, 0, 16, 16, 5)
-    ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR)).get();
 
-    private static final VoxelShape SHAPE_W =Stream.of(
-            Block.makeCuboidShape(1, 0, 0, 11, 7, 16),
-            Block.makeCuboidShape(0, 7, 0, 11, 8, 16),
-            Block.makeCuboidShape(11, 0, 0, 16, 16, 16)
-    ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR)).get();
-
-    private static final VoxelShape SHAPE_E = Stream.of(
-            Block.makeCuboidShape(5, 0, 0, 15, 7, 16),
-            Block.makeCuboidShape(5, 7, 0, 16, 8, 16),
-            Block.makeCuboidShape(0, 0, 0, 5, 16, 16)
-    ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR)).get();
 
     @Override
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-        switch (state.get(HORIZONTAL_FACING)) {
-            case NORTH:
-                return SHAPE_N;
-            case SOUTH:
-                return SHAPE_S;
-            case WEST:
-                return SHAPE_W;
-            case EAST:
-                return SHAPE_E;
-            default:
-                return SHAPE_N;
-        }
+    return SHAPE[state.get(HORIZONTAL_FACING).getHorizontalIndex()];
     }
 
 

@@ -14,28 +14,18 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
+import sun.awt.geom.AreaOp;
 
 public class FloorTrap extends HorizontalBlock {
     public FloorTrap(AbstractBlock.Properties properties)
     {
         super(properties);
     }
-    private static final VoxelShape SHAPE_N = Block.makeCuboidShape(0, 0, 0, 16, 4, 16);
+    private static final VoxelShape SHAPE = Block.makeCuboidShape(0, 0, 0, 16, 4, 16);
 
     @Override
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-        switch (state.get(HORIZONTAL_FACING)) {
-            case NORTH:
-                return SHAPE_N;
-            case SOUTH:
-                return SHAPE_N;
-            case WEST:
-                return SHAPE_N;
-            case EAST:
-                return SHAPE_N;
-            default:
-                return SHAPE_N;
-        }
+       return SHAPE;
     }
 
     @Override

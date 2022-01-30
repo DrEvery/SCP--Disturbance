@@ -1,5 +1,6 @@
 package com.drevery.scpdisturbance.block.custom;
 
+import com.drevery.scpdisturbance.Utils;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.HorizontalBlock;
@@ -16,28 +17,11 @@ public class BoneDinosaur extends HorizontalBlock
         super(builder);
     }
 
-    private static final VoxelShape SHAPE_N = Block.makeCuboidShape(5, 0, 0, 11, 7, 16);
-
-    private static final VoxelShape SHAPE_S = Block.makeCuboidShape(5, 0, 0, 11, 7, 16);
-
-    private static final VoxelShape SHAPE_W = Block.makeCuboidShape(0, 0, 5, 16, 7, 11);
-
-    private static final VoxelShape SHAPE_E = Block.makeCuboidShape(0, 0, 5, 16, 7, 11);
+    private static final VoxelShape[] SHAPE = Utils.makeHorizontalShapes(Block.makeCuboidShape(5, 0, 0, 11, 7, 16));
 
     @Override
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-        switch (state.get(HORIZONTAL_FACING)) {
-            case NORTH:
-                return SHAPE_N;
-            case SOUTH:
-                return SHAPE_S;
-            case WEST:
-                return SHAPE_W;
-            case EAST:
-                return SHAPE_E;
-            default:
-                return SHAPE_N;
-        }
+        return SHAPE[state.get(HORIZONTAL_FACING).getHorizontalIndex()];
     }
 
     @Override

@@ -18,23 +18,12 @@ public class CeilingTrap extends HorizontalBlock {
     public CeilingTrap(Properties builder) {
         super(builder);
     }
-    private static final VoxelShape SHAPE_N = Block.makeCuboidShape(6, 15.75, 6, 10, 16, 10);
+    private static final VoxelShape SHAPE = Block.makeCuboidShape(6, 15.75, 6, 10, 16, 10);
 
     @Override
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-        switch (state.get(HORIZONTAL_FACING)) {
-            case NORTH:
-                return SHAPE_N;
-            case SOUTH:
-                return SHAPE_N;
-            case WEST:
-                return SHAPE_N;
-            case EAST:
-                return SHAPE_N;
-            default:
-                return SHAPE_N;
+          return SHAPE;
         }
-    }
     public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
         entityIn.setMotionMultiplier(state, new Vector3d(0.25D, (double)0.05F, 0.25D));
         entityIn.attackEntityFrom(DamageSource.GENERIC, 4F);

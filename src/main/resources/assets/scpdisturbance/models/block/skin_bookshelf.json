@@ -1,10 +1,9 @@
 {
   "credit": "Made with Blockbench",
   "textures": {
-    "0": "scpdisturbance:block/meat_bookshelf",
-    "1": "scpdisturbance:block/meat_bookshelf_top",
-    "2": "scpdisturbance:block/meat_bookshelf_bottom",
-    "particle": "scpdisturbance:block/meat_bookshelf"
+    "0": "scpdisturbance:block/skin_bookshelf_mid",
+    "1": "scpdisturbance:block/skin_bookshelf",
+    "particle": "scpdisturbance:block/skin_bookshelf_mid"
   },
   "elements": [
     {
@@ -15,8 +14,8 @@
         "east": {"uv": [0, 0, 16, 16], "texture": "#0"},
         "south": {"uv": [0, 0, 16, 16], "texture": "#0"},
         "west": {"uv": [0, 0, 16, 16], "texture": "#0"},
-        "up": {"uv": [16, 16, 0, 0], "texture": "#1"},
-        "down": {"uv": [16, 0, 0, 16], "texture": "#2"}
+        "up": {"uv": [0, 0, 16, 16], "texture": "#1"},
+        "down": {"uv": [0, 0, 16, 16], "texture": "#1"}
       }
     }
   ],

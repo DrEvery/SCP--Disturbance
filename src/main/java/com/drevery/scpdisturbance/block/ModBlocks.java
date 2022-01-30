@@ -30,8 +30,7 @@ public class ModBlocks
                     .doesNotBlockMovement()));
 
     public static final RegistryObject<Block> MEAT_BLOCK = registerBlock("meat_block",
-            () -> new Block(AbstractBlock.Properties.create(Material.EARTH).hardnessAndResistance(-1f).sound(SoundType.SLIME)
-                    .doesNotBlockMovement()));
+            () -> new Block(AbstractBlock.Properties.create(Material.EARTH).hardnessAndResistance(-1f).sound(SoundType.SLIME)));
 
     public static final RegistryObject<Block> STONED_MEAT_WALL = registerBlock("stoned_meat_wall",
             () -> new Block(AbstractBlock.Properties.create(Material.ROCK).hardnessAndResistance(-1f).sound(SoundType.STONE)));
@@ -98,7 +97,7 @@ public class ModBlocks
             () -> new Generator(AbstractBlock.Properties.create(Material.ANVIL).hardnessAndResistance(2f).harvestLevel(1).sound(SoundType.METAL)
                     .notSolid()));
 
-    public static final RegistryObject<Block> MEAT_BOOKSHELF = registerBlock("meat_bookshelf",
+    public static final RegistryObject<Block> SKIN_BOOKSHELF = registerBlock("skin_bookshelf",
             () -> new BaseBlockRotation(AbstractBlock.Properties.create(Material.WOOD).hardnessAndResistance(-1f).harvestLevel(1).sound(SoundType.SLIME)
                     .notSolid()));
 
