@@ -1,12 +1,22 @@
 {
-  "parent": "block/cube",
-  "textures": {
-    "down": "scpdisturbance:block/stoned_meat_wall_c",
-    "up": "scpdisturbance:block/stoned_meat_wall_b",
-    "north": "scpdisturbance:block/stoned_meat_wall_a",
-    "east": "scpdisturbance:block/stoned_meat_wall_a",
-    "south": "scpdisturbance:block/stoned_meat_wall_a",
-    "west": "scpdisturbance:block/stoned_meat_wall_a",
-    "particle": "scpdisturbance:block/stoned_meat_wall_a"
-  }
+	"credit": "Made with Blockbench",
+	"parent": "block/cube",
+	"textures": {
+		"0": "scpdisturbance:block/stone_meat_wall",
+		"particle": "scpdisturbance:block/stone_meat_wall"
+	},
+	"elements": [
+		{
+			"from": [0, 0, 0],
+			"to": [16, 16, 16],
+			"faces": {
+				"north": {"uv": [0, 0, 4, 4], "texture": "#0"},
+				"east": {"uv": [0, 0, 4, 4], "texture": "#0"},
+				"south": {"uv": [0, 0, 4, 4], "texture": "#0"},
+				"west": {"uv": [0, 0, 4, 4], "texture": "#0"},
+				"up": {"uv": [0, 8, 4, 12], "texture": "#0"},
+				"down": {"uv": [0, 8, 4, 12], "texture": "#0"}
+			}
+		}
+	]
 }
