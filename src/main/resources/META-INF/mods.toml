@@ -8,16 +8,18 @@ version="1.16.5-0.1"
 displayName="SCP: Disturbance"
 logoFile=""
 credits=""
-authors="StrickBrick and DutraA."
+authors="StrickBrick and Dutra."
 description='''
 SCP: Disturbance Made by:
 StrickBrick - Owner
-Dutra - Co-owner
+
+Dutra - Co-owner - Textures and Models
+Sir.Pancakes - Textures and Models
+Dydy - Textures and Models
+
 Dr.Every - Coder
 Zeus - Coder
-Sir.Pancakes
-
-Special Thanks to ConnorTron110!
+ConnorTron110 - Coder
 '''
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
 [[dependencies.examplemod]] #optional

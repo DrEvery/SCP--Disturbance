@@ -124,10 +124,10 @@ public class ModBlocks
     public static final RegistryObject<Block> SKIN_DOOR = registerBlock("skin_door",
             () -> new DoorBlock(AbstractBlock.Properties.create(Material.EARTH).hardnessAndResistance(-1F).harvestLevel(1).sound(SoundType.SLIME)
                     .notSolid()));
-
+//
+//SCP-058
 
 //
-
     private static <T extends Block>RegistryObject<T> registerBlock(String name, Supplier<T> block)
     {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
