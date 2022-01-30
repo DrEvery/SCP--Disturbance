@@ -1,0 +1,35 @@
+{
+  "block.scpdisturbance.skin_floor": "Skin Floor",
+  "block.scpdisturbance.face_skin_floor": "Face Skin Floor",
+  "block.scpdisturbance.meat_block": "Meat Block",
+  "block.scpdisturbance.stoned_meat_wall": "Stoned Meat Wall",
+  "block.scpdisturbance.solid_skin_floor": "Solid Skin Floor",
+  "block.scpdisturbance.meat_table": "Meat Table",
+  "block.scpdisturbance.bone_blocks": "Bone Blocks",
+  "block.scpdisturbance.metal_door": "Metal Door",
+  "block.scpdisturbance.meat_door": "Meat Door",
+  "block.scpdisturbance.skin_stand": "Skin Stand",
+  "block.scpdisturbance.meat_radio": "Meat Radio",
+  "block.scpdisturbance.meat_bed": "Meat Bed",
+  "block.scpdisturbance.meat_tv": "Meat TV",
+  "block.scpdisturbance.skin_lamp": "Skin Lamp",
+  "block.scpdisturbance.bone_dinosaur": "Bone Dinosaur",
+  "block.scpdisturbance.ceiling_trap": "Meat Ceiling Trap",
+  "block.scpdisturbance.bone_block": "Bone Block",
+  "block.scpdisturbance.meat_lamp": "Meat Lamp",
+  "block.scpdisturbance.meat_couch_center": "Meat Couch Center",
+  "block.scpdisturbance.generator": "Generator",
+  "block.scpdisturbance.meat_bookshelf": "Meat Bookshelf",
+  "block.scpdisturbance.meat_nightstand": "Meat Nightstand",
+  "block.scpdisturbance.meat_painting": "Meat Painting",
+  "block.scpdisturbance.floor_trap": "Floor Trap",
+  "block.scpdisturbance.bear": "Meat Bear",
+  "block.scpdisturbance.industrial_lamp": "Industrial Lamp",
+  "block.scpdisturbance.skin_door": "Skin Door",
+
+  "item.scpdisturbance.debug": "Debug",
+
+  "itemGroup.scpBlockTab": "SCP: Disturbance"
+
+
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_bottom",
+  "textures": {
+    "top": "scpdisturbance:block/meat_door_top",
+    "bottom": "scpdisturbance:block/meat_door_bottom"
+  }
+}

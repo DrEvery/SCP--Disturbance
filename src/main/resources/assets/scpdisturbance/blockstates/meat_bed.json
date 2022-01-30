@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "scpdisturbance:block/meat_bed",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "scpdisturbance:block/meat_bed"
+    },
+    "facing=south": {
+      "model": "scpdisturbance:block/meat_bed",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "scpdisturbance:block/meat_bed",
+      "y": 270
+    }
+  }
+}

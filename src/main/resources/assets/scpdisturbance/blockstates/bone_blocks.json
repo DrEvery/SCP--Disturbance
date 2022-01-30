@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "scpdisturbance:block/bone_blocks",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "scpdisturbance:block/bone_blocks"
+    },
+    "facing=south": {
+      "model": "scpdisturbance:block/bone_blocks",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "scpdisturbance:block/bone_blocks",
+      "y": 270
+    }
+  }
+}

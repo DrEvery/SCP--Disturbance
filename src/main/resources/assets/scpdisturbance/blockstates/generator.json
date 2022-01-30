@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "scpdisturbance:block/generator",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "scpdisturbance:block/generator"
+    },
+    "facing=south": {
+      "model": "scpdisturbance:block/generator",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "scpdisturbance:block/generator",
+      "y": 270
+    }
+  }
+}

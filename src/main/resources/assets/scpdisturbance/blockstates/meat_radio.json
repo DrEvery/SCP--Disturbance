@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "scpdisturbance:block/meat_radio",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "scpdisturbance:block/meat_radio"
+    },
+    "facing=south": {
+      "model": "scpdisturbance:block/meat_radio",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "scpdisturbance:block/meat_radio",
+      "y": 270
+    }
+  }
+}

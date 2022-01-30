@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/door_bottom",
-  "textures": {
-    "top": "scplol:block/meat_door_top",
-    "bottom": "scplol:block/meat_door_bottom"
-  }
-}

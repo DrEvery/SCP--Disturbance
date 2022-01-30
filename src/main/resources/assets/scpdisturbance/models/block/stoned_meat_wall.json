@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "scpdisturbance:block/stoned_meat_wall_c",
+    "up": "scpdisturbance:block/stoned_meat_wall_b",
+    "north": "scpdisturbance:block/stoned_meat_wall_a",
+    "east": "scpdisturbance:block/stoned_meat_wall_a",
+    "south": "scpdisturbance:block/stoned_meat_wall_a",
+    "west": "scpdisturbance:block/stoned_meat_wall_a",
+    "particle": "scpdisturbance:block/stoned_meat_wall_a"
+  }
+}

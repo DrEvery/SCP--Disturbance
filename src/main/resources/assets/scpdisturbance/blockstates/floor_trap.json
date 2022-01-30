@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "scpdisturbance:block/floor_trap",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "scpdisturbance:block/floor_trap"
+    },
+    "facing=south": {
+      "model": "scpdisturbance:block/floor_trap",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "scpdisturbance:block/floor_trap",
+      "y": 270
+    }
+  }
+}
