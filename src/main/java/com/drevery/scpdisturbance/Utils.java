@@ -6,7 +6,7 @@ import net.minecraft.util.math.shapes.VoxelShapes;
 
 public class Utils {
     /**
-     * Provide the North Shape first in order for array to work correctly
+     * Provide the North Shape first in order for array to work correctly <br>
      * Currently only works with Horizontal Blocks
      */
     public static VoxelShape[] makeHorizontalShapes(VoxelShape northShape) {

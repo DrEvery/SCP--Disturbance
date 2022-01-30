@@ -10,7 +10,15 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.server.command.ConfigCommand;
 
 @Mod.EventBusSubscriber(modid = SCPDisturbance.MOD_ID)
-public class ModEvents {
+public class CommonEvents { //Forge Events used on normal events IE. LivingDeathEvent
+
+    @SubscribeEvent
+    public static void onPlayerCloneEvent(PlayerEvent.Clone event) {
+        if(!event.getOriginal().getEntityWorld().isRemote()) {
+            event.getPlayer().getPersistentData().putIntArray(SCPDisturbance.MOD_ID + "homepos",
+                    event.getOriginal().getPersistentData().getIntArray(SCPDisturbance.MOD_ID + "homepos"));
+        }
+    }
 
     @SubscribeEvent
     public static void onCommandsRegister(RegisterCommandsEvent event) {
@@ -20,11 +28,8 @@ public class ModEvents {
         ConfigCommand.register(event.getDispatcher());
     }
 
-    @SubscribeEvent
-    public static void onPlayerCloneEvent(PlayerEvent.Clone event) {
-        if(!event.getOriginal().getEntityWorld().isRemote()) {
-            event.getPlayer().getPersistentData().putIntArray(SCPDisturbance.MOD_ID + "homepos",
-                    event.getOriginal().getPersistentData().getIntArray(SCPDisturbance.MOD_ID + "homepos"));
-        }
+    @Mod.EventBusSubscriber(modid = SCPDisturbance.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
+    public static class ModEvents { //Mod Events are less common and are mostly setup events
+
     }
 }
