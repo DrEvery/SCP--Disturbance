@@ -55,6 +55,9 @@ public class SCPDisturbance {
                 RenderTypeLookup.setRenderLayer(ModBlocks.MEAT_NIGHTSTAND.get(), RenderType.getCutout());
                 RenderTypeLookup.setRenderLayer(ModBlocks.INDUSTRIAL_LAMP.get(), RenderType.getCutout());
             //
+            //SCP-058
+
+            //
             });
         }
     }
