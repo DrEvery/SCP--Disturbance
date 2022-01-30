@@ -8,6 +8,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 
 public class TestingItem extends Item {
+
     public TestingItem(Properties properties) {
         super(properties);
     }
@@ -15,8 +16,5 @@ public class TestingItem extends Item {
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
         return super.onItemRightClick(worldIn, playerIn, handIn);
-
-
-
     }
 }
