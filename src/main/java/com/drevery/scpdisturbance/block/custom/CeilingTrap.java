@@ -1,5 +1,6 @@
 package com.drevery.scpdisturbance.block.custom;
 
+import com.drevery.scpdisturbance.ModDamageSources;
 import com.drevery.scpdisturbance.block.custom.base.BaseHorizontalBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -28,7 +29,7 @@ public class CeilingTrap extends BaseHorizontalBlock {
     @Override
     public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
         entityIn.setMotionMultiplier(state, new Vector3d(0.25D, 0.05D, 0.25D));
-        entityIn.attackEntityFrom(DamageSource.GENERIC, 4F);
+        entityIn.attackEntityFrom(ModDamageSources.SCP_002_TRAP, 0.5F);
     }
 }
 
