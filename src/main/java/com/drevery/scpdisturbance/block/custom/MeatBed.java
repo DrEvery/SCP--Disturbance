@@ -85,7 +85,7 @@ public class MeatBed extends HorizontalBlock {
     @Nullable
     @Override
     public BlockState getStateForPlacement(BlockItemUseContext context) {
-        if (context.getWorld().getBlockState(context.getPos().offset(context.getPlacementHorizontalFacing().getOpposite())).isReplaceable(context)) {
+        if (context.getWorld().getBlockState(context.getPos().offset(context.getPlacementHorizontalFacing())).isReplaceable(context)) {
             return this.getDefaultState().with(HORIZONTAL_FACING, context.getPlacementHorizontalFacing());
         } else return null;
     }
