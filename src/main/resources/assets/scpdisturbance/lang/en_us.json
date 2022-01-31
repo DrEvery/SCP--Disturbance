@@ -29,6 +29,8 @@
 
   "item.scpdisturbance.debug": "Debug",
 
+  "death.attack.002_bed": "%1$s Tried to sleep in SCP-002",
+
   "itemGroup.scpBlockTab": "SCP: Disturbance"
 
 

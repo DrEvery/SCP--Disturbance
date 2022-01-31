@@ -41,9 +41,11 @@ public class BaseTwoTallHorizontalBlock extends HorizontalBlock {
     }
 
     @Override
-    public void onBlockPlacedBy(World worldIn, BlockPos pos, BlockState state, @Nullable LivingEntity livingEntity, ItemStack stack) {
+    public void onBlockAdded(BlockState state, World worldIn, BlockPos pos, BlockState oldState, boolean isMoving) {
         //getStateForPlacement was successful, lower block has been placed now place upper half with facing and upper state
-        worldIn.setBlockState(pos.up(), this.getDefaultState().with(HALF, DoubleBlockHalf.UPPER).with(HORIZONTAL_FACING, state.get(HORIZONTAL_FACING)));
+        if (state.get(HALF) == DoubleBlockHalf.LOWER) {
+            worldIn.setBlockState(pos.up(), this.getDefaultState().with(HALF, DoubleBlockHalf.UPPER).with(HORIZONTAL_FACING, state.get(HORIZONTAL_FACING)));
+        }
     }
 
     @Override
