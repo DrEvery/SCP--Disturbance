@@ -7,6 +7,7 @@ import com.drevery.scpdisturbance.commands.ReturnHomeCommand;
 import com.drevery.scpdisturbance.commands.SetHomeCommand;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
+import net.minecraftforge.common.util.Lazy;
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
@@ -19,12 +20,12 @@ import java.util.ArrayList;
 @Mod.EventBusSubscriber(modid = SCPDisturbance.MOD_ID)
 public class CommonEvents { //Forge Events used on normal events IE. LivingDeathEvent
 
-    static final ArrayList<Block> SCP002_BED_REPLACEABLE = new ArrayList<>();
+    static final ArrayList<Lazy<Block>> SCP002_BED_REPLACEABLE = new ArrayList<>();
     static {
-        SCP002_BED_REPLACEABLE.add(ModBlocks.FLOOR_TRAP.get());
-        SCP002_BED_REPLACEABLE.add(ModBlocks.SKIN_LAMP.get());
-        SCP002_BED_REPLACEABLE.add(ModBlocks.SKIN_STAND.get());
-        SCP002_BED_REPLACEABLE.add(ModBlocks.BEAR.get());
+        SCP002_BED_REPLACEABLE.add(Lazy.of(ModBlocks.FLOOR_TRAP));
+        SCP002_BED_REPLACEABLE.add(Lazy.of(ModBlocks.SKIN_LAMP));
+        SCP002_BED_REPLACEABLE.add(Lazy.of(ModBlocks.SKIN_STAND));
+        SCP002_BED_REPLACEABLE.add(Lazy.of(ModBlocks.BEAR));
     }
 
     @SubscribeEvent
@@ -33,7 +34,7 @@ public class CommonEvents { //Forge Events used on normal events IE. LivingDeath
             Entity entity = event.getEntity();
             if (entity.getEntityWorld().isAirBlock(entity.getPosition())) {
                 entity.getEntityWorld().setBlockState(entity.getPosition(),
-                        SCP002_BED_REPLACEABLE.get(entity.getEntityWorld().rand.nextInt(SCP002_BED_REPLACEABLE.size())).getDefaultState());
+                        SCP002_BED_REPLACEABLE.get(entity.getEntityWorld().rand.nextInt(SCP002_BED_REPLACEABLE.size())).get().getDefaultState());
             }
         }
     }
