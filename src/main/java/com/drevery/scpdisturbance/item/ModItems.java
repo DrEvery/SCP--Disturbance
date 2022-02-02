@@ -1,8 +1,10 @@
 package com.drevery.scpdisturbance.item;
 
 import com.drevery.scpdisturbance.SCPDisturbance;
+import com.drevery.scpdisturbance.entity.ModEntityTypes;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
@@ -14,4 +16,5 @@ public class ModItems {
 
     public static final RegistryObject<Item> DEBUG = ITEMS.register("debug",
             () -> new Item(new Item.Properties().group(ItemGroup.MISC)));
+
 }
