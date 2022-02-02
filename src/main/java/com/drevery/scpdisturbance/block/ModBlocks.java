@@ -23,7 +23,7 @@ public class ModBlocks {
 
     //SCP-002
     public static final RegistryObject<Block> SKIN_FLOOR = registerBlock("skin_floor",
-            () -> new MeatBlock(AbstractBlock.Properties.create(Material.EARTH).hardnessAndResistance(-1f).sound(SoundType.SLIME)
+            () -> new SkinFloor(AbstractBlock.Properties.create(Material.EARTH).hardnessAndResistance(-1f).sound(SoundType.SLIME)
                     .doesNotBlockMovement()));
 
     public static final RegistryObject<Block> FACE_SKIN_FLOOR = registerBlock("face_skin_floor",
