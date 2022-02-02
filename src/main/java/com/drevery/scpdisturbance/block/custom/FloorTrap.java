@@ -30,7 +30,7 @@ public class FloorTrap extends BaseHorizontalBlock {
     @Override
     public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
         entityIn.setMotionMultiplier(state, new Vector3d(0.25D, 1D, 0.25D));
-        entityIn.attackEntityFrom(ModDamageSources.SCP_002_TRAP, 0.5F);
+        entityIn.attackEntityFrom(ModDamageSources.SCP_002_TRAP, 4F);
     }
 }
 
