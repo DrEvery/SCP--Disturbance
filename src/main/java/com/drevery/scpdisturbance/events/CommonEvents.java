@@ -5,20 +5,20 @@ import com.drevery.scpdisturbance.SCPDisturbance;
 import com.drevery.scpdisturbance.block.ModBlocks;
 import com.drevery.scpdisturbance.commands.ReturnHomeCommand;
 import com.drevery.scpdisturbance.commands.SetHomeCommand;
-<<<<<<< HEAD
+//<<<<<<< HEAD
 import com.drevery.scpdisturbance.entity.ModEntityTypes;
 import com.drevery.scpdisturbance.entity.custom.JosieEntity;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.passive.CatEntity;
-=======
+//=======
 import com.google.common.collect.ImmutableList;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
->>>>>>> main
+//>>>>>>> main
 import net.minecraftforge.common.util.Lazy;
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
