@@ -11,9 +11,7 @@ import net.minecraft.util.text.StringTextComponent;
 
 public class SetHomeCommand {
     public SetHomeCommand(CommandDispatcher<CommandSource> dispatcher) {
-        dispatcher.register(Commands.literal("home").then(Commands.literal("set").executes((command) -> {
-            return setHome(command.getSource());
-        })));
+        dispatcher.register(Commands.literal("home").then(Commands.literal("set").executes((command) -> setHome(command.getSource()))));
     }
 
     private int setHome(CommandSource source) throws CommandSyntaxException {

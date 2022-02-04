@@ -1,6 +1,7 @@
 package com.drevery.scpdisturbance;
 
 import net.minecraft.util.Direction;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
 
@@ -24,5 +25,12 @@ public class Utils {
         }
 
         return buffer[0];
+    }
+
+    /**
+     * Use this to shorten the resource location
+     */
+    public static ResourceLocation rl(String path) {
+        return new ResourceLocation(SCPDisturbance.MOD_ID, path);
     }
 }

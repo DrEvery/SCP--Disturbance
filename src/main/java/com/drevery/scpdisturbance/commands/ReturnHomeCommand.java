@@ -10,9 +10,7 @@ import net.minecraft.util.text.StringTextComponent;
 
 public class ReturnHomeCommand {
     public ReturnHomeCommand(CommandDispatcher<CommandSource> dispatcher) {
-        dispatcher.register(Commands.literal("home").then(Commands.literal("return").executes((command) -> {
-            return returnHome(command.getSource());
-        })));
+        dispatcher.register(Commands.literal("home").then(Commands.literal("return").executes((command) -> returnHome(command.getSource()))));
     }
 
     private int returnHome(CommandSource source) throws CommandSyntaxException {

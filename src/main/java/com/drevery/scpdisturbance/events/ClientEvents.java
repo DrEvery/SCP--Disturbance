@@ -1,11 +1,10 @@
 package com.drevery.scpdisturbance.events;
 
 import com.drevery.scpdisturbance.SCPDisturbance;
-import com.drevery.scpdisturbance.block.ModBlocks;
-import com.drevery.scpdisturbance.entity.ModEntityTypes;
-import com.drevery.scpdisturbance.entity.render.JosieRenderer;
+import com.drevery.scpdisturbance.registration.ModBlocks;
+import com.drevery.scpdisturbance.registration.ModEntityTypes;
+import com.drevery.scpdisturbance.client.render.JosieRenderer;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
