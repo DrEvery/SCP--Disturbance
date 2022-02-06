@@ -13,7 +13,7 @@ public class BoneBlocks extends BaseHorizontalBlock {
         super(builder);
     }
 
-    private static final VoxelShape SHAPE = Block.makeCuboidShape(0, 0, 0, 16, 4, 16);
+    private static final VoxelShape SHAPE = Block.box(0, 0, 0, 16, 4, 16);
 
     @Override
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {

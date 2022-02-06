@@ -15,8 +15,8 @@ public class SkinFloor extends Block {
     }
 
     @Override
-    public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
-        entityIn.setMotionMultiplier(state, new Vector3d(0.25D, 0.05D, 0.25D));
-        entityIn.attackEntityFrom(ModDamageSources.SCP_002_SINK, 4F);
+    public void entityInside(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
+        entityIn.makeStuckInBlock(state, new Vector3d(0.25D, 0.05D, 0.25D));
+        entityIn.hurt(ModDamageSources.SCP_002_SINK, 4F);
     }
 }

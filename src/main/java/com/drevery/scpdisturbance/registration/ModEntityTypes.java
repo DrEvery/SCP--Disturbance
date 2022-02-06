@@ -15,6 +15,6 @@ public class ModEntityTypes {
 
     public static final RegistryObject<EntityType<JosieEntity>> SCP_529 =
             ENTITY_TYPES.register("scp_529",
-                    () -> EntityType.Builder.create(JosieEntity::new, EntityClassification.CREATURE).size(0.6F, 0.7F)
-                            .trackingRange(8).build(Utils.rl("scp_529").toString()));
+                    () -> EntityType.Builder.of(JosieEntity::new, EntityClassification.CREATURE).sized(0.6F, 0.7F)
+                            .clientTrackingRange(8).build(Utils.rl("scp_529").toString()));
 }

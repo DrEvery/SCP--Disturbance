@@ -15,7 +15,7 @@ import net.minecraft.world.World;
 
 public class FloorTrap extends BaseHorizontalBlock {
 
-    private static final VoxelShape SHAPE = Block.makeCuboidShape(0, 0, 0, 16, 4, 16);
+    private static final VoxelShape SHAPE = Block.box(0, 0, 0, 16, 4, 16);
 
     public FloorTrap(AbstractBlock.Properties properties) {
         super(properties);
@@ -27,9 +27,9 @@ public class FloorTrap extends BaseHorizontalBlock {
     }
 
     @Override
-    public void onEntityCollision(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
-        entityIn.setMotionMultiplier(state, new Vector3d(0.25D, 1D, 0.25D));
-        entityIn.attackEntityFrom(ModDamageSources.SCP_002_TRAP, 4F);
+    public void entityInside(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
+        entityIn.makeStuckInBlock(state, new Vector3d(0.25D, 1D, 0.25D));
+        entityIn.hurt(ModDamageSources.SCP_002_TRAP, 4F);
     }
 }
 

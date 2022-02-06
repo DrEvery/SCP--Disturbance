@@ -15,18 +15,18 @@
 public class MeatLamp extends BaseHorizontalBlock {
 
     private static final VoxelShape SHAPE = Stream.of(
-            Block.makeCuboidShape(6.5, 5, 6.508181818181818, 9.5, 9, 6.508181818181818),
-            Block.makeCuboidShape(6.5, 0, 6.508181818181818, 9.5, 1, 9.508181818181818),
-            Block.makeCuboidShape(7, 1, 7.008181818181818, 9, 3, 9.008181818181818),
-            Block.makeCuboidShape(7.5, 5, 8.408181818181818, 8.5, 6, 9.408181818181818),
-            Block.makeCuboidShape(7.5, 3, 7.508181818181818, 8.5, 8, 8.508181818181818),
-            Block.makeCuboidShape(7.5, 5, 6.518181818181818, 8.5, 6, 7.518181818181818),
-            Block.makeCuboidShape(6.6, 5, 7.508181818181818, 7.6, 6, 8.508181818181818),
-            Block.makeCuboidShape(8.4, 5, 7.508181818181818, 9.4, 6, 8.508181818181818),
-            Block.makeCuboidShape(6.5, 5, 6.508181818181818, 6.5, 9, 9.508181818181818),
-            Block.makeCuboidShape(6.5, 5, 9.508181818181818, 9.5, 9, 9.508181818181818),
-            Block.makeCuboidShape(9.5, 5, 6.508181818181818, 9.5, 9, 9.508181818181818)
-    ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR)).get();
+            Block.box(6.5, 5, 6.508181818181818, 9.5, 9, 6.508181818181818),
+            Block.box(6.5, 0, 6.508181818181818, 9.5, 1, 9.508181818181818),
+            Block.box(7, 1, 7.008181818181818, 9, 3, 9.008181818181818),
+            Block.box(7.5, 5, 8.408181818181818, 8.5, 6, 9.408181818181818),
+            Block.box(7.5, 3, 7.508181818181818, 8.5, 8, 8.508181818181818),
+            Block.box(7.5, 5, 6.518181818181818, 8.5, 6, 7.518181818181818),
+            Block.box(6.6, 5, 7.508181818181818, 7.6, 6, 8.508181818181818),
+            Block.box(8.4, 5, 7.508181818181818, 9.4, 6, 8.508181818181818),
+            Block.box(6.5, 5, 6.508181818181818, 6.5, 9, 9.508181818181818),
+            Block.box(6.5, 5, 9.508181818181818, 9.5, 9, 9.508181818181818),
+            Block.box(9.5, 5, 6.508181818181818, 9.5, 9, 9.508181818181818)
+    ).reduce((v1, v2) -> VoxelShapes.join(v1, v2, IBooleanFunction.OR)).get();
 
     public MeatLamp(Properties builder) {
         super(builder);

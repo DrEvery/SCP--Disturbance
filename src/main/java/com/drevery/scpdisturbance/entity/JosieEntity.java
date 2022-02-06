@@ -13,11 +13,11 @@ public class JosieEntity extends CatEntity {
     }
 
     public static AttributeModifierMap.MutableAttribute setCustomAttributes() {
-        return MobEntity.func_233666_p_()
-                .createMutableAttribute(Attributes.MAX_HEALTH, 5.0D)
-                .createMutableAttribute(Attributes.MOVEMENT_SPEED, 0.15D)
-                .createMutableAttribute(Attributes.ATTACK_DAMAGE, 3D)
-                .createMutableAttribute(Attributes.FOLLOW_RANGE, 50.0D);
+        return MobEntity.createMobAttributes()
+                .add(Attributes.MAX_HEALTH, 5.0D)
+                .add(Attributes.MOVEMENT_SPEED, 0.15D)
+                .add(Attributes.ATTACK_DAMAGE, 3D)
+                .add(Attributes.FOLLOW_RANGE, 50.0D);
     }
 }
 

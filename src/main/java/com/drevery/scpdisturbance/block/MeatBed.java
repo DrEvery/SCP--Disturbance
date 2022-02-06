@@ -38,68 +38,68 @@ public class MeatBed extends HorizontalBlock {
 
     public static final EnumProperty<BedPart> BED_PART = BlockStateProperties.BED_PART;
     private static final VoxelShape[] SHAPE = Utils.makeHorizontalShapes(Stream.of(
-            Block.makeCuboidShape(0, 0, 15, 16, 11, 16),
-            Block.makeCuboidShape(-5, 15, -16, -3, 16, -16),
-            Block.makeCuboidShape(0, 2, -16, 16, 6, 15),
-            Block.makeCuboidShape(-4, 16, -16, 0, 17, -16),
-            Block.makeCuboidShape(-2, 13, -16, 1, 16, -16),
-            Block.makeCuboidShape(-1, 10, -16, 1, 13, -16),
-            Block.makeCuboidShape(-2, 6, -16, 1, 10, -16),
-            Block.makeCuboidShape(2, 17, -9, 2, 18, -6),
-            Block.makeCuboidShape(2, 18, -7, 2, 19, -3),
-            Block.makeCuboidShape(2, 10, -4, 2, 15, -1),
-            Block.makeCuboidShape(2, 15, -5, 2, 18, -2),
-            Block.makeCuboidShape(2, 6, -5, 2, 10, -2),
-            Block.makeCuboidShape(2, 6, 7, 14, 7, 15),
-            Block.makeCuboidShape(15, 0, -16, 16, 2, -15),
-            Block.makeCuboidShape(0, 0, -16, 1, 2, -15),
-            Block.makeCuboidShape(0, 0, 14, 1, 2, 15),
-            Block.makeCuboidShape(15, 0, 14, 16, 2, 15)
-    ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR)).get());
+            Block.box(0, 0, 15, 16, 11, 16),
+            Block.box(-5, 15, -16, -3, 16, -16),
+            Block.box(0, 2, -16, 16, 6, 15),
+            Block.box(-4, 16, -16, 0, 17, -16),
+            Block.box(-2, 13, -16, 1, 16, -16),
+            Block.box(-1, 10, -16, 1, 13, -16),
+            Block.box(-2, 6, -16, 1, 10, -16),
+            Block.box(2, 17, -9, 2, 18, -6),
+            Block.box(2, 18, -7, 2, 19, -3),
+            Block.box(2, 10, -4, 2, 15, -1),
+            Block.box(2, 15, -5, 2, 18, -2),
+            Block.box(2, 6, -5, 2, 10, -2),
+            Block.box(2, 6, 7, 14, 7, 15),
+            Block.box(15, 0, -16, 16, 2, -15),
+            Block.box(0, 0, -16, 1, 2, -15),
+            Block.box(0, 0, 14, 1, 2, 15),
+            Block.box(15, 0, 14, 16, 2, 15)
+    ).reduce((v1, v2) -> VoxelShapes.join(v1, v2, IBooleanFunction.OR)).get());
 
     public MeatBed(Properties builder) {
         super(builder);
-        this.setDefaultState(this.stateContainer.getBaseState().with(BED_PART, BedPart.FOOT).with(HORIZONTAL_FACING, Direction.NORTH));
+        this.registerDefaultState(this.stateDefinition.any().setValue(BED_PART, BedPart.FOOT).setValue(FACING, Direction.NORTH));
     }
 
     @Override
-    public ActionResultType onBlockActivated(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult blockRayTraceResult) {
-        player.attackEntityFrom(ModDamageSources.SCP_002_BED, player.getMaxHealth());
-        return super.onBlockActivated(state, world, pos, player, hand, blockRayTraceResult);
+    public ActionResultType use(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult blockRayTraceResult) {
+        player.hurt(ModDamageSources.SCP_002_BED, player.getMaxHealth());
+        return super.use(state, world, pos, player, hand, blockRayTraceResult);
     }
 
     @Override
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-        if (state.get(BED_PART) == BedPart.FOOT) {
-            Vector3i v = state.get(HORIZONTAL_FACING).getDirectionVec();
-            return SHAPE[state.get(HORIZONTAL_FACING).getOpposite().getHorizontalIndex()].withOffset(v.getX(), v.getY(), v.getZ());
+        if (state.getValue(BED_PART) == BedPart.FOOT) {
+            Vector3i v = state.getValue(FACING).getNormal();
+            return SHAPE[state.getValue(FACING).getOpposite().get2DDataValue()].move(v.getX(), v.getY(), v.getZ());
         }
-        else return SHAPE[state.get(HORIZONTAL_FACING).getOpposite().getHorizontalIndex()];
+        else return SHAPE[state.getValue(FACING).getOpposite().get2DDataValue()];
     }
 
     @Override
-    protected void fillStateContainer(StateContainer.Builder<Block, BlockState> builder) {
-        builder.add(HORIZONTAL_FACING).add(BED_PART);
+    protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
+        builder.add(FACING).add(BED_PART);
     }
 
     @Nullable
     @Override
     public BlockState getStateForPlacement(BlockItemUseContext context) {
-        if (context.getWorld().getBlockState(context.getPos().offset(context.getPlacementHorizontalFacing())).isReplaceable(context)) {
-            return this.getDefaultState().with(HORIZONTAL_FACING, context.getPlacementHorizontalFacing());
+        if (context.getLevel().getBlockState(context.getClickedPos().relative(context.getHorizontalDirection())).canBeReplaced(context)) {
+            return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection());
         } else return null;
     }
 
     @Override
-    public void onBlockPlacedBy(World worldIn, BlockPos pos, BlockState state, @Nullable LivingEntity livingEntity, ItemStack stack) {
+    public void setPlacedBy(World worldIn, BlockPos pos, BlockState state, @Nullable LivingEntity livingEntity, ItemStack stack) {
         //getStateForPlacement was successful, lower block has been placed now place head with facing state
-        worldIn.setBlockState(pos.offset(state.get(HORIZONTAL_FACING)),
-                this.getDefaultState().with(BED_PART, BedPart.HEAD).with(HORIZONTAL_FACING, state.get(HORIZONTAL_FACING)));
+        worldIn.setBlockAndUpdate(pos.relative(state.getValue(FACING)),
+                this.defaultBlockState().setValue(BED_PART, BedPart.HEAD).setValue(FACING, state.getValue(FACING)));
     }
 
     @Override
-    public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
-        BlockPos otherPartPos = stateIn.get(BED_PART) == BedPart.HEAD ? currentPos.offset(stateIn.get(HORIZONTAL_FACING).getOpposite()) : currentPos.offset(stateIn.get(HORIZONTAL_FACING));
-        return (worldIn.getBlockState(otherPartPos).matchesBlock(this)) ? stateIn : Blocks.AIR.getDefaultState();
+    public BlockState updateShape(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
+        BlockPos otherPartPos = stateIn.getValue(BED_PART) == BedPart.HEAD ? currentPos.relative(stateIn.getValue(FACING).getOpposite()) : currentPos.relative(stateIn.getValue(FACING));
+        return (worldIn.getBlockState(otherPartPos).is(this)) ? stateIn : Blocks.AIR.defaultBlockState();
     }
 }

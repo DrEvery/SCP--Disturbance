@@ -12,6 +12,6 @@ public class ModItems {
             DeferredRegister.create(ForgeRegistries.ITEMS, SCPDisturbance.MOD_ID);
 
     public static final RegistryObject<Item> DEBUG = ITEMS.register("debug",
-            () -> new Item(new Item.Properties().group(ItemGroup.MISC)));
+            () -> new Item(new Item.Properties().tab(ItemGroup.TAB_MISC)));
 
 }

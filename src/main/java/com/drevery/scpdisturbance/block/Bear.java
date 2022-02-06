@@ -13,7 +13,7 @@ public class Bear extends BaseHorizontalBlock {
         super(builder);
     }
 
-    private static final VoxelShape SHAPE = Block.makeCuboidShape(3, 0, 3, 13, 14, 13);
+    private static final VoxelShape SHAPE = Block.box(3, 0, 3, 13, 14, 13);
 
     @Override
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {

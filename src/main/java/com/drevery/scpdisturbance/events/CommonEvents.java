@@ -31,39 +31,39 @@ public class CommonEvents { //Forge Events used on normal events IE. LivingDeath
     @SubscribeEvent
     public static void onLivingDieTo002(LivingDeathEvent event) {
         Entity entity = event.getEntity();
-        World world = entity.getEntityWorld();
+        World world = entity.getCommandSenderWorld();
         if (event.getSource() == ModDamageSources.SCP_002_SINK) {
-            BlockPos startPos = entity.getPosition();
+            BlockPos startPos = entity.blockPosition();
             BlockPos pos = startPos;
 
-            if (!world.getBlockState(pos).matchesBlock(ModBlocks.SKIN_FLOOR.get()) && !world.getBlockState(pos).matchesBlock(ModBlocks.FACE_SKIN_FLOOR.get())) {
+            if (!world.getBlockState(pos).is(ModBlocks.SKIN_FLOOR.get()) && !world.getBlockState(pos).is(ModBlocks.FACE_SKIN_FLOOR.get())) {
                 for (Direction direction : Direction.values()) {
-                    if (world.getBlockState(pos.offset(direction)).matchesBlock(ModBlocks.SKIN_FLOOR.get()) ||
-                            world.getBlockState(pos.offset(direction)).matchesBlock(ModBlocks.FACE_SKIN_FLOOR.get())) {
-                        pos = pos.offset(direction);
+                    if (world.getBlockState(pos.relative(direction)).is(ModBlocks.SKIN_FLOOR.get()) ||
+                            world.getBlockState(pos.relative(direction)).is(ModBlocks.FACE_SKIN_FLOOR.get())) {
+                        pos = pos.relative(direction);
                         break;
                     }
                 }
                 if (startPos.equals(pos)) return;
             }
 
-            while(!world.isAirBlock(pos)) {
-                pos = pos.up();
+            while(!world.isEmptyBlock(pos)) {
+                pos = pos.above();
                 if (pos.getY() - startPos.getY() > 10) return;
             }
-            world.setBlockState(pos, SCP002_SKIN_PLACEABLES.get(entity.getEntityWorld().rand.nextInt(SCP002_SKIN_PLACEABLES.size())).get().getDefaultState());
+            world.setBlockAndUpdate(pos, SCP002_SKIN_PLACEABLES.get(world.random.nextInt(SCP002_SKIN_PLACEABLES.size())).get().defaultBlockState());
         }
         else if (event.getSource() == ModDamageSources.SCP_002_BED) {
-            if (world.isAirBlock(entity.getPosition())) {
-                world.setBlockState(entity.getPosition(),
-                        SCP002_BED_PLACEABLES.get(entity.getEntityWorld().rand.nextInt(SCP002_BED_PLACEABLES.size())).get().getDefaultState());
+            if (world.isEmptyBlock(entity.blockPosition())) {
+                world.setBlockAndUpdate(entity.blockPosition(),
+                        SCP002_BED_PLACEABLES.get(world.random.nextInt(SCP002_BED_PLACEABLES.size())).get().defaultBlockState());
             }
         }
     }
 
     @SubscribeEvent
     public static void onPlayerCloneEvent(PlayerEvent.Clone event) {
-        if(!event.getOriginal().getEntityWorld().isRemote()) {
+        if(!event.getOriginal().getCommandSenderWorld().isClientSide) {
             event.getPlayer().getPersistentData().putIntArray(SCPDisturbance.MOD_ID + "homepos",
                     event.getOriginal().getPersistentData().getIntArray(SCPDisturbance.MOD_ID + "homepos"));
         }
@@ -82,7 +82,7 @@ public class CommonEvents { //Forge Events used on normal events IE. LivingDeath
 
         @SubscribeEvent
         public static void addEntityAttributes(EntityAttributeCreationEvent event) {
-            event.put(ModEntityTypes.SCP_529.get(), JosieEntity.setCustomAttributes().create());
+            event.put(ModEntityTypes.SCP_529.get(), JosieEntity.setCustomAttributes().build());
         }
     }
 }

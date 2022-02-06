@@ -14,17 +14,17 @@ public class ReturnHomeCommand {
     }
 
     private int returnHome(CommandSource source) throws CommandSyntaxException {
-        ServerPlayerEntity player = source.asPlayer();
+        ServerPlayerEntity player = source.getPlayerOrException();
         boolean hasHomepos = player.getPersistentData().getIntArray(SCPDisturbance.MOD_ID + "homepos").length != 0;
 
         if(hasHomepos) {
             int[] playerPos = player.getPersistentData().getIntArray(SCPDisturbance.MOD_ID + "homepos");
-            player.setPositionAndUpdate(playerPos[0], playerPos[1], playerPos[2]);
+            player.teleportTo(playerPos[0], playerPos[1], playerPos[2]);
 
-            source.sendFeedback(new StringTextComponent("Player returned Home!"), true);
+            source.sendSuccess(new StringTextComponent("Player returned Home!"), true);
             return 1;
         } else {
-            source.sendFeedback(new StringTextComponent("No Home Position has been set!"), true);
+            source.sendSuccess(new StringTextComponent("No Home Position has been set!"), true);
             return -1;
         }
     }

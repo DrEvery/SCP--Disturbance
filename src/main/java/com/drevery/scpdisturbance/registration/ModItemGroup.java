@@ -6,7 +6,7 @@ import net.minecraft.item.ItemStack;
 public class ModItemGroup {
     public static final ItemGroup BLOCK_GROUP = new ItemGroup("scpBlockTab") {
         @Override
-        public ItemStack createIcon() {
+        public ItemStack makeIcon() {
             return new ItemStack(ModBlocks.SKIN_FLOOR.get());
         }
     };

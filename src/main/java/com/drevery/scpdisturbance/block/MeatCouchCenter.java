@@ -16,10 +16,10 @@ import java.util.stream.Stream;
 public class MeatCouchCenter extends BaseHorizontalBlock {
 
     private static final VoxelShape[] SHAPE = Utils.makeHorizontalShapes(Stream.of(
-            Block.makeCuboidShape(0, 0, 1, 16, 7, 11),
-            Block.makeCuboidShape(0, 7, 0, 16, 8, 11),
-            Block.makeCuboidShape(0, 0, 11, 16, 16, 16)
-    ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR)).get());
+            Block.box(0, 0, 1, 16, 7, 11),
+            Block.box(0, 7, 0, 16, 8, 11),
+            Block.box(0, 0, 11, 16, 16, 16)
+    ).reduce((v1, v2) -> VoxelShapes.join(v1, v2, IBooleanFunction.OR)).get());
 
     public MeatCouchCenter(Properties builder) {
         super(builder);
@@ -27,7 +27,7 @@ public class MeatCouchCenter extends BaseHorizontalBlock {
 
     @Override
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-        return SHAPE[state.get(HORIZONTAL_FACING).getHorizontalIndex()];
+        return SHAPE[state.getValue(FACING).get2DDataValue()];
     }
 }
 

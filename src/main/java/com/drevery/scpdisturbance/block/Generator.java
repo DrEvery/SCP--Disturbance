@@ -17,27 +17,27 @@ import java.util.stream.Stream;
 public class Generator extends BaseHorizontalBlock {
 
     private static final VoxelShape[] SHAPE = Utils.makeHorizontalShapes(Stream.of(
-            Block.makeCuboidShape(1, 1, 2, 15, 3, 13),
-            Block.makeCuboidShape(0, 15, 1, 1, 16, 15),
-            Block.makeCuboidShape(2, 7, 1, 14, 12, 2),
-            Block.makeCuboidShape(0, 12, 1, 16, 13, 15),
-            Block.makeCuboidShape(0, 0, 0, 1, 16, 1),
-            Block.makeCuboidShape(15, 0, 15, 16, 16, 16),
-            Block.makeCuboidShape(15, 0, 0, 16, 16, 1),
-            Block.makeCuboidShape(0, 0, 15, 1, 16, 16),
-            Block.makeCuboidShape(15, 15, 1, 16, 16, 15),
-            Block.makeCuboidShape(9, 14.5, 7, 11, 15.5, 9),
-            Block.makeCuboidShape(2, 13, 2, 14, 15, 14),
-            Block.makeCuboidShape(2, 3, 3, 14, 12, 11),
-            Block.makeCuboidShape(3, 3, 11, 13, 11, 14),
-            Block.makeCuboidShape(4, 4, 2, 12, 12, 3),
-            Block.makeCuboidShape(0, 0, 1, 1, 1, 15),
-            Block.makeCuboidShape(15, 0, 1, 16, 1, 15),
-            Block.makeCuboidShape(1, 0, 15, 15, 1, 16),
-            Block.makeCuboidShape(1, 0, 0, 15, 1, 1),
-            Block.makeCuboidShape(5, 0, 1, 7, 1, 15),
-            Block.makeCuboidShape(9, 0, 1, 11, 1, 15)
-    ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, IBooleanFunction.OR)).get());
+            Block.box(1, 1, 2, 15, 3, 13),
+            Block.box(0, 15, 1, 1, 16, 15),
+            Block.box(2, 7, 1, 14, 12, 2),
+            Block.box(0, 12, 1, 16, 13, 15),
+            Block.box(0, 0, 0, 1, 16, 1),
+            Block.box(15, 0, 15, 16, 16, 16),
+            Block.box(15, 0, 0, 16, 16, 1),
+            Block.box(0, 0, 15, 1, 16, 16),
+            Block.box(15, 15, 1, 16, 16, 15),
+            Block.box(9, 14.5, 7, 11, 15.5, 9),
+            Block.box(2, 13, 2, 14, 15, 14),
+            Block.box(2, 3, 3, 14, 12, 11),
+            Block.box(3, 3, 11, 13, 11, 14),
+            Block.box(4, 4, 2, 12, 12, 3),
+            Block.box(0, 0, 1, 1, 1, 15),
+            Block.box(15, 0, 1, 16, 1, 15),
+            Block.box(1, 0, 15, 15, 1, 16),
+            Block.box(1, 0, 0, 15, 1, 1),
+            Block.box(5, 0, 1, 7, 1, 15),
+            Block.box(9, 0, 1, 11, 1, 15)
+    ).reduce((v1, v2) -> VoxelShapes.join(v1, v2, IBooleanFunction.OR)).get());
 
     public Generator(Properties builder) {
         super(builder);
@@ -45,16 +45,16 @@ public class Generator extends BaseHorizontalBlock {
 
     @Override
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-        return SHAPE[state.get(HORIZONTAL_FACING).getHorizontalIndex()];
+        return SHAPE[state.getValue(FACING).get2DDataValue()];
     }
 
     @Override
-    public boolean canProvidePower(BlockState state) {
+    public boolean isSignalSource(BlockState state) {
         return true;
     }
 
     @Override
-    public int getWeakPower(BlockState blockState, IBlockReader blockAccess, BlockPos pos, Direction side) {
+    public int getSignal(BlockState blockState, IBlockReader blockAccess, BlockPos pos, Direction side) {
         return 15;
     }
 }

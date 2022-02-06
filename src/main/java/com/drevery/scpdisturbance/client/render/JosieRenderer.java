@@ -15,7 +15,7 @@ public class JosieRenderer extends MobRenderer<CatEntity, JosieModel<CatEntity>>
     }
 
     @Override
-    public ResourceLocation getEntityTexture(CatEntity entity){
+    public ResourceLocation getTextureLocation(CatEntity entity){
         return TEXTURE;
     }
 }

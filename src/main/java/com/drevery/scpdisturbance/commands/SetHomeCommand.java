@@ -15,14 +15,14 @@ public class SetHomeCommand {
     }
 
     private int setHome(CommandSource source) throws CommandSyntaxException {
-        ServerPlayerEntity player = source.asPlayer();
-        BlockPos playerPos = player.getPosition();
+        ServerPlayerEntity player = source.getPlayerOrException();
+        BlockPos playerPos = player.blockPosition();
         String pos = "(" + playerPos.getX() + ", " + playerPos.getY() + ", " + playerPos.getZ() + ")";
 
         player.getPersistentData().putIntArray(SCPDisturbance.MOD_ID + "homepos",
                 new int[]{ playerPos.getX(), playerPos.getY(), playerPos.getZ() });
 
-        source.sendFeedback(new StringTextComponent("Set Home at " + pos), true);
+        source.sendSuccess(new StringTextComponent("Set Home at " + pos), true);
         return 1;
     }
 }

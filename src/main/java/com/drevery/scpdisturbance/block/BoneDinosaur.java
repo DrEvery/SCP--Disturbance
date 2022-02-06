@@ -14,10 +14,10 @@ public class BoneDinosaur extends BaseHorizontalBlock {
         super(builder);
     }
 
-    private static final VoxelShape[] SHAPE = Utils.makeHorizontalShapes(Block.makeCuboidShape(5, 0, 0, 11, 7, 16));
+    private static final VoxelShape[] SHAPE = Utils.makeHorizontalShapes(Block.box(5, 0, 0, 11, 7, 16));
 
     @Override
     public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-        return SHAPE[state.get(HORIZONTAL_FACING).getHorizontalIndex()];
+        return SHAPE[state.getValue(FACING).get2DDataValue()];
     }
 }

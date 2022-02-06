@@ -11,7 +11,7 @@ import net.minecraft.world.IBlockReader;
 
 public class IndustrialLamp extends BaseTwoTallHorizontalBlock {
 
-    private static final VoxelShape SHAPE = Block.makeCuboidShape(3, 0, 3, 13, 17, 13);
+    private static final VoxelShape SHAPE = Block.box(3, 0, 3, 13, 17, 13);
 
     public IndustrialLamp(AbstractBlock.Properties properties) {
         super(properties);
