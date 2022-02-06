@@ -1,8 +1,8 @@
 package com.drevery.scpdisturbance;
 
-import com.drevery.scpdisturbance.block.ModBlocks;
-import com.drevery.scpdisturbance.entity.ModEntityTypes;
-import com.drevery.scpdisturbance.item.ModItems;
+import com.drevery.scpdisturbance.registration.ModBlocks;
+import com.drevery.scpdisturbance.registration.ModEntityTypes;
+import com.drevery.scpdisturbance.registration.ModItems;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;

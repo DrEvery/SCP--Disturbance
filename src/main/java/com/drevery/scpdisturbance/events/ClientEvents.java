@@ -1,11 +1,10 @@
 package com.drevery.scpdisturbance.events;
 
 import com.drevery.scpdisturbance.SCPDisturbance;
-import com.drevery.scpdisturbance.block.ModBlocks;
-import com.drevery.scpdisturbance.entity.ModEntityTypes;
-import com.drevery.scpdisturbance.entity.render.JosieRenderer;
+import com.drevery.scpdisturbance.registration.ModBlocks;
+import com.drevery.scpdisturbance.registration.ModEntityTypes;
+import com.drevery.scpdisturbance.client.render.JosieRenderer;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
@@ -30,20 +29,20 @@ public class ClientEvents { //Forge Events used on normal events IE. LivingDeath
         //Separating different client events to save mental stress in the future
         private static void setBlockLayers() {
             //SCP-002
-            setRenderLayer(ModBlocks.MEAT_TABLE.get(), RenderType.getCutout());
-            setRenderLayer(ModBlocks.BONE_BLOCKS.get(), RenderType.getCutout());
-            setRenderLayer(ModBlocks.SKIN_STAND.get(), RenderType.getCutout());
-            setRenderLayer(ModBlocks.MEAT_BED.get(), RenderType.getCutout());
-            setRenderLayer(ModBlocks.MEAT_TV.get(), RenderType.getCutout());
-            setRenderLayer(ModBlocks.SKIN_LAMP.get(), RenderType.getCutout());
-            setRenderLayer(ModBlocks.BONE_DINOSAUR.get(), RenderType.getCutout());
-            setRenderLayer(ModBlocks.CEILING_TRAP.get(), RenderType.getCutout());
-            setRenderLayer(ModBlocks.MEAT_LAMP.get(), RenderType.getCutout());
-            setRenderLayer(ModBlocks.MEAT_COUCH_CENTER.get(), RenderType.getCutout());
-            setRenderLayer(ModBlocks.GENERATOR.get(), RenderType.getCutout());
-            setRenderLayer(ModBlocks.METAL_DOOR.get(), RenderType.getCutout());
-            setRenderLayer(ModBlocks.MEAT_NIGHTSTAND.get(), RenderType.getCutout());
-            setRenderLayer(ModBlocks.INDUSTRIAL_LAMP.get(), RenderType.getCutout());
+            setRenderLayer(ModBlocks.MEAT_TABLE.get(), RenderType.cutout());
+            setRenderLayer(ModBlocks.BONE_BLOCKS.get(), RenderType.cutout());
+            setRenderLayer(ModBlocks.SKIN_STAND.get(), RenderType.cutout());
+            setRenderLayer(ModBlocks.MEAT_BED.get(), RenderType.cutout());
+            setRenderLayer(ModBlocks.MEAT_TV.get(), RenderType.cutout());
+            setRenderLayer(ModBlocks.SKIN_LAMP.get(), RenderType.cutout());
+            setRenderLayer(ModBlocks.BONE_DINOSAUR.get(), RenderType.cutout());
+            setRenderLayer(ModBlocks.CEILING_TRAP.get(), RenderType.cutout());
+            setRenderLayer(ModBlocks.MEAT_LAMP.get(), RenderType.cutout());
+            setRenderLayer(ModBlocks.MEAT_COUCH_CENTER.get(), RenderType.cutout());
+            setRenderLayer(ModBlocks.GENERATOR.get(), RenderType.cutout());
+            setRenderLayer(ModBlocks.METAL_DOOR.get(), RenderType.cutout());
+            setRenderLayer(ModBlocks.MEAT_NIGHTSTAND.get(), RenderType.cutout());
+            setRenderLayer(ModBlocks.INDUSTRIAL_LAMP.get(), RenderType.cutout());
 
             //SCP-058
 
