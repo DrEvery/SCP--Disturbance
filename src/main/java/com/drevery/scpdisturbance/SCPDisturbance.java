@@ -3,6 +3,7 @@ package com.drevery.scpdisturbance;
 import com.drevery.scpdisturbance.registration.ModBlocks;
 import com.drevery.scpdisturbance.registration.ModEntityTypes;
 import com.drevery.scpdisturbance.registration.ModItems;
+import com.drevery.scpdisturbance.registration.ModSounds;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -21,5 +22,6 @@ public class SCPDisturbance {
         ModBlocks.BLOCKS.register(eventBus);
         ModItems.ITEMS.register(eventBus);
         ModEntityTypes.ENTITY_TYPES.register(eventBus);
+        ModSounds.SOUNDS.register(eventBus);
     }
 } 
