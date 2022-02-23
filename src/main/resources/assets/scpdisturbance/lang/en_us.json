@@ -29,6 +29,9 @@
 
   "item.scpdisturbance.debug": "Debug",
 
+  "entity.scpdisturbance.scp_058": "SCP-058",
+  "entity.scpdisturbance.scp_529": "SCP-529",
+
   "death.attack.002_bed": "%1$s tried to sleep in SCP-002",
   "death.attack.002_trap": "%1$s was entangled by SCP-002",
   "death.attack.002_sink": "%1$s was engulfed by SCP-002",

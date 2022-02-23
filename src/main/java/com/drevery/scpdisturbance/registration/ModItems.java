@@ -13,5 +13,4 @@ public class ModItems {
 
     public static final RegistryObject<Item> DEBUG = ITEMS.register("debug",
             () -> new Item(new Item.Properties().tab(ItemGroup.TAB_MISC)));
-
 }
