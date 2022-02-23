@@ -1,7 +1,7 @@
 package com.drevery.scpdisturbance.registration;
 
 import com.drevery.scpdisturbance.SCPDisturbance;
-import com.drevery.scpdisturbance.utils.Utils;
+import com.drevery.scpdisturbance.Utils;
 import io.github.connortron110.connorsapi.datagen.SoundsProvider;
 import io.github.connortron110.connorsapi.datagen.SoundsProvider.ModSoundDefinition;
 import net.minecraft.util.SoundEvent;
