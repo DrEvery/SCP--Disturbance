@@ -4,14 +4,11 @@ import com.drevery.scpdisturbance.ModDamageSources;
 import com.drevery.scpdisturbance.SCPDisturbance;
 import com.drevery.scpdisturbance.entity.Scp058Entity;
 import com.drevery.scpdisturbance.registration.ModBlocks;
-import com.drevery.scpdisturbance.commands.ReturnHomeCommand;
-import com.drevery.scpdisturbance.commands.SetHomeCommand;
 import com.drevery.scpdisturbance.registration.ModEntityTypes;
 import com.drevery.scpdisturbance.entity.JosieEntity;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import com.google.common.collect.ImmutableList;
-import net.minecraft.entity.monster.SpiderEntity;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -73,8 +70,6 @@ public class CommonEvents { //Forge Events used on normal events IE. LivingDeath
 
     @SubscribeEvent
     public static void onCommandsRegister(RegisterCommandsEvent event) {
-        new SetHomeCommand(event.getDispatcher());
-        new ReturnHomeCommand(event.getDispatcher());
 
         ConfigCommand.register(event.getDispatcher());
     }
