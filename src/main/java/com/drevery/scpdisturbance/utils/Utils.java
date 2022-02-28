@@ -1,5 +1,6 @@
-package com.drevery.scpdisturbance;
+package com.drevery.scpdisturbance.utils;
 
+import com.drevery.scpdisturbance.SCPDisturbance;
 import net.minecraft.util.Direction;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.shapes.VoxelShape;
