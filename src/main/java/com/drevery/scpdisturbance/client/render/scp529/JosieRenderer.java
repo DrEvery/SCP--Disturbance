@@ -1,7 +1,7 @@
-package com.drevery.scpdisturbance.client.render;
+package com.drevery.scpdisturbance.client.render.scp529;
 
 import com.drevery.scpdisturbance.Utils;
-import com.drevery.scpdisturbance.client.model.JosieModel;
+import com.drevery.scpdisturbance.client.model.scp529.JosieModel;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.entity.passive.CatEntity;

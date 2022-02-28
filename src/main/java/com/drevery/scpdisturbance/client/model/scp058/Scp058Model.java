@@ -1,17 +1,15 @@
-package com.drevery.scpdisturbance.client.model;
+package com.drevery.scpdisturbance.client.model.scp058;
 
 // Made with Blockbench 4.1.5
 // Exported for Minecraft version 1.15 - 1.16 with Mojang mappings
 // Paste this class into your mod and generate all required imports
 
 
-import com.drevery.scpdisturbance.entity.Scp058Entity;
+import com.drevery.scpdisturbance.entity.scp058.Scp058Entity;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.passive.CatEntity;
 import net.minecraft.util.math.MathHelper;
 
 public class Scp058Model<T extends Scp058Entity> extends EntityModel<T> {

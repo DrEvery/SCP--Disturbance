@@ -1,10 +1,11 @@
 package com.drevery.scpdisturbance.events;
 
 import com.drevery.scpdisturbance.SCPDisturbance;
-import com.drevery.scpdisturbance.client.render.Scp058Renderer;
+import com.drevery.scpdisturbance.client.render.scp058.Scp058Renderer;
+import com.drevery.scpdisturbance.client.render.scp058.Scp058TentacleRenderer;
 import com.drevery.scpdisturbance.registration.ModBlocks;
 import com.drevery.scpdisturbance.registration.ModEntityTypes;
-import com.drevery.scpdisturbance.client.render.JosieRenderer;
+import com.drevery.scpdisturbance.client.render.scp529.JosieRenderer;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -44,6 +45,7 @@ public class ClientEvents { //Forge Events used on normal events IE. LivingDeath
             setRenderLayer(ModBlocks.METAL_DOOR.get(), RenderType.cutout());
             setRenderLayer(ModBlocks.MEAT_NIGHTSTAND.get(), RenderType.cutout());
             setRenderLayer(ModBlocks.INDUSTRIAL_LAMP.get(), RenderType.cutout());
+            setRenderLayer(ModBlocks.SCP_058_EGG.get(), RenderType.cutout());
 
             //SCP-058
 
@@ -52,6 +54,7 @@ public class ClientEvents { //Forge Events used on normal events IE. LivingDeath
         private static void setupEntityRenderers() {
             RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.SCP_529.get(), JosieRenderer::new);
             RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.SCP_058.get(), Scp058Renderer::new);
+            RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.SCP_058_TENTACLE.get(), Scp058TentacleRenderer::new);
         }
     }
 }

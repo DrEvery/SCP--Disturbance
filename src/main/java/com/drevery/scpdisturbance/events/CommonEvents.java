@@ -2,10 +2,11 @@ package com.drevery.scpdisturbance.events;
 
 import com.drevery.scpdisturbance.ModDamageSources;
 import com.drevery.scpdisturbance.SCPDisturbance;
-import com.drevery.scpdisturbance.entity.Scp058Entity;
+import com.drevery.scpdisturbance.entity.scp058.Scp058Entity;
+import com.drevery.scpdisturbance.entity.scp058.Scp058TentacleEntity;
 import com.drevery.scpdisturbance.registration.ModBlocks;
 import com.drevery.scpdisturbance.registration.ModEntityTypes;
-import com.drevery.scpdisturbance.entity.JosieEntity;
+import com.drevery.scpdisturbance.entity.scp529.JosieEntity;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import com.google.common.collect.ImmutableList;
@@ -81,6 +82,7 @@ public class CommonEvents { //Forge Events used on normal events IE. LivingDeath
         public static void addEntityAttributes(EntityAttributeCreationEvent event) {
             event.put(ModEntityTypes.SCP_529.get(), JosieEntity.setCustomAttributes().build());
             event.put(ModEntityTypes.SCP_058.get(), Scp058Entity.setCustomAttributes().build());
+            event.put(ModEntityTypes.SCP_058_TENTACLE.get(), Scp058TentacleEntity.setCustomAttributes().build());
         }
     }
 }

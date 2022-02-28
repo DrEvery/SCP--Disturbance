@@ -1,4 +1,4 @@
-package com.drevery.scpdisturbance.entity;
+package com.drevery.scpdisturbance.entity.scp529;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MobEntity;

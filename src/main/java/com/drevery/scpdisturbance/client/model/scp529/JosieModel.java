@@ -1,4 +1,4 @@
-package com.drevery.scpdisturbance.client.model;
+package com.drevery.scpdisturbance.client.model.scp529;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
