@@ -5,6 +5,7 @@ import com.drevery.scpdisturbance.Utils;
 import com.drevery.scpdisturbance.entity.scp529.JosieEntity;
 import com.drevery.scpdisturbance.entity.scp058.Scp058Entity;
 import com.drevery.scpdisturbance.entity.scp058.Scp058TentacleEntity;
+import com.drevery.scpdisturbance.utils.Utils;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraftforge.fml.RegistryObject;

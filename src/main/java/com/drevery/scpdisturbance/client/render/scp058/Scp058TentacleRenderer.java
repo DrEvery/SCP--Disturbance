@@ -1,8 +1,8 @@
 package com.drevery.scpdisturbance.client.render.scp058;
 
-import com.drevery.scpdisturbance.Utils;
 import com.drevery.scpdisturbance.client.model.scp058.Scp058TentacleModel;
 import com.drevery.scpdisturbance.entity.scp058.Scp058TentacleEntity;
+import com.drevery.scpdisturbance.utils.Utils;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.util.ResourceLocation;
