@@ -139,6 +139,11 @@ dependencies {
 
 }
 
+tasks.withType(Copy) {
+    filesMatching("**/*.json") {
+        duplicatesStrategy = DuplicatesStrategy.INCLUDE
+    }
+}
 
 // Example for how to get properties into the manifest for reading by the runtime..
 jar {

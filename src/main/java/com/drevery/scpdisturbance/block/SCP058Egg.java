@@ -1,7 +1,7 @@
 package com.drevery.scpdisturbance.block;
 
-import com.drevery.scpdisturbance.Utils;
 import com.drevery.scpdisturbance.block.base.BaseHorizontalBlock;
+import com.drevery.scpdisturbance.utils.Utils;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;

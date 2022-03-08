@@ -2,20 +2,15 @@ package com.drevery.scpdisturbance.events;
 
 import com.drevery.scpdisturbance.ModDamageSources;
 import com.drevery.scpdisturbance.SCPDisturbance;
-import com.drevery.scpdisturbance.entity.scp058.Scp058Entity;
-import com.drevery.scpdisturbance.entity.scp058.Scp058TentacleEntity;
 import com.drevery.scpdisturbance.registration.ModBlocks;
-import com.drevery.scpdisturbance.registration.ModEntityTypes;
-import com.drevery.scpdisturbance.entity.scp529.JosieEntity;
+import com.google.common.collect.ImmutableList;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
-import com.google.common.collect.ImmutableList;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.Lazy;
 import net.minecraftforge.event.RegisterCommandsEvent;
-import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -78,11 +73,5 @@ public class CommonEvents { //Forge Events used on normal events IE. LivingDeath
     @Mod.EventBusSubscriber(modid = SCPDisturbance.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
     public static class ModEvents { //Mod Events are less common and are mostly setup events
 
-        @SubscribeEvent
-        public static void addEntityAttributes(EntityAttributeCreationEvent event) {
-            event.put(ModEntityTypes.SCP_529.get(), JosieEntity.setCustomAttributes().build());
-            event.put(ModEntityTypes.SCP_058.get(), Scp058Entity.setCustomAttributes().build());
-            event.put(ModEntityTypes.SCP_058_TENTACLE.get(), Scp058TentacleEntity.setCustomAttributes().build());
-        }
     }
 }
