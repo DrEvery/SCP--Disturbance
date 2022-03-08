@@ -6,16 +6,13 @@ import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.entity.monster.SpiderEntity;
-import net.minecraft.entity.monster.ZombieEntity;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class Scp058TentacleEntity extends MonsterEntity {
-    private static SoundEvent placeholder_placeholder;
-    public static SoundEvent placeholder = placeholder_placeholder;
+
     public Scp058TentacleEntity(EntityType<? extends MonsterEntity> type, World worldIn) {
         super(type, worldIn);
     }
@@ -33,27 +30,27 @@ public class Scp058TentacleEntity extends MonsterEntity {
 
     @Override
     protected void registerGoals() {
-        super.registerGoals();
+        //TODO Register Hostile goals (Like targeting and attacking players)
     }
 
+    //TODO Sounds
     @Override
     protected SoundEvent getAmbientSound() {
-        return placeholder;
+        return null;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource pDamageSource) {
-        return placeholder;
+        return null;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return placeholder;
+        return null;
     }
 
     @Override
     protected void playStepSound(BlockPos pPos, BlockState pBlock) {
-        this.playSound(placeholder, 0, 0);
     }
 }
 
