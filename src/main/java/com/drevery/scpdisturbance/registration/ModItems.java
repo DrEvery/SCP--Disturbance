@@ -8,7 +8,7 @@ import net.minecraft.item.Item;
 
 public class ModItems {
     public static final ItemDeferredRegister ITEMS = ItemDeferredRegister.create(SCPDisturbance.MOD_ID)
-            .setDefaultItemGroup(ModItemGroup.BLOCK_GROUP); //TODO Change if necessary
+            .setDefaultItemGroup(ModItemGroup.ITEM_GROUP);
 
     public static final ItemRegistryObject<TestingItem> DEBUG = ITEMS.register("debug", TestingItem::new)
             .tab(null) //We can override the Default item group (this will not have a tab)
@@ -16,8 +16,5 @@ public class ModItems {
             .build(); //Always build it to return the item registry object
 
     //Organs
-    public static final ItemRegistryObject<Item> HEART = ITEMS.register("heart", Item::new)
-            .tab(ModItemGroup.ITEM_GROUP)
-            .stacksTo(1)
-            .build();
+    public static final ItemRegistryObject<Item> HEART = ITEMS.register("heart", Item::new).stacksTo(1).build();
 }

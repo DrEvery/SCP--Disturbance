@@ -39,5 +39,6 @@
   "death.attack.002_trap": "%1$s was entangled by SCP-002",
   "death.attack.002_sink": "%1$s was engulfed by SCP-002",
 
-  "itemGroup.scpBlockTab": "SCP: Disturbance"
+  "itemGroup.scpBlockTab": "SCP: Disturbance Blocks",
+  "itemGroup.scpItemTab": "SCP: Disturbance Items"
 }

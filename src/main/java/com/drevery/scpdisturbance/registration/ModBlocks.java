@@ -136,6 +136,6 @@ public class ModBlocks {
     }
 
     private static <T extends Block> void registerBlockItem(String name, RegistryObject<T> block) {
-        ModItems.ITEMS.register(name, p -> new BlockItem(block.get(), p)).build();
+        ModItems.ITEMS.register(name, p -> new BlockItem(block.get(), p)).tab(ModItemGroup.BLOCK_GROUP).build();
     }
 }
