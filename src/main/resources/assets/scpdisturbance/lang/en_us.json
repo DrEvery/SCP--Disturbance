@@ -30,6 +30,9 @@
 
   "item.scpdisturbance.debug": "Debug",
   "item.scpdisturbance.heart": "Heart",
+  "item.scpdisturbance.liver": "Liver",
+  "item.scpdisturbance.kidney": "Kidney",
+  "item.scpdisturbance.lungs": "Lungs",
 
   "entity.scpdisturbance.scp_058": "SCP-058",
   "entity.scpdisturbance.scp_058_tentacle": "SCP-058 Tentacle",
