@@ -17,4 +17,7 @@ public class ModItems {
 
     //Organs
     public static final ItemRegistryObject<Item> HEART = ITEMS.register("heart", Item::new).stacksTo(1).build();
+    public static final ItemRegistryObject<Item> LIVER = ITEMS.register("liver", Item::new).stacksTo(1).build();
+    public static final ItemRegistryObject<Item> KIDNEY = ITEMS.register("kidney", Item::new).stacksTo(1).build();
+    public static final ItemRegistryObject<Item> LUNGS = ITEMS.register("lungs", Item::new).stacksTo(1).build();
 }
