@@ -37,14 +37,14 @@ public class ModEntityTypes {
     @SubscribeEvent
     public static void onEntityAttributeCreation(EntityAttributeCreationEvent e) {
         e.put(SCP_529.get(), createBaseAttributes(5, 0.15, 3, 0).build());
-        e.put(SCP_058.get(), createBaseAttributes(150, 2, 4.5, 0.1).build());
-        e.put(SCP_058_TENTACLE.get(), createBaseAttributes(20, 0, 4.5, 3).add(Attributes.ATTACK_SPEED, 1.5).add(Attributes.KNOCKBACK_RESISTANCE, 100).build());
+        e.put(SCP_058.get(), createBaseAttributes(150, 0.8, 4.5, 0.1).build());
+        e.put(SCP_058_TENTACLE.get(), createBaseAttributes(20, 0, 0.5, 0).add(Attributes.ATTACK_SPEED, 1.5).add(Attributes.KNOCKBACK_RESISTANCE, 100).add(Attributes.FOLLOW_RANGE,2).build());
     }
 
     /**
      * Base Attributes for all entities (mostly has attributes related to hostile entities)
      * @param health Max Health of the Entity
-     * @param moveSpeed Max Health of the Entity
+     * @param moveSpeed Speed of the Entity
      * @param attackDamage Damage that the entity gives
      * @param attackKnockback Knock-back that the entity gives
      * @return Builder to append more Attributes if needed
