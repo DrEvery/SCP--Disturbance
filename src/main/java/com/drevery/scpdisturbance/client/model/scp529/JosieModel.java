@@ -13,7 +13,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.passive.CatEntity;
 import net.minecraft.util.math.MathHelper;
 
-public class JosieModel<T extends CatEntity> extends EntityModel<T> {
+public class JosieModel<T extends JosieEntity> extends EntityModel<T> {
 	private final ModelRenderer body;
 	private final ModelRenderer body_r1;
 	private final ModelRenderer head;

@@ -1,13 +1,14 @@
 package com.drevery.scpdisturbance.client.render.scp529;
 
 import com.drevery.scpdisturbance.client.model.scp529.JosieModel;
+import com.drevery.scpdisturbance.entity.scp529.JosieEntity;
 import com.drevery.scpdisturbance.utils.Utils;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.entity.passive.CatEntity;
 import net.minecraft.util.ResourceLocation;
 
-public class JosieRenderer extends MobRenderer<CatEntity, JosieModel<CatEntity>> {
+public class JosieRenderer extends MobRenderer<JosieEntity, JosieModel<JosieEntity>> {
     protected static final ResourceLocation TEXTURE = Utils.rl("textures/entity/josie.png");
 
     public JosieRenderer(EntityRendererManager rendererManagerIn) {
@@ -15,7 +16,7 @@ public class JosieRenderer extends MobRenderer<CatEntity, JosieModel<CatEntity>>
     }
 
     @Override
-    public ResourceLocation getTextureLocation(CatEntity entity){
+    public ResourceLocation getTextureLocation(JosieEntity entity){
         return TEXTURE;
     }
 }
