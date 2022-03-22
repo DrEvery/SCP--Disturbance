@@ -1,6 +1,6 @@
 package com.drevery.scpdisturbance.entity.scp058;
 
-import com.sun.org.apache.bcel.internal.generic.RETURN;
+import jdk.jfr.internal.Logger;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
@@ -16,10 +16,11 @@ import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
+import org.apache.logging.log4j.spi.LoggerRegistry;
 
-public class Scp058Entity extends CaveSpiderEntity {
+public class Scp058Entity extends SpiderEntity {
 
-    public Scp058Entity(EntityType<? extends CaveSpiderEntity> type, World worldIn) {
+    public Scp058Entity(EntityType<? extends SpiderEntity> type, World worldIn) {
         super(type, worldIn);
     }
 
@@ -57,7 +58,7 @@ public class Scp058Entity extends CaveSpiderEntity {
                     }
 
                     if (i > 0) {
-                        ((LivingEntity)pEntity).setSecondsOnFire(20 * i);
+                            ((LivingEntity) pEntity).setSecondsOnFire(20 * i);
                     }
                 }
 
