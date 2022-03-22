@@ -1,9 +1,12 @@
 package com.drevery.scpdisturbance.entity.scp058;
 
+import com.sun.org.apache.bcel.internal.generic.RETURN;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.ai.attributes.Attribute;
+import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.entity.monster.CaveSpiderEntity;
 import net.minecraft.entity.monster.SpiderEntity;
 import net.minecraft.potion.EffectInstance;
@@ -14,9 +17,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
 
-public class Scp058Entity extends SpiderEntity {
+public class Scp058Entity extends CaveSpiderEntity {
 
-    public Scp058Entity(EntityType<? extends SpiderEntity> type, World worldIn) {
+    public Scp058Entity(EntityType<? extends CaveSpiderEntity> type, World worldIn) {
         super(type, worldIn);
     }
 
@@ -39,6 +42,31 @@ public class Scp058Entity extends SpiderEntity {
     @Override
     protected void playStepSound(BlockPos pPos, BlockState pBlock) {
     }
-}
+
+    @Override
+    public boolean doHurtTarget(Entity pEntity) {
+            if (super.doHurtTarget(pEntity)) {
+                if (pEntity instanceof LivingEntity) {
+                    int i = 0;
+                    if (this.level.getDifficulty() == Difficulty.EASY) {
+                        i = 7;
+                    } else if (this.level.getDifficulty() == Difficulty.NORMAL) {
+                        i = 15;
+                    } else if (this.level.getDifficulty() == Difficulty.HARD) {
+                        i = 30;
+                    }
+
+                    if (i > 0) {
+                        ((LivingEntity)pEntity).setSecondsOnFire(20 * i);
+                    }
+                }
+
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
+
 
 
