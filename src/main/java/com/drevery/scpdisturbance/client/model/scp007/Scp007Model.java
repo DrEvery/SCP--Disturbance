@@ -44,12 +44,12 @@ public class Scp007Model<T extends Scp007Entity> extends EntityModel<T> {
 			LeftArm.texOffs(20, 21).addBox(0.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, 0.0F, false);
 
 			RightLeg = new ModelRenderer(this);
-			RightLeg.setPos(-2.0F, 24.0F, 0.0F);
-			RightLeg.texOffs(32, 33).addBox(-2.0F, -12.0F, -2.0F, 4.0F, 12.0F, 4.0F, 0.0F, false);
+			RightLeg.setPos(-2.0F, 12.0F, 0.0F);
+			RightLeg.texOffs(32, 33).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, 0.0F, false);
 
 			LeftLeg = new ModelRenderer(this);
-			LeftLeg.setPos(2.0F, 14.0F, 0.0F);
-			LeftLeg.texOffs(32, 0).addBox(-2.1F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, 0.0F, false);
+			LeftLeg.setPos(2.0F, 12.0F, 0.0F);
+			LeftLeg.texOffs(32, 0).addBox(-2.1F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, 0.0F, false);
 
 			Planet = new ModelRenderer(this);
 			Planet.setPos(-0.25F, 9.0F, -0.25F);
@@ -65,20 +65,22 @@ public class Scp007Model<T extends Scp007Entity> extends EntityModel<T> {
 
 	@Override
 	public void setupAnim(T pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
+
 		this.Head.xRot = pHeadPitch * ((float)Math.PI / 180F);
 		this.Head.yRot = pNetHeadYaw * ((float)Math.PI / 180F);
 
 		final float degreeOfRotation = 75F;
 		final float speedOfRotation = 0.6662F;
 
-		this.RightLeg.xRot = (float) (Math.toRadians(degreeOfRotation/2 * MathHelper.sin(pLimbSwing*speedOfRotation)) * pLimbSwingAmount);
-		this.LeftLeg.xRot = (float) (Math.toRadians(degreeOfRotation/2 * MathHelper.sin(-pLimbSwing*speedOfRotation )) * pLimbSwingAmount);
+		this.LeftLeg.xRot = (float) (Math.toRadians(degreeOfRotation/2 * MathHelper.sin(pLimbSwing*speedOfRotation)) * pLimbSwingAmount);
+		this.RightLeg.xRot = (float) (Math.toRadians(degreeOfRotation/2 * MathHelper.sin(-pLimbSwing*speedOfRotation )) * pLimbSwingAmount);
 
-		this.LeftArm.xRot = (float) (Math.toRadians(degreeOfRotation/2 * MathHelper.sin(pLimbSwing*speedOfRotation)) * pLimbSwingAmount);
-		this.RightArm.xRot = (float) (Math.toRadians(degreeOfRotation/2 * MathHelper.sin(-pLimbSwing*speedOfRotation )) * pLimbSwingAmount);
+		this.RightArm.xRot = (float) (Math.toRadians(degreeOfRotation/2 * MathHelper.sin(pLimbSwing*speedOfRotation)) * pLimbSwingAmount);
+		this.LeftArm.xRot = (float) (Math.toRadians(degreeOfRotation/2 * MathHelper.sin(-pLimbSwing*speedOfRotation )) * pLimbSwingAmount);
 
-		this.Planet.xRot = (float) (Math.toRadians(degreeOfRotation/2 * MathHelper.sin(-pLimbSwing*speedOfRotation )) * pLimbSwingAmount);
+			this.Planet.yRot = (float) ((75 * MathHelper.sin(-(1F))) * (Math.PI/180));
 	}
+
 
 		@Override
 		public void renderToBuffer(MatrixStack matrixStack, IVertexBuilder buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha){

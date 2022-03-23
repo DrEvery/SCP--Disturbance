@@ -11,7 +11,7 @@ public class Scp007Renderer extends MobRenderer<Scp007Entity, Scp007Model<Scp007
     protected static final ResourceLocation TEXTURE = Utils.rl("textures/entity/texture-007.png");
 
     public Scp007Renderer(EntityRendererManager rendererManagerIn) {
-        super(rendererManagerIn, new Scp007Model<>(), 0.7F);
+        super(rendererManagerIn, new Scp007Model<>(), 1F);
     }
 
     @Override

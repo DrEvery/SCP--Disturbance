@@ -15,6 +15,7 @@ import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.item.ItemGroup;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
+import net.minecraftforge.event.entity.EntityEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
@@ -29,14 +30,14 @@ public class ModEntityTypes {
             registerWithEgg("scp_529", EntityType.Builder.of(JosieEntity::new, EntityClassification.CREATURE).sized(0.6F, 0.7F), 0x7b7e80, 0x67c514);
 
     public static final RegistryObject<EntityType<Scp058Entity>> SCP_058 =
-            registerWithEgg("scp_058", EntityType.Builder.of(Scp058Entity::new, EntityClassification.CREATURE).sized(0.6F, 0.7F), 0xad2727, 0x540f0f);
+            registerWithEgg("scp_058", EntityType.Builder.of(Scp058Entity::new, EntityClassification.CREATURE).sized(0.8F, 1.1F), 0xad2727, 0x540f0f);
 
     public static final RegistryObject<EntityType<Scp007Entity>> SCP_007 =
-            registerWithEgg("scp_007", EntityType.Builder.of(Scp007Entity::new, EntityClassification.CREATURE).sized(0.6F, 0.7F), 0xad2727, 0x540f0f);
+            registerWithEgg("scp_007", EntityType.Builder.of(Scp007Entity::new, EntityClassification.CREATURE).sized(0.9F, 2F), 0x146aba, 0x0b7010);
 
     //TODO Change colour when texture added
     public static final RegistryObject<EntityType<Scp058TentacleEntity>> SCP_058_TENTACLE =
-            registerWithEgg("scp_058_tentacle", EntityType.Builder.of(Scp058TentacleEntity::new, EntityClassification.MONSTER).sized(0.6F, 0.7F), 0 ,0);
+            registerWithEgg("scp_058_tentacle", EntityType.Builder.of(Scp058TentacleEntity::new, EntityClassification.MONSTER).sized(0.6F, 2F), 0 ,0);
 
     @SubscribeEvent
     public static void onEntityAttributeCreation(EntityAttributeCreationEvent e) {
