@@ -2,21 +2,18 @@ package com.drevery.scpdisturbance.entity.scp058;
 
 import jdk.jfr.internal.Logger;
 import net.minecraft.block.BlockState;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.ai.attributes.Attribute;
-import net.minecraft.entity.ai.attributes.Attributes;
-import net.minecraft.entity.monster.CaveSpiderEntity;
+import net.minecraft.entity.*;
 import net.minecraft.entity.monster.SpiderEntity;
-import net.minecraft.potion.EffectInstance;
-import net.minecraft.potion.Effects;
+import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Difficulty;
+import net.minecraft.world.DifficultyInstance;
+import net.minecraft.world.IServerWorld;
 import net.minecraft.world.World;
-import org.apache.logging.log4j.spi.LoggerRegistry;
+
+import javax.annotation.Nullable;
 
 public class Scp058Entity extends SpiderEntity {
 
@@ -67,7 +64,13 @@ public class Scp058Entity extends SpiderEntity {
                 return false;
             }
         }
+
+    @Nullable
+    @Override
+    public ILivingEntityData finalizeSpawn(IServerWorld pLevel, DifficultyInstance pDifficulty, SpawnReason pReason, @Nullable ILivingEntityData pSpawnData, @Nullable CompoundNBT pDataTag) {
+        return pSpawnData;
     }
+}
 
 
 
