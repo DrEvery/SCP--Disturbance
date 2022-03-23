@@ -12,10 +12,11 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.ai.attributes.AttributeModifierMap;
 import net.minecraft.entity.ai.attributes.Attributes;
+import net.minecraft.entity.passive.TurtleEntity;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
-import net.minecraftforge.event.entity.EntityEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
@@ -37,21 +38,22 @@ public class ModEntityTypes {
 
     //TODO Change colour when texture added
     public static final RegistryObject<EntityType<Scp058TentacleEntity>> SCP_058_TENTACLE =
-            registerWithEgg("scp_058_tentacle", EntityType.Builder.of(Scp058TentacleEntity::new, EntityClassification.MONSTER).sized(0.6F, 2F), 0 ,0);
+            registerWithEgg("scp_058_tentacle", EntityType.Builder.of(Scp058TentacleEntity::new, EntityClassification.MONSTER).sized(0.6F, 2F), 0, 0);
 
     @SubscribeEvent
     public static void onEntityAttributeCreation(EntityAttributeCreationEvent e) {
         e.put(SCP_529.get(), createBaseAttributes(5, 0.15, 3, 0).build());
         e.put(SCP_058.get(), createBaseAttributes(150, 0.5, 4.5, 0.1).build());
         e.put(SCP_007.get(), createBaseAttributes(10, 0.3, 0, 0).build());
-        e.put(SCP_058_TENTACLE.get(), createBaseAttributes(20, 0, 0.5, 0).add(Attributes.ATTACK_SPEED, 1.5).add(Attributes.KNOCKBACK_RESISTANCE, 100).add(Attributes.FOLLOW_RANGE,2).build());
+        e.put(SCP_058_TENTACLE.get(), createBaseAttributes(20, 0, 0.5, 0).add(Attributes.ATTACK_SPEED, 1.5).add(Attributes.KNOCKBACK_RESISTANCE, 100).add(Attributes.FOLLOW_RANGE, 2).build());
     }
 
     /**
      * Base Attributes for all entities (mostly has attributes related to hostile entities)
-     * @param health Max Health of the Entity
-     * @param moveSpeed Speed of the Entity
-     * @param attackDamage Damage that the entity gives
+     *
+     * @param health          Max Health of the Entity
+     * @param moveSpeed       Speed of the Entity
+     * @param attackDamage    Damage that the entity gives
      * @param attackKnockback Knock-back that the entity gives
      * @return Builder to append more Attributes if needed
      */
