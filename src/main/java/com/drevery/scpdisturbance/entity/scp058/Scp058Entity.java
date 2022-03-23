@@ -1,6 +1,5 @@
 package com.drevery.scpdisturbance.entity.scp058;
 
-import jdk.jfr.internal.Logger;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
