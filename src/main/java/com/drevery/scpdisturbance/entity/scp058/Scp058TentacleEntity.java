@@ -1,18 +1,13 @@
 package com.drevery.scpdisturbance.entity.scp058;
 
 import net.minecraft.block.BlockState;
-import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.LookAtGoal;
 import net.minecraft.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
-import net.minecraft.entity.ai.goal.ZombieAttackGoal;
-import net.minecraft.entity.monster.CaveSpiderEntity;
 import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.entity.monster.SpiderEntity;
-import net.minecraft.entity.passive.AmbientEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;

@@ -36,7 +36,7 @@ public class ModEntityTypes {
 
     //TODO Change colour when texture added
     public static final RegistryObject<EntityType<Scp058TentacleEntity>> SCP_058_TENTACLE =
-            registerWithEgg("scp_058_tentacle", EntityType.Builder.of(Scp058TentacleEntity::new, EntityClassification.CREATURE).sized(0.6F, 1.6F), 0, 0);
+            registerWithEgg("scp_058_tentacle", EntityType.Builder.of(Scp058TentacleEntity::new, EntityClassification.CREATURE).sized(0.8F, 1.6F), 0, 0);
 
     @SubscribeEvent
     public static void onEntityAttributeCreation(EntityAttributeCreationEvent e) {
