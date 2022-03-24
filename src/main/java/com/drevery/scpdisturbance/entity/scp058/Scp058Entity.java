@@ -2,10 +2,7 @@ package com.drevery.scpdisturbance.entity.scp058;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.*;
-import net.minecraft.entity.ai.goal.LookAtGoal;
-import net.minecraft.entity.ai.goal.MeleeAttackGoal;
-import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
-import net.minecraft.entity.ai.goal.WaterAvoidingRandomWalkingGoal;
+import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.DamageSource;
@@ -28,11 +25,7 @@ public class Scp058Entity extends CreatureEntity {
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(1, new LookAtGoal(this, PlayerEntity.class, 8.0F));
-        this.goalSelector.addGoal(5, new WaterAvoidingRandomWalkingGoal(this, 0.8D));
-        this.addBehaviourGoals();
-    }
-
-    protected void addBehaviourGoals() {
+        this.goalSelector.addGoal(2, new WaterAvoidingRandomWalkingGoal(this, 0.8D));
         this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 5.0D, false));
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
     }
@@ -72,7 +65,7 @@ public class Scp058Entity extends CreatureEntity {
                     }
 
                     if (i > 0) {
-                            ((LivingEntity) pEntity).setSecondsOnFire(20 * i);
+                            pEntity.setSecondsOnFire(20 * i);
                     }
                 }
 
