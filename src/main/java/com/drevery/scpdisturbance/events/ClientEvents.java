@@ -47,6 +47,7 @@ public class ClientEvents { //Forge Events used on normal events IE. LivingDeath
             setRenderLayer(ModBlocks.MEAT_NIGHTSTAND.get(), RenderType.cutout());
             setRenderLayer(ModBlocks.INDUSTRIAL_LAMP.get(), RenderType.cutout());
             setRenderLayer(ModBlocks.SCP_058_EGG.get(), RenderType.cutout());
+            setRenderLayer(ModBlocks.SKIN_BOOKSHELF.get(), RenderType.cutout());
 
             //SCP-058
 
