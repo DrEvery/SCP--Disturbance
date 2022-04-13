@@ -81,7 +81,7 @@ public class Scp007Model<T extends Scp007Entity> extends EntityModel<T> {
 		this.rightarm.xRot = (float) (Math.toRadians(degreeOfRotation/2 * MathHelper.sin(pLimbSwing*speedOfRotation)) * pLimbSwingAmount);
 		this.leftarm.xRot = (float) (Math.toRadians(degreeOfRotation/2 * MathHelper.sin(-pLimbSwing*speedOfRotation )) * pLimbSwingAmount);
 
-		this.planet.yRot = (float) (Math.toRadians(degreeOfRotation/2) * pAgeInTicks/10);
+		this.planet.yRot = (float) (Math.toRadians(degreeOfRotation/2) * pAgeInTicks/50);
 	}
 
 	@Override

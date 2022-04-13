@@ -26,9 +26,6 @@ public class Scp058TentacleEntity extends MonsterEntity {
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(1, new LookAtGoal(this, PlayerEntity.class, 8.0F));
-        this.addBehaviourGoals();
-    }
-    protected void addBehaviourGoals() {
         this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 5.0D, false));
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
     }
