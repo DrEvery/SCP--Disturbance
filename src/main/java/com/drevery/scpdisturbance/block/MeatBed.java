@@ -38,23 +38,13 @@ public class MeatBed extends HorizontalBlock {
 
     public static final EnumProperty<BedPart> BED_PART = BlockStateProperties.BED_PART;
     private static final VoxelShape[] SHAPE = Utils.makeHorizontalShapes(Stream.of(
-            Block.box(0, 0, 15, 16, 11, 16),
-            Block.box(-5, 15, -16, -3, 16, -16),
-            Block.box(0, 2, -16, 16, 6, 15),
-            Block.box(-4, 16, -16, 0, 17, -16),
-            Block.box(-2, 13, -16, 1, 16, -16),
-            Block.box(-1, 10, -16, 1, 13, -16),
-            Block.box(-2, 6, -16, 1, 10, -16),
-            Block.box(2, 17, -9, 2, 18, -6),
-            Block.box(2, 18, -7, 2, 19, -3),
-            Block.box(2, 10, -4, 2, 15, -1),
-            Block.box(2, 15, -5, 2, 18, -2),
-            Block.box(2, 6, -5, 2, 10, -2),
-            Block.box(2, 6, 7, 14, 7, 15),
-            Block.box(15, 0, -16, 16, 2, -15),
-            Block.box(0, 0, -16, 1, 2, -15),
-            Block.box(0, 0, 14, 1, 2, 15),
-            Block.box(15, 0, 14, 16, 2, 15)
+            Block.box(0, 4, 0, 16, 10, 16),
+            Block.box(13, 0, -16, 16, 4, -13),
+            Block.box(0, 0, -16, 3, 4, -13),
+            Block.box(0, 4, -16, 16, 10, 0),
+            Block.box(0, 0, 13, 3, 4, 16),
+            Block.box(3, 9, 8.5, 13, 11, 15.5),
+            Block.box(13, 0, 13, 16, 4, 16)
     ).reduce((v1, v2) -> VoxelShapes.join(v1, v2, IBooleanFunction.OR)).get());
 
     public MeatBed(Properties builder) {

@@ -96,7 +96,7 @@ public class ModBlocks {
                     .noOcclusion()));
 
     public static final RegistryObject<Block> SKIN_BOOKSHELF = registerBlock("skin_bookshelf",
-            () -> new BaseHorizontalBlock(AbstractBlock.Properties.of(Material.WOOD).strength(-1f).harvestLevel(1).sound(SoundType.SLIME_BLOCK)
+            () -> new SkinBookshelf(AbstractBlock.Properties.of(Material.WOOD).strength(-1f).harvestLevel(1).sound(SoundType.SLIME_BLOCK)
                     .noOcclusion()));
 
     public static final RegistryObject<Block> MEAT_NIGHTSTAND = registerBlock("meat_nightstand",
