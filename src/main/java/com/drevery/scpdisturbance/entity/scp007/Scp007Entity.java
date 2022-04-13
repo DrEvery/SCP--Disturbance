@@ -1,19 +1,15 @@
 package com.drevery.scpdisturbance.entity.scp007;
 
-import com.mojang.authlib.GameProfile;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.passive.AmbientEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.LookAtGoal;
 import net.minecraft.entity.ai.goal.LookRandomlyGoal;
-import net.minecraft.entity.ai.goal.RandomWalkingGoal;
 import net.minecraft.entity.ai.goal.WaterAvoidingRandomWalkingGoal;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
+import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -49,5 +45,6 @@ public class Scp007Entity extends CreatureEntity {
 
     @Override
     protected void playStepSound(BlockPos pPos, BlockState pBlock) {
+        this.playSound(SoundEvents.ZOMBIE_STEP, 0.15F, 1.0F);
     }
 }
