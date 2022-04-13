@@ -4,6 +4,8 @@ import net.minecraft.block.BlockState;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.LookAtGoal;
 import net.minecraft.entity.ai.goal.LookRandomlyGoal;
+import net.minecraft.entity.ai.goal.RandomWalkingGoal;
+import net.minecraft.entity.ai.goal.WaterAvoidingRandomWalkingGoal;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
@@ -21,6 +23,7 @@ public class Scp007Entity extends CreatureEntity {
     protected void registerGoals() {
         this.goalSelector.addGoal(1, new LookRandomlyGoal(this));
         this.goalSelector.addGoal(1, new LookAtGoal(this, PlayerEntity.class, 10.0F));
+        this.goalSelector.addGoal(2, new WaterAvoidingRandomWalkingGoal(this, 0.8D));
 
     }
 

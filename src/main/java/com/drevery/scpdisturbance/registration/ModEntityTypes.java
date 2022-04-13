@@ -32,7 +32,7 @@ public class ModEntityTypes {
             registerWithEgg("scp_058", EntityType.Builder.of(Scp058Entity::new, EntityClassification.CREATURE).sized(0.8F, 1.1F), 0xad2727, 0x540f0f);
 
     public static final RegistryObject<EntityType<Scp007Entity>> SCP_007 =
-            registerWithEgg("scp_007", EntityType.Builder.of(Scp007Entity::new, EntityClassification.CREATURE).sized(0.9F, 2F), 0x146aba, 0x0b7010);
+            registerWithEgg("scp_007", EntityType.Builder.of(Scp007Entity::new, EntityClassification.CREATURE).sized(0.6F, 2F), 0x146aba, 0x0b7010);
 
     //TODO Change colour when texture added
     public static final RegistryObject<EntityType<Scp058TentacleEntity>> SCP_058_TENTACLE =
