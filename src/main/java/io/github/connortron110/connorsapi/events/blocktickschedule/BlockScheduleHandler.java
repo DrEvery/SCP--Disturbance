@@ -31,7 +31,7 @@ public class BlockScheduleHandler {
         //Only compute if on server and at the end of the tick
         if (event.side.isServer() && event.phase.equals(TickEvent.Phase.END)) {
             //TODO "Smart" Delay Tick Events
-            //Very shit, please optimize
+            //Please optimize
             HashMap<IBlockReader, List<Info>> newMap = new HashMap<>();
 
             for (Map.Entry<IBlockReader, List<Info>> set : scheduledBlocks.entrySet()) {
@@ -85,7 +85,7 @@ public class BlockScheduleHandler {
         return level.getBlockState(pos).getBlock() == state.getBlock();
     }
 
-    //TODO Focus on the QOL shit later
+    //TODO Focus on the QOL later
 
     //TODO Chunk Load/Unload Handling
 
