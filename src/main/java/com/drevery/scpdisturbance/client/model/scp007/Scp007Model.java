@@ -1,7 +1,4 @@
 package com.drevery.scpdisturbance.client.model.scp007;
-// Made with Blockbench 4.1.5
-// Exported for Minecraft version 1.15 - 1.16 with Mojang mappings
-// Paste this class into your mod and generate all required imports
 
 
 import com.drevery.scpdisturbance.entity.scp007.Scp007Entity;
@@ -16,7 +13,6 @@ public class Scp007Model<T extends Scp007Entity> extends EntityModel<T> {
 	private final ModelRenderer head;
 	private final ModelRenderer torso;
 	private final ModelRenderer planet;
-	private final ModelRenderer cube_r1;
 	private final ModelRenderer rightleg;
 	private final ModelRenderer leftleg;
 	private final ModelRenderer rightarm;
@@ -35,16 +31,10 @@ public class Scp007Model<T extends Scp007Entity> extends EntityModel<T> {
 		torso.texOffs(0, 16).addBox(-4.0F, -8.0F, -2.0F, 8.0F, 5.0F, 4.0F, 0.0F, false);
 
 		planet = new ModelRenderer(this);
-		planet.setPos(-0.2868F, 0.5F, -0.4096F);
+		planet.setPos(-0.0368F, 0.5F, -0.4096F);
 		torso.addChild(planet);
 		setRotationAngle(planet, 0.3054F, 0.0F, 0.0F);
-
-
-		cube_r1 = new ModelRenderer(this);
-		cube_r1.setPos(0.0F, 0.0F, 0.0F);
-		planet.addChild(cube_r1);
-		setRotationAngle(cube_r1, 0.0F, 0.6109F, 0.0F);
-		cube_r1.texOffs(19, 20).addBox(-2.5F, -2.5F, -2.0F, 5.0F, 5.0F, 5.0F, 0.0F, false);
+		planet.texOffs(19, 20).addBox(-2.5132F, -2.5F, -2.0904F, 5.0F, 5.0F, 5.0F, 0.0F, false);
 
 		rightleg = new ModelRenderer(this);
 		rightleg.setPos(-2.0F, 12.0F, 0.0F);
