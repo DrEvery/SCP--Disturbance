@@ -125,7 +125,7 @@ public class ModBlocks {
 
     //SCP-058
     public static final RegistryObject<Block> SCP_058_EGG = registerBlock("scp_058_egg",
-            () -> new SCP058Egg(AbstractBlock.Properties.of(Material.EGG).strength(-1F).harvestLevel(1).sound(SoundType.GLASS)
+            () -> new SCP058Egg(AbstractBlock.Properties.of(Material.EGG).strength(-1F).harvestLevel(1).sound(SoundType.SLIME_BLOCK)
                     .noOcclusion()));
 
     //Core Reg Code
