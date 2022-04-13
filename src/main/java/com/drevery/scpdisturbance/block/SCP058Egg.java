@@ -14,7 +14,6 @@ import net.minecraft.world.IBlockReader;
 import java.util.stream.Stream;
 
 public class SCP058Egg extends BaseHorizontalBlock {
-
     private static final VoxelShape[] SHAPE = Utils.makeHorizontalShapes(Stream.of(
             Block.box(3, 0, 2, 8, 4, 8),
             Block.box(1, 0, 1, 15, 0, 15),
