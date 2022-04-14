@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "scpdisturbance:block/grandidier_wood",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "scpdisturbance:block/grandidier_wood"
+    },
+    "facing=south": {
+      "model": "scpdisturbance:block/grandidier_wood",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "scpdisturbance:block/grandidier_wood",
+      "y": 270
+    }
+  }
+}

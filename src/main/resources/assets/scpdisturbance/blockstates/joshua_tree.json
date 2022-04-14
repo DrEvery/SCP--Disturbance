@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "scpdisturbance:block/joshua_tree",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "scpdisturbance:block/joshua_tree"
+    },
+    "facing=south": {
+      "model": "scpdisturbance:block/joshua_tree",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "scpdisturbance:block/joshua_tree",
+      "y": 270
+    }
+  }
+}

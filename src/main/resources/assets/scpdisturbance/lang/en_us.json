@@ -31,6 +31,8 @@
   "block.scpdisturbance.fence_middle": "Fence Middle",
   "block.scpdisturbance.fence_top": "Fence Top",
   "block.scpdisturbance.barbed_wire": "Barbed Wire",
+  "block.scpdisturbance.grandidier_wood": "Grandidier Wood",
+  "block.scpdisturbance.joshua_tree": "Joshua Tree",
 
   "item.scpdisturbance.debug": "Debug",
   "item.scpdisturbance.heart": "Heart",

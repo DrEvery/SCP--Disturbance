@@ -149,6 +149,14 @@ public class ModBlocks {
             () -> new FenceGateMetal416(AbstractBlock.Properties.of(Material.METAL).strength(3f).harvestLevel(3).sound(SoundType.METAL)
                     .noOcclusion()));
 
+    public static final RegistryObject<Block> GRANDIDIER_WOOD = registerBlock("grandidier_wood",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.of(Material.WOOD).strength(1f).harvestLevel(0).sound(SoundType.WOOD)
+                    .noOcclusion()));
+
+    public static final RegistryObject<Block> JOSHUA_TREE = registerBlock("joshua_tree",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.of(Material.WOOD).strength(1f).harvestLevel(0).sound(SoundType.WOOD)
+                    .noOcclusion()));
+
 
 
 
