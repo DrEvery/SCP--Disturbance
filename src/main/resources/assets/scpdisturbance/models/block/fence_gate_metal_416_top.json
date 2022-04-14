@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/door_top",
+  "textures": {
+    "top": "scpdisturbance:block/fence_gate_metal_416_top",
+    "bottom": "scpdisturbance:block/fence_gate_metal_416_bottom"
+  }
+}

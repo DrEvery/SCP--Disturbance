@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "scpdisturbance:block/barbed_wire",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "scpdisturbance:block/barbed_wire"
+    },
+    "facing=south": {
+      "model": "scpdisturbance:block/barbed_wire",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "scpdisturbance:block/barbed_wire",
+      "y": 270
+    }
+  }
+}

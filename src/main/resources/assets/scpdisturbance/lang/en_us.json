@@ -27,6 +27,10 @@
   "block.scpdisturbance.industrial_lamp": "Industrial Lamp",
   "block.scpdisturbance.skin_door": "Skin Door",
   "block.scpdisturbance.scp_058_egg": "SCP-058 Egg",
+  "block.scpdisturbance.fence_bottom": "Fence Bottom",
+  "block.scpdisturbance.fence_middle": "Fence Middle",
+  "block.scpdisturbance.fence_top": "Fence Top",
+  "block.scpdisturbance.barbed_wire": "Barbed Wire",
 
   "item.scpdisturbance.debug": "Debug",
   "item.scpdisturbance.heart": "Heart",
@@ -41,6 +45,7 @@
   "death.attack.002_bed": "%1$s tried to sleep in SCP-002",
   "death.attack.002_trap": "%1$s was entangled by SCP-002",
   "death.attack.002_sink": "%1$s was engulfed by SCP-002",
+  "death.attack.barbed_wire": "%1$s",
 
   "item.scpdisturbance.scp_529_spawn_egg": "SCP-529 Spawn Egg",
   "item.scpdisturbance.scp_058_tentacle_spawn_egg": "SCP-058 Tentacle Spawn Egg",

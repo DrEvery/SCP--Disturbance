@@ -128,6 +128,30 @@ public class ModBlocks {
             () -> new SCP058Egg(AbstractBlock.Properties.of(Material.EGG).strength(-1F).harvestLevel(1).sound(SoundType.SLIME_BLOCK)
                     .noOcclusion()));
 
+    //SCP-416
+    public static final RegistryObject<Block> FENCE_BOTTOM = registerBlock("fence_bottom",
+            () -> new FenceDown(AbstractBlock.Properties.of(Material.METAL).strength(3F).harvestLevel(3).sound(SoundType.METAL)
+                    .noOcclusion()));
+
+    public static final RegistryObject<Block> FENCE_MIDDLE = registerBlock("fence_middle",
+            () -> new FenceMiddle(AbstractBlock.Properties.of(Material.METAL).strength(3F).harvestLevel(3).sound(SoundType.METAL)
+                    .noOcclusion()));
+
+    public static final RegistryObject<Block> FENCE_TOP = registerBlock("fence_top",
+            () -> new FenceTop(AbstractBlock.Properties.of(Material.METAL).strength(3F).harvestLevel(3).sound(SoundType.METAL)
+                    .noOcclusion()));
+
+    public static final RegistryObject<Block> BARBED_WIRE = registerBlock("barbed_wire",
+            () -> new BarbedWire(AbstractBlock.Properties.of(Material.METAL).strength(3F).harvestLevel(3).sound(SoundType.METAL)
+                    .noOcclusion()));
+
+    public static final RegistryObject<Block> FENCE_GATE_METAL_416 = registerBlock("fence_gate_metal_416",
+            () -> new FenceGateMetal416(AbstractBlock.Properties.of(Material.METAL).strength(3f).harvestLevel(3).sound(SoundType.METAL)
+                    .noOcclusion()));
+
+
+
+
     //Core Reg Code
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
