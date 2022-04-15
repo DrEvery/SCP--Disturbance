@@ -15,7 +15,7 @@ import net.minecraft.world.World;
 
 public class FloorTrap extends BaseHorizontalBlock {
 
-    private static final VoxelShape SHAPE = Block.box(0, 0, 0, 16, 4, 16);
+    private static final VoxelShape SHAPE = Block.box(2, 0, 2, 14, 12, 14);
 
     public FloorTrap(AbstractBlock.Properties properties) {
         super(properties);

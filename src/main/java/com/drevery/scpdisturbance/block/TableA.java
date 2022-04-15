@@ -1,22 +1,24 @@
 package com.drevery.scpdisturbance.block;
 
-import com.drevery.scpdisturbance.ModDamageSources;
+import com.drevery.scpdisturbance.utils.Utils;
 import com.drevery.scpdisturbance.block.base.BaseHorizontalBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.entity.Entity;
+import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.shapes.IBooleanFunction;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
-import net.minecraft.util.math.vector.Vector3d;
+import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
-import net.minecraft.world.World;
 
-public class CeilingTrap extends BaseHorizontalBlock {
+import java.util.stream.Stream;
 
-    private static final VoxelShape SHAPE = Block.box(2, 4, 2, 14, 16, 14);
+public class TableA extends BaseHorizontalBlock {
 
-    public CeilingTrap(Properties builder) {
+    private static final VoxelShape SHAPE = Block.box(1, 0, 1, 15, 10, 15);
+
+    public TableA(Properties builder) {
         super(builder);
     }
 
@@ -26,11 +28,7 @@ public class CeilingTrap extends BaseHorizontalBlock {
     }
 
     @Override
-    public void entityInside(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
-        entityIn.makeStuckInBlock(state, new Vector3d(0.25D, 1D, 0.25D));
-        entityIn.hurt(ModDamageSources.SCP_002_TRAP, 4F);
+    public int getSignal(BlockState blockState, IBlockReader blockAccess, BlockPos pos, Direction side) {
+        return 15;
     }
 }
-
-
-

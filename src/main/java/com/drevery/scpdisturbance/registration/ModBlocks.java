@@ -48,7 +48,11 @@ public class ModBlocks {
                     .noOcclusion()));
 
     public static final RegistryObject<Block> MEAT_TABLE = registerBlock("meat_table",
-            () -> new BaseHorizontalBlock(AbstractBlock.Properties.of(Material.DIRT).strength(-1f).harvestLevel(1).sound(SoundType.SLIME_BLOCK)
+            () -> new MeatTable(AbstractBlock.Properties.of(Material.DIRT).strength(-1f).harvestLevel(1).sound(SoundType.SLIME_BLOCK)
+                    .noOcclusion()));
+
+    public static final RegistryObject<Block> TABLE_A = registerBlock("table_a",
+            () -> new TableA(AbstractBlock.Properties.of(Material.DIRT).strength(-1F).harvestLevel(1).sound(SoundType.SLIME_BLOCK)
                     .noOcclusion()));
 
     public static final RegistryObject<Block> BONE_BLOCKS = registerBlock("bone_blocks",
@@ -100,7 +104,7 @@ public class ModBlocks {
                     .noOcclusion()));
 
     public static final RegistryObject<Block> MEAT_NIGHTSTAND = registerBlock("meat_nightstand",
-            () -> new BaseHorizontalBlock(AbstractBlock.Properties.of(Material.WOOD).strength(-1f).harvestLevel(1).sound(SoundType.SLIME_BLOCK)
+            () -> new MeatNightstand(AbstractBlock.Properties.of(Material.WOOD).strength(-1f).harvestLevel(1).sound(SoundType.SLIME_BLOCK)
                     .noOcclusion()));
 
     public static final RegistryObject<Block> MEAT_PAINTING = registerBlock("meat_painting",

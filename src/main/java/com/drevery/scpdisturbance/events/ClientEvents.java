@@ -33,6 +33,7 @@ public class ClientEvents { //Forge Events used on normal events IE. LivingDeath
         private static void setBlockLayers() {
             //SCP-002
             setRenderLayer(ModBlocks.MEAT_TABLE.get(), RenderType.cutout());
+            setRenderLayer(ModBlocks.TABLE_A.get(), RenderType.cutout());
             setRenderLayer(ModBlocks.BONE_BLOCKS.get(), RenderType.cutout());
             setRenderLayer(ModBlocks.SKIN_STAND.get(), RenderType.cutout());
             setRenderLayer(ModBlocks.MEAT_BED.get(), RenderType.cutout());
@@ -46,16 +47,17 @@ public class ClientEvents { //Forge Events used on normal events IE. LivingDeath
             setRenderLayer(ModBlocks.METAL_DOOR.get(), RenderType.cutout());
             setRenderLayer(ModBlocks.MEAT_NIGHTSTAND.get(), RenderType.cutout());
             setRenderLayer(ModBlocks.INDUSTRIAL_LAMP.get(), RenderType.cutout());
-            setRenderLayer(ModBlocks.SCP_058_EGG.get(), RenderType.cutout());
             setRenderLayer(ModBlocks.SKIN_BOOKSHELF.get(), RenderType.cutout());
+
+            //SCP-058
+            setRenderLayer(ModBlocks.SCP_058_EGG.get(), RenderType.cutout());
+
+            //SCP-416
             setRenderLayer(ModBlocks.FENCE_BOTTOM.get(), RenderType.cutout());
             setRenderLayer(ModBlocks.FENCE_MIDDLE.get(), RenderType.cutout());
             setRenderLayer(ModBlocks.FENCE_TOP.get(), RenderType.cutout());
             setRenderLayer(ModBlocks.BARBED_WIRE.get(), RenderType.cutout());
             setRenderLayer(ModBlocks.FENCE_GATE_METAL_416.get(), RenderType.cutout());
-
-            //SCP-058
-
         }
 
         private static void setupEntityRenderers() {
