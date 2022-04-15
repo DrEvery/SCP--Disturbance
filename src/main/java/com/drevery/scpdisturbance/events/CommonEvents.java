@@ -20,7 +20,7 @@ import net.minecraftforge.server.command.ConfigCommand;
 @Mod.EventBusSubscriber(modid = SCPDisturbance.MOD_ID)
 public class CommonEvents { //Forge Events used on normal events IE. LivingDeathEvent
 
-    static final ImmutableList<Lazy<Block>> SCP002_BED_PLACEABLES = ImmutableList.of(Lazy.of(ModBlocks.FLOOR_TRAP), Lazy.of(ModBlocks.SKIN_LAMP), Lazy.of(ModBlocks.BEAR), Lazy.of(ModBlocks.SKIN_STAND));
+    static final ImmutableList<Lazy<Block>> SCP002_BED_PLACEABLES = ImmutableList.of(Lazy.of(ModBlocks.FLOOR_TRAP), Lazy.of(ModBlocks.SKIN_LAMP), Lazy.of(ModBlocks.BEAR), Lazy.of(ModBlocks.MEAT_NIGHTSTAND));
     static final ImmutableList<Lazy<Block>> SCP002_SKIN_PLACEABLES = ImmutableList.of(Lazy.of(ModBlocks.FLOOR_TRAP), Lazy.of(ModBlocks.SKIN_LAMP), Lazy.of(ModBlocks.BEAR), Lazy.of(ModBlocks.BONE_BLOCKS), Lazy.of(ModBlocks.MEAT_TABLE));
 
     @SubscribeEvent

@@ -56,6 +56,8 @@
   "item.scpdisturbance.scp_058_tentacle_spawn_egg": "SCP-058 Tentacle Spawn Egg",
   "item.scpdisturbance.scp_058_spawn_egg": "SCP-058 Spawn Egg",
   "item.scpdisturbance.scp_007_spawn_egg": "SCP-007 Spawn Egg",
+  "item.scpdisturbance.scp_049_spawn_egg": "SCP-049 Spawn Egg",
+  "item.scpdisturbance.scp_049j_spawn_egg": "SCP-049-J Spawn Egg",
 
   "itemGroup.scpBlockTab": "SCP: Disturbance Blocks",
   "itemGroup.scpItemTab": "SCP: Disturbance Items"

@@ -63,10 +63,6 @@ public class ModBlocks {
             () -> new MeatRadio(AbstractBlock.Properties.of(Material.DIRT).strength(-1f).harvestLevel(1).sound(SoundType.SLIME_BLOCK)
                     .noOcclusion()));
 
-    public static final RegistryObject<Block> SKIN_STAND = registerBlock("skin_stand",
-            () -> new SkinStand(AbstractBlock.Properties.of(Material.DIRT).strength(-1f).harvestLevel(1).sound(SoundType.BONE_BLOCK)
-                    .noOcclusion()));
-
     public static final RegistryObject<Block> MEAT_BED = registerBlock("meat_bed",
             () -> new MeatBed(AbstractBlock.Properties.of(Material.DIRT).strength(-1f).harvestLevel(1).sound(SoundType.SLIME_BLOCK)
                     .noOcclusion()));
@@ -113,7 +109,7 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> FLOOR_TRAP = registerBlock("floor_trap",
             () -> new FloorTrap(AbstractBlock.Properties.of(Material.WOOD).strength(-1f).harvestLevel(1).sound(SoundType.SLIME_BLOCK)
-                    .noOcclusion().noCollission()));
+                    .noCollission()));
 
     public static final RegistryObject<Block> BEAR = registerBlock("bear",
             () -> new Bear(AbstractBlock.Properties.of(Material.DIRT).strength(-1f).harvestLevel(1).sound(SoundType.SLIME_BLOCK)

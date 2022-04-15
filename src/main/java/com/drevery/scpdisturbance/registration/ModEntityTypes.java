@@ -2,6 +2,8 @@ package com.drevery.scpdisturbance.registration;
 
 import com.drevery.scpdisturbance.SCPDisturbance;
 import com.drevery.scpdisturbance.entity.scp007.Scp007Entity;
+import com.drevery.scpdisturbance.entity.scp049.Scp049Entity;
+import com.drevery.scpdisturbance.entity.scp049j.Scp049JEntity;
 import com.drevery.scpdisturbance.entity.scp058.Scp058Entity;
 import com.drevery.scpdisturbance.entity.scp058.Scp058TentacleEntity;
 import com.drevery.scpdisturbance.entity.scp529.JosieEntity;
@@ -34,6 +36,12 @@ public class ModEntityTypes {
     public static final RegistryObject<EntityType<Scp007Entity>> SCP_007 =
             registerWithEgg("scp_007", EntityType.Builder.of(Scp007Entity::new, EntityClassification.CREATURE).sized(0.6F, 2F), 0x146aba, 0x0b7010);
 
+    public static final RegistryObject<EntityType<Scp049Entity>> SCP_049 =
+            registerWithEgg("scp_049", EntityType.Builder.of(Scp049Entity::new, EntityClassification.CREATURE).sized(0.6F, 2F), 0x146aba, 0x0b7010);
+
+    public static final RegistryObject<EntityType<Scp049JEntity>> SCP_049J =
+            registerWithEgg("scp_049j", EntityType.Builder.of(Scp049JEntity::new, EntityClassification.CREATURE).sized(0.6F, 2F), 0x146aba, 0x0b7010);
+
     //TODO Change colour when texture added
     public static final RegistryObject<EntityType<Scp058TentacleEntity>> SCP_058_TENTACLE =
             registerWithEgg("scp_058_tentacle", EntityType.Builder.of(Scp058TentacleEntity::new, EntityClassification.CREATURE).sized(0.8F, 1.6F), 0, 0);
@@ -43,6 +51,8 @@ public class ModEntityTypes {
         e.put(SCP_529.get(), createBaseAttributes(5, 0.15, 3, 0).build());
         e.put(SCP_058.get(), createBaseAttributes(500, 0.5, 4.5, 0.1).build());
         e.put(SCP_007.get(), createBaseAttributes(10, 0.3, 0, 0).build());
+        e.put(SCP_049.get(), createBaseAttributes(200, 0.2, 999999999, 0) .build());
+        e.put(SCP_049J.get(), createBaseAttributes(50, 0.2, 0, 0).build());
         e.put(SCP_058_TENTACLE.get(), createBaseAttributes(20, 0, 0.5, 0).add(Attributes.ATTACK_SPEED, 1.5).add(Attributes.KNOCKBACK_RESISTANCE, 100).add(Attributes.FOLLOW_RANGE, 2).build());
     }
 
@@ -66,7 +76,7 @@ public class ModEntityTypes {
 
     private static <E extends Entity> RegistryObject<EntityType<E>> registerWithEgg(String name, EntityType.Builder<E> builder, int backgroundColor, int highlightColour) {
         RegistryObject<EntityType<E>> registryObject = register(name, builder);
-        ModItems.ITEMS.register(name + "_spawn_egg", properties -> new ForgeSpawnEggItem(registryObject, backgroundColor, highlightColour, properties)).tab(ItemGroup.TAB_MISC).build();
+        ModItems.ITEMS.register(name + "_spawn_egg", properties -> new ForgeSpawnEggItem(registryObject, backgroundColor, highlightColour, properties)).tab(ModItemGroup.ITEM_GROUP).build();
         return registryObject;
     }
 
