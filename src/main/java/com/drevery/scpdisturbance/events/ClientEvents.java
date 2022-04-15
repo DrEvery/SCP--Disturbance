@@ -58,6 +58,9 @@ public class ClientEvents { //Forge Events used on normal events IE. LivingDeath
             setRenderLayer(ModBlocks.FENCE_TOP.get(), RenderType.cutout());
             setRenderLayer(ModBlocks.BARBED_WIRE.get(), RenderType.cutout());
             setRenderLayer(ModBlocks.FENCE_GATE_METAL_416.get(), RenderType.cutout());
+
+            //SCP-902
+            setRenderLayer(ModBlocks.SCP_902.get(), RenderType.cutout());
         }
 
         private static void setupEntityRenderers() {
