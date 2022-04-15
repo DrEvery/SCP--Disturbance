@@ -35,6 +35,8 @@
   "block.scpdisturbance.grandidier_wood": "Grandidier Log",
   "block.scpdisturbance.joshua_tree": "Joshua Log",
 
+  "block.scpdisturbance.scp_902": "SCP-902",
+
   "item.scpdisturbance.debug": "Debug",
   "item.scpdisturbance.heart": "Heart",
   "item.scpdisturbance.liver": "Liver",
@@ -48,7 +50,7 @@
   "death.attack.002_bed": "%1$s tried to sleep in SCP-002",
   "death.attack.002_trap": "%1$s was entangled by SCP-002",
   "death.attack.002_sink": "%1$s was engulfed by SCP-002",
-  "death.attack.barbed_wire": "%1$s",
+  "death.attack.barbed_wire": "%1$s tried to climb the fence",
 
   "item.scpdisturbance.scp_529_spawn_egg": "SCP-529 Spawn Egg",
   "item.scpdisturbance.scp_058_tentacle_spawn_egg": "SCP-058 Tentacle Spawn Egg",

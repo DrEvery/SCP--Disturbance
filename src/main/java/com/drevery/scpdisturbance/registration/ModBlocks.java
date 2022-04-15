@@ -161,6 +161,11 @@ public class ModBlocks {
             () -> new BaseHorizontalBlock(AbstractBlock.Properties.of(Material.WOOD).strength(1f).harvestLevel(0).sound(SoundType.WOOD)
                     .noOcclusion()));
 
+    //SCP-902
+    public static final RegistryObject<Block> SCP_902 = registerBlock("scp_902",
+            () -> new BaseHorizontalBlock(AbstractBlock.Properties.of(Material.METAL).strength(1f).harvestLevel(0).sound(SoundType.METAL)
+                    .noOcclusion()));
+
 
 
 
