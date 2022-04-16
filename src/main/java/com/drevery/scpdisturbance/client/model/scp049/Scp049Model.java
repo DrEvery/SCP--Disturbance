@@ -9,7 +9,10 @@ import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.util.math.MathHelper;
+
+import javax.annotation.Nullable;
 
 
 public class Scp049Model<T extends Scp049Entity> extends EntityModel<T> {
@@ -175,7 +178,7 @@ public class Scp049Model<T extends Scp049Entity> extends EntityModel<T> {
             cube_r18.setPos(0.0F, 0.0F, -2.0F);
             rightleg.addChild(cube_r18);
             setRotationAngle(cube_r18, -0.0873F, 0.0F, 0.0F);
-            cube_r18.texOffs(55, 6).addBox(-2.0F, 0.0F, 0.0F, 4.0F, 7.0F, 0.0F, 0.0F, false);
+            cube_r18.texOffs(56, 21).addBox(-2.0F, 0.0F, 0.0F, 4.0F, 7.0F, 0.0F, 0.0F, false);
 
             cube_r19 = new ModelRenderer(this);
             cube_r19.setPos(-2.0F, 0.0F, 0.0F);
@@ -208,6 +211,18 @@ public class Scp049Model<T extends Scp049Entity> extends EntityModel<T> {
 
     @Override
     public void setupAnim(T pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
+        this.head.xRot = pHeadPitch * ((float)Math.PI / 180F);
+        this.head.yRot = pNetHeadYaw * ((float)Math.PI / 180F);
+
+        final float degreeOfRotation = 75F;
+        final float speedOfRotation = 0.6662F;
+
+        this.leftleg.xRot = (float) (Math.toRadians(degreeOfRotation/2 * MathHelper.sin(pLimbSwing*speedOfRotation)) * pLimbSwingAmount);
+        this.rightleg.xRot = (float) (Math.toRadians(degreeOfRotation/2 * MathHelper.sin(-pLimbSwing*speedOfRotation )) * pLimbSwingAmount);
+
+        this.rightarm.xRot = (float) (Math.toRadians(degreeOfRotation/2 * MathHelper.sin(pLimbSwing*speedOfRotation)) * pLimbSwingAmount);
+        this.leftarm.xRot = (float) (Math.toRadians(degreeOfRotation/2 * MathHelper.sin(-pLimbSwing*speedOfRotation )) * pLimbSwingAmount);
+
 
     }
 

@@ -3,6 +3,7 @@ package com.drevery.scpdisturbance.registration;
 import com.drevery.scpdisturbance.SCPDisturbance;
 import com.drevery.scpdisturbance.entity.scp007.Scp007Entity;
 import com.drevery.scpdisturbance.entity.scp049.Scp049Entity;
+import com.drevery.scpdisturbance.entity.scp049.Scp049_2Entity;
 import com.drevery.scpdisturbance.entity.scp049j.Scp049JEntity;
 import com.drevery.scpdisturbance.entity.scp058.Scp058Entity;
 import com.drevery.scpdisturbance.entity.scp058.Scp058TentacleEntity;
@@ -28,23 +29,25 @@ public class ModEntityTypes {
     public static DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITIES, SCPDisturbance.MOD_ID);
 
     public static final RegistryObject<EntityType<JosieEntity>> SCP_529 =
-            registerWithEgg("scp_529", EntityType.Builder.of(JosieEntity::new, EntityClassification.CREATURE).sized(0.6F, 0.7F), 0x7b7e80, 0x67c514);
+            registerWithEgg("scp_529", EntityType.Builder.of(JosieEntity::new, EntityClassification.MONSTER).sized(0.6F, 0.7F), 0x7b7e80, 0x67c514);
 
     public static final RegistryObject<EntityType<Scp058Entity>> SCP_058 =
-            registerWithEgg("scp_058", EntityType.Builder.of(Scp058Entity::new, EntityClassification.CREATURE).sized(0.8F, 1.1F), 0xad2727, 0x540f0f);
+            registerWithEgg("scp_058", EntityType.Builder.of(Scp058Entity::new, EntityClassification.MONSTER).sized(0.8F, 1.1F), 0xad2727, 0x540f0f);
 
     public static final RegistryObject<EntityType<Scp007Entity>> SCP_007 =
             registerWithEgg("scp_007", EntityType.Builder.of(Scp007Entity::new, EntityClassification.CREATURE).sized(0.6F, 2F), 0x146aba, 0x0b7010);
 
     public static final RegistryObject<EntityType<Scp049Entity>> SCP_049 =
-            registerWithEgg("scp_049", EntityType.Builder.of(Scp049Entity::new, EntityClassification.CREATURE).sized(0.6F, 2F), 0x146aba, 0x0b7010);
+            registerWithEgg("scp_049", EntityType.Builder.of(Scp049Entity::new, EntityClassification.MONSTER).sized(0.6F, 2F), 0x146aba, 0x0b7010);
 
     public static final RegistryObject<EntityType<Scp049JEntity>> SCP_049J =
-            registerWithEgg("scp_049j", EntityType.Builder.of(Scp049JEntity::new, EntityClassification.CREATURE).sized(0.6F, 2F), 0x146aba, 0x0b7010);
+            registerWithEgg("scp_049j", EntityType.Builder.of(Scp049JEntity::new, EntityClassification.MONSTER).sized(0.6F, 2F), 0x146aba, 0x0b7010);
 
-    //TODO Change colour when texture added
+    public static final RegistryObject<EntityType<Scp049_2Entity>> SCP_049_2 =
+            registerWithEgg("scp_049_2", EntityType.Builder.of(Scp049_2Entity::new, EntityClassification.MONSTER).sized(0.6F, 2F), 0x146aba, 0x0b7010);
+
     public static final RegistryObject<EntityType<Scp058TentacleEntity>> SCP_058_TENTACLE =
-            registerWithEgg("scp_058_tentacle", EntityType.Builder.of(Scp058TentacleEntity::new, EntityClassification.CREATURE).sized(0.8F, 1.6F), 0, 0);
+            registerWithEgg("scp_058_tentacle", EntityType.Builder.of(Scp058TentacleEntity::new, EntityClassification.MONSTER).sized(0.8F, 1.6F), 0, 0);
 
     @SubscribeEvent
     public static void onEntityAttributeCreation(EntityAttributeCreationEvent e) {
@@ -53,7 +56,8 @@ public class ModEntityTypes {
         e.put(SCP_007.get(), createBaseAttributes(10, 0.3, 0, 0).build());
         e.put(SCP_049.get(), createBaseAttributes(200, 0.2, 999999999, 0) .build());
         e.put(SCP_049J.get(), createBaseAttributes(50, 0.2, 0, 0).build());
-        e.put(SCP_058_TENTACLE.get(), createBaseAttributes(20, 0, 0.5, 0).add(Attributes.ATTACK_SPEED, 1.5).add(Attributes.KNOCKBACK_RESISTANCE, 100).add(Attributes.FOLLOW_RANGE, 2).build());
+        e.put(SCP_049_2.get(), createBaseAttributes(20, 0.1, 2, 0).build());
+        e.put(SCP_058_TENTACLE.get(), createBaseAttributes(20, 0, 4, 0).add(Attributes.ATTACK_SPEED, 1.5).add(Attributes.KNOCKBACK_RESISTANCE, 100).add(Attributes.FOLLOW_RANGE, 2).build());
     }
 
     /**

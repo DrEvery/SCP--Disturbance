@@ -3,6 +3,7 @@ package com.drevery.scpdisturbance.events;
 import com.drevery.scpdisturbance.SCPDisturbance;
 import com.drevery.scpdisturbance.client.render.scp007.Scp007Renderer;
 import com.drevery.scpdisturbance.client.render.scp049.Scp049Renderer;
+import com.drevery.scpdisturbance.client.render.scp049.Scp049_2Renderer;
 import com.drevery.scpdisturbance.client.render.scp049j.Scp049JRenderer;
 import com.drevery.scpdisturbance.client.render.scp058.Scp058Renderer;
 import com.drevery.scpdisturbance.client.render.scp058.Scp058TentacleRenderer;
@@ -71,6 +72,7 @@ public class ClientEvents { //Forge Events used on normal events IE. LivingDeath
             RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.SCP_007.get(), Scp007Renderer::new);
             RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.SCP_049.get(), Scp049Renderer::new);
             RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.SCP_049J.get(), Scp049JRenderer::new);
+            RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.SCP_049_2.get(), Scp049_2Renderer::new);
         }
     }
 }

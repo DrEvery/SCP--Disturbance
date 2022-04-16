@@ -51,13 +51,7 @@ public class Scp058TentacleEntity extends MonsterEntity {
     public boolean doHurtTarget(Entity pEntity) {
         if (super.doHurtTarget(pEntity)) {
             if (pEntity instanceof LivingEntity) {
-                int i = 1;
-                if (this.level.getDifficulty() == Difficulty.NORMAL) {
-                    i = 7;
-                } else if (this.level.getDifficulty() == Difficulty.HARD) {
-                    i = 15;
-                }
-                    ((LivingEntity)pEntity).addEffect(new EffectInstance(Effects.WITHER, i * 20, 0));
+                    ((LivingEntity)pEntity).addEffect(new EffectInstance(Effects.WITHER,  20, 2));
                 }
 
             return true;

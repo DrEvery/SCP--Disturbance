@@ -6,13 +6,17 @@ import com.drevery.scpdisturbance.registration.ModBlocks;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraft.world.server.ServerWorld;
 import net.minecraftforge.common.util.Lazy;
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
+import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.server.command.ConfigCommand;
@@ -56,6 +60,15 @@ public class CommonEvents { //Forge Events used on normal events IE. LivingDeath
         }
     }
 
+    @SubscribeEvent(priority = EventPriority.LOWEST) //Calls the killed function on the entity that killed it to allow for some custom features
+    public static void onPlayerDeath(LivingDeathEvent event) { //priority == Low so we have to make sure that the player has actually died
+        if (event.getEntity() instanceof PlayerEntity) {
+            if (event.getSource().getEntity() != null) {
+                event.getSource().getEntity().killed((ServerWorld) event.getEntity().level, (LivingEntity) event.getSource().getEntity());
+            }
+        }
+    }
+
     @SubscribeEvent
     public static void onPlayerCloneEvent(PlayerEvent.Clone event) {
         if(!event.getOriginal().getCommandSenderWorld().isClientSide) {
@@ -66,7 +79,6 @@ public class CommonEvents { //Forge Events used on normal events IE. LivingDeath
 
     @SubscribeEvent
     public static void onCommandsRegister(RegisterCommandsEvent event) {
-
         ConfigCommand.register(event.getDispatcher());
     }
 
