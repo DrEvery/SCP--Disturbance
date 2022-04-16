@@ -46,7 +46,7 @@ public class Scp049JModel<T extends Scp049JEntity> extends EntityModel<T> {
         private final ModelRenderer cube_r24;
         private final ModelRenderer cube_r25;
         private final ModelRenderer cube_r26;
-        private final ModelRenderer rightleg2;
+        private final ModelRenderer leftleg;
         private final ModelRenderer cube_r27;
         private final ModelRenderer cube_r28;
         private final ModelRenderer cube_r29;
@@ -241,32 +241,42 @@ public class Scp049JModel<T extends Scp049JEntity> extends EntityModel<T> {
             setRotationAngle(cube_r26, 0.0F, 0.0F, -0.0436F);
             cube_r26.texOffs(8, 44).addBox(0.0F, 0.0F, -2.0F, 0.0F, 7.0F, 4.0F, 0.0F, false);
 
-            rightleg2 = new ModelRenderer(this);
-            rightleg2.setPos(-2.0F, 12.0F, 0.0F);
-            rightleg2.texOffs(24, 16).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, 0.0F, false);
+            leftleg = new ModelRenderer(this);
+            leftleg.setPos(-2.0F, 12.0F, 0.0F);
+            leftleg.texOffs(24, 16).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, 0.0F, false);
 
             cube_r27 = new ModelRenderer(this);
             cube_r27.setPos(0.0F, 0.0F, -2.0F);
-            rightleg2.addChild(cube_r27);
+            leftleg.addChild(cube_r27);
             setRotationAngle(cube_r27, -0.0436F, 0.0F, 0.0F);
             cube_r27.texOffs(48, 34).addBox(-2.0F, 0.0F, 0.0F, 4.0F, 6.0F, 0.0F, 0.0F, false);
 
             cube_r28 = new ModelRenderer(this);
             cube_r28.setPos(0.0F, 0.0F, 2.0F);
-            rightleg2.addChild(cube_r28);
+            leftleg.addChild(cube_r28);
             setRotationAngle(cube_r28, 0.0436F, 0.0F, 0.0F);
             cube_r28.texOffs(40, 48).addBox(-2.0F, 0.0F, 0.0F, 4.0F, 6.0F, 0.0F, 0.0F, false);
 
             cube_r29 = new ModelRenderer(this);
             cube_r29.setPos(-2.0F, 0.0F, 0.0F);
-            rightleg2.addChild(cube_r29);
+            leftleg.addChild(cube_r29);
             setRotationAngle(cube_r29, 0.0F, 0.0F, 0.0436F);
             cube_r29.texOffs(0, 44).addBox(0.0F, 0.0F, -2.0F, 0.0F, 7.0F, 4.0F, 0.0F, false);
         }
 
     @Override
     public void setupAnim(T pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
+        this.head.xRot = pHeadPitch * ((float)Math.PI / 180F);
+        this.head.yRot = pNetHeadYaw * ((float)Math.PI / 180F);
 
+        final float degreeOfRotation = 75F;
+        final float speedOfRotation = 0.6662F;
+
+        this.leftleg.xRot = (float) (Math.toRadians(degreeOfRotation/2 * MathHelper.sin(pLimbSwing*speedOfRotation)) * pLimbSwingAmount);
+        this.rightleg.xRot = (float) (Math.toRadians(degreeOfRotation/2 * MathHelper.sin(-pLimbSwing*speedOfRotation )) * pLimbSwingAmount);
+
+        this.rightarm.xRot = (float) (Math.toRadians(degreeOfRotation/2 * MathHelper.sin(pLimbSwing*speedOfRotation)) * pLimbSwingAmount);
+        this.leftarm.xRot = (float) (Math.toRadians(degreeOfRotation/2 * MathHelper.sin(-pLimbSwing*speedOfRotation )) * pLimbSwingAmount);
     }
 
 
@@ -277,7 +287,7 @@ public class Scp049JModel<T extends Scp049JEntity> extends EntityModel<T> {
             rightarm.render(matrixStack, buffer, packedLight, packedOverlay);
             leftarm.render(matrixStack, buffer, packedLight, packedOverlay);
             rightleg.render(matrixStack, buffer, packedLight, packedOverlay);
-            rightleg2.render(matrixStack, buffer, packedLight, packedOverlay);
+            leftleg.render(matrixStack, buffer, packedLight, packedOverlay);
         }
 
         public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {

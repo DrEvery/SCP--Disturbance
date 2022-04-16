@@ -7,6 +7,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.monster.MonsterEntity;
+import net.minecraft.entity.monster.ZombieEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
@@ -14,6 +15,8 @@ import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
+
+import javax.annotation.Nullable;
 
 public class Scp049Entity extends MonsterEntity {
 
@@ -25,7 +28,7 @@ public class Scp049Entity extends MonsterEntity {
         this.goalSelector.addGoal(1, new LookRandomlyGoal(this));
         this.goalSelector.addGoal(1, new LookAtGoal(this, PlayerEntity.class, 10.0F));
         this.goalSelector.addGoal(2, new WaterAvoidingRandomWalkingGoal(this, 0.8D));
-        this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 5.0D, false));
+        this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 20.0D, false));
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
     }
 
@@ -47,11 +50,11 @@ public class Scp049Entity extends MonsterEntity {
 
     @Override
     protected void playStepSound(BlockPos pPos, BlockState pBlock) {
-        this.playSound(SoundEvents.ZOMBIE_STEP, 0.15F, 1.0F);
+        this.playSound(SoundEvents.METAL_STEP, 0.15F, 1.0F);
     }
     @Override
     public void killed(ServerWorld pLevel, LivingEntity pKilledEntity) {
-        Scp058TentacleEntity entity = ModEntityTypes.SCP_058_TENTACLE.get().create(pLevel);
+        Scp049_2Entity entity = ModEntityTypes.SCP_049_2.get().create(pLevel);
         entity.setPos(pKilledEntity.getX(), pKilledEntity.getY(), pKilledEntity.getZ());
         pLevel.addFreshEntity(entity);
     }

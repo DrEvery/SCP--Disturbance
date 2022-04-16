@@ -21,7 +21,7 @@ public class Scp058Entity extends CreatureEntity {
         this.goalSelector.addGoal(1, new LookAtGoal(this, PlayerEntity.class, 8.0F));
         this.goalSelector.addGoal(3, new LeapAtTargetGoal(this, 0.4F));
         this.goalSelector.addGoal(2, new WaterAvoidingRandomWalkingGoal(this, 0.8D));
-        this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 5.0D, false));
+        this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 4.0D, false));
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
     }
 
