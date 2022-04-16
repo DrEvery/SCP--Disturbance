@@ -1,16 +1,26 @@
 package com.drevery.scpdisturbance.entity.scp049;
 
+import com.drevery.scpdisturbance.entity.scp058.Scp058TentacleEntity;
+import com.drevery.scpdisturbance.registration.ModEntityTypes;
+import io.github.connortron110.connorsapi.events.blocktickschedule.IScheduledBlockEvent;
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.monster.MonsterEntity;
+import net.minecraft.entity.monster.ZombieEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.*;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraft.world.server.ServerWorld;
+import net.minecraftforge.common.util.Constants;
+
+import javax.annotation.Nullable;
 
 
 public class Scp049Entity extends MonsterEntity {
@@ -47,8 +57,11 @@ public class Scp049Entity extends MonsterEntity {
     protected void playStepSound(BlockPos pPos, BlockState pBlock) {
         this.playSound(SoundEvents.ZOMBIE_STEP, 0.15F, 1.0F);
     }
+    @Override
+    public void killed(ServerWorld pLevel, LivingEntity pKilledEntity) {
+        Scp058TentacleEntity entity = ModEntityTypes.SCP_058_TENTACLE.get().create(pLevel);
+        entity.setPos(4,4,4);
+        pLevel.addFreshEntity(entity);
 
-
-
-
+    }
 }
