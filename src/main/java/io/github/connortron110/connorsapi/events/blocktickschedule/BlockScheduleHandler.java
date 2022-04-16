@@ -4,7 +4,6 @@ import com.drevery.scpdisturbance.SCPDisturbance;
 import net.minecraft.block.BlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockReader;
-import net.minecraft.world.World;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -12,7 +11,6 @@ import net.minecraftforge.fml.common.Mod;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 //TODO Could use break events to remove blocks from positions however can increase work that this class does
 //TODO Possible Client/Server Sync when triggering or activating an event
@@ -26,45 +24,38 @@ import java.util.Map;
 @Mod.EventBusSubscriber(modid = SCPDisturbance.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class BlockScheduleHandler {
 
-    @SubscribeEvent
+    @SubscribeEvent //Ticks for every dimension
     public static void postTick(TickEvent.WorldTickEvent event) {
         //Only compute if on server and at the end of the tick
         if (event.side.isServer() && event.phase.equals(TickEvent.Phase.END)) {
+            //New code basically does it for each world as this method alone is basically a for loop for every world
+            List<Info> oldList = scheduledBlocks.getOrDefault(event.world, new ArrayList<>());
+            List<Info> newList = new ArrayList<>(); //Could possibly be optimized
+
             //TODO "Smart" Delay Tick Events
-            //Please optimize
-            HashMap<IBlockReader, List<Info>> newMap = new HashMap<>();
-
-            for (Map.Entry<IBlockReader, List<Info>> set : scheduledBlocks.entrySet()) {
-                List<Info> oldList = set.getValue();
-                List<Info> newList = new ArrayList<>();
-
-                oldList.forEach(info -> {
-                    if (info.ticks > 0) {
-                        //Still Ticking
-                        info.ticks = info.ticks - 1;
-                        newList.add(info);
-                    }
-                    else {
-                        //Ticks have ended, now to trigger the event
-                        World level = (World) set.getKey(); //FIXME Cast could cause an issue, keep an eye on it
-                        if (checkShouldTrigger(level, info.pos, info.state)) {
-                            if (level.getBlockState(info.pos).getBlock() instanceof IScheduledBlockEvent) {
-                                //Use with the state at that position as state can change through ticking and not cancel the event
-                                ((IScheduledBlockEvent) level.getBlockState(info.pos).getBlock()).handleEvent(level, info.pos, level.getBlockState(info.pos));
-                            }
+            oldList.forEach(info -> {
+                if (info.ticks > 0) {
+                    //Still Ticking
+                    info.ticks = info.ticks - 1;
+                    newList.add(info);
+                }
+                else {
+                    //Ticks have ended, now to trigger the event;
+                    if (checkShouldTrigger(event.world, info.pos, info.state)) {
+                        if (event.world.getBlockState(info.pos).getBlock() instanceof IScheduledBlockEvent) {
+                            //Use with the state at that position as state can change through ticking and not cancel the event
+                            ((IScheduledBlockEvent) event.world.getBlockState(info.pos).getBlock()).handleEvent(event.world, info.pos, event.world.getBlockState(info.pos));
                         }
                     }
-                });
+                }
+            });
 
-                if (!newList.isEmpty()) newMap.put(set.getKey(), newList);
-            }
-
-            scheduledBlocks = newMap;
+            scheduledBlocks.put(event.world, newList);
         }
     }
 
-    //Stores the information
-    private static HashMap<IBlockReader, List<Info>> scheduledBlocks = new HashMap<>();
+    //Stores the information for each world
+    private static final HashMap<IBlockReader, List<Info>> scheduledBlocks = new HashMap<>();
 
     /**
      * Call this method if you want to schedule a block event
