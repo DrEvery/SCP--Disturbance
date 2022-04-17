@@ -1,17 +1,32 @@
 {
   "variants": {
-    "facing=east": {
+    "facing=east,open=false": {
       "model": "scpdisturbance:block/scp_902",
       "y": 90
     },
-    "facing=north": {
+    "facing=north,open=false": {
       "model": "scpdisturbance:block/scp_902"
     },
-    "facing=south": {
+    "facing=south,open=false": {
       "model": "scpdisturbance:block/scp_902",
       "y": 180
     },
-    "facing=west": {
+    "facing=west,open=false": {
+      "model": "scpdisturbance:block/scp_902",
+      "y": 270
+    },
+    "facing=east,open=true": {
+      "model": "scpdisturbance:block/scp_902",
+      "y": 90
+    },
+    "facing=north,open=true": {
+      "model": "scpdisturbance:block/scp_902"
+    },
+    "facing=south,open=true": {
+      "model": "scpdisturbance:block/scp_902",
+      "y": 180
+    },
+    "facing=west,open=true": {
       "model": "scpdisturbance:block/scp_902",
       "y": 270
     }
