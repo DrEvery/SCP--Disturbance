@@ -1,19 +1,18 @@
-package com.drevery.scpdisturbance.entity.scp529;
+package com.drevery.scpdisturbance.entity.scp;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.TemptGoal;
 import net.minecraft.entity.passive.AnimalEntity;
 import net.minecraft.entity.passive.CatEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.ActionResultType;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 
-public class JosieEntity extends CatEntity {
-    public JosieEntity(EntityType<? extends CatEntity> type, World worldIn) {
+public class SCP529Entity extends CatEntity {
+    public SCP529Entity(EntityType<? extends CatEntity> type, World worldIn) {
         super(type, worldIn);
     }
 
@@ -41,4 +40,3 @@ public class JosieEntity extends CatEntity {
     return ActionResultType.FAIL;
     }
 }
-

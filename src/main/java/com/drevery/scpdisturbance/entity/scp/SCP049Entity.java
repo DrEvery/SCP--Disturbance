@@ -1,13 +1,11 @@
-package com.drevery.scpdisturbance.entity.scp049;
+package com.drevery.scpdisturbance.entity.scp;
 
-import com.drevery.scpdisturbance.entity.scp058.Scp058TentacleEntity;
 import com.drevery.scpdisturbance.registration.ModEntityTypes;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.entity.monster.ZombieEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
@@ -16,11 +14,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
 
-import javax.annotation.Nullable;
+public class SCP049Entity extends MonsterEntity {
 
-public class Scp049Entity extends MonsterEntity {
-
-    public Scp049Entity(EntityType<? extends MonsterEntity> type, World worldIn) {
+    public SCP049Entity(EntityType<? extends MonsterEntity> type, World worldIn) {
         super(type, worldIn);
     }
 
@@ -31,7 +27,6 @@ public class Scp049Entity extends MonsterEntity {
         this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 20.0D, false));
         this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
     }
-
 
     @Override
     protected SoundEvent getAmbientSound() {
@@ -54,7 +49,7 @@ public class Scp049Entity extends MonsterEntity {
     }
     @Override
     public void killed(ServerWorld pLevel, LivingEntity pKilledEntity) {
-        Scp049_2Entity entity = ModEntityTypes.SCP_049_2.get().create(pLevel);
+        SCP049_CuredEntity entity = ModEntityTypes.SCP_049_2.get().create(pLevel);
         entity.setPos(pKilledEntity.getX(), pKilledEntity.getY(), pKilledEntity.getZ());
         pLevel.addFreshEntity(entity);
     }
