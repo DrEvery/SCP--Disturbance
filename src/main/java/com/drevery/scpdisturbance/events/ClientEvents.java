@@ -1,16 +1,14 @@
 package com.drevery.scpdisturbance.events;
 
 import com.drevery.scpdisturbance.SCPDisturbance;
-import com.drevery.scpdisturbance.client.render.scp007.Scp007Renderer;
-import com.drevery.scpdisturbance.client.render.scp049.Scp049Renderer;
-import com.drevery.scpdisturbance.client.render.scp049.Scp049_2Renderer;
-import com.drevery.scpdisturbance.client.render.scp049j.Scp049JRenderer;
-import com.drevery.scpdisturbance.client.render.scp058.Scp058Renderer;
-import com.drevery.scpdisturbance.client.render.scp058.Scp058TentacleRenderer;
+import com.drevery.scpdisturbance.client.model.scp.*;
+import com.drevery.scpdisturbance.client.render.RendererGenericEntity;
 import com.drevery.scpdisturbance.registration.ModBlocks;
 import com.drevery.scpdisturbance.registration.ModEntityTypes;
-import com.drevery.scpdisturbance.client.render.scp529.JosieRenderer;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.entity.EntityRendererManager;
+import net.minecraft.client.renderer.entity.model.EntityModel;
+import net.minecraft.entity.MobEntity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
@@ -66,13 +64,17 @@ public class ClientEvents { //Forge Events used on normal events IE. LivingDeath
         }
 
         private static void setupEntityRenderers() {
-            RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.SCP_529.get(), JosieRenderer::new);
-            RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.SCP_058.get(), Scp058Renderer::new);
-            RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.SCP_058_TENTACLE.get(), Scp058TentacleRenderer::new);
-            RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.SCP_007.get(), Scp007Renderer::new);
-            RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.SCP_049.get(), Scp049Renderer::new);
-            RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.SCP_049J.get(), Scp049JRenderer::new);
-            RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.SCP_049_2.get(), Scp049_2Renderer::new);
+            RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.SCP_529.get(), manager -> genericEntityRenderer(manager, new SCP529Model<>(), 0.6F, "textures/entity/scp529.png"));
+            RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.SCP_058.get(), manager -> genericEntityRenderer(manager, new SCP058Model<>(), 0.7F, "textures/entity/scp058.png"));
+            RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.SCP_058_TENTACLE.get(), manager -> genericEntityRenderer(manager, new SCP058_TentacleModel<>(), 0.7F, "textures/entity/scp058-tentacle.png"));
+            RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.SCP_007.get(), manager -> genericEntityRenderer(manager, new SCP007Model<>(), 0.6F, "textures/entity/scp007.png"));
+            RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.SCP_049.get(), manager -> genericEntityRenderer(manager, new SCP049Model<>(), 0.6F, "textures/entity/scp049.png"));
+            RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.SCP_049J.get(), manager -> genericEntityRenderer(manager, new SCP049_JModel<>(), 0.7F, "textures/entity/scp049-j.png"));
+            RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.SCP_049_2.get(), manager -> genericEntityRenderer(manager, new SCP049_CuredModel<>(), 0.6F, "textures/entity/scp049-cured.png"));
+        }
+
+        private static <E extends MobEntity, M extends EntityModel<E>> RendererGenericEntity<E, M> genericEntityRenderer(EntityRendererManager entityRenderDispatcher, M model, float shadowRadius, String textureLocation) {
+            return new RendererGenericEntity<>(entityRenderDispatcher, model, shadowRadius, textureLocation);
         }
     }
 }

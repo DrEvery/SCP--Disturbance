@@ -1,7 +1,10 @@
-package com.drevery.scpdisturbance.entity.scp058;
+package com.drevery.scpdisturbance.entity.scp;
 
 import net.minecraft.block.BlockState;
-import net.minecraft.entity.*;
+import net.minecraft.entity.CreatureEntity;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.DamageSource;
@@ -10,9 +13,9 @@ import net.minecraft.util.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class Scp058Entity extends CreatureEntity {
+public class SCP058Entity extends CreatureEntity {
 
-    public Scp058Entity(EntityType<? extends CreatureEntity> type, World worldIn) {
+    public SCP058Entity(EntityType<? extends CreatureEntity> type, World worldIn) {
         super(type, worldIn);
     }
 
@@ -48,15 +51,12 @@ public class Scp058Entity extends CreatureEntity {
 
     @Override
     public boolean doHurtTarget(Entity pEntity) {
-            if (super.doHurtTarget(pEntity)) {
-                if (pEntity instanceof LivingEntity) {
-                            pEntity.setSecondsOnFire(20);
-                    }
-                return true;
-            } else {
-                return false;
-            }
+        boolean flag = super.doHurtTarget(pEntity);
+        if (flag && pEntity instanceof LivingEntity) {
+            pEntity.setSecondsOnFire(20);
         }
+        return flag;
+    }
 }
 
 

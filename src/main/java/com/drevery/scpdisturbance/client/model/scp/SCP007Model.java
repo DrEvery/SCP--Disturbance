@@ -1,14 +1,14 @@
-package com.drevery.scpdisturbance.client.model.scp007;
+package com.drevery.scpdisturbance.client.model.scp;
 
 
-import com.drevery.scpdisturbance.entity.scp007.Scp007Entity;
+import com.drevery.scpdisturbance.entity.scp.SCP007Entity;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.util.math.MathHelper;
 
-public class Scp007Model<T extends Scp007Entity> extends EntityModel<T> {
+public class SCP007Model<T extends SCP007Entity> extends EntityModel<T> {
 
 	private final ModelRenderer head;
 	private final ModelRenderer torso;
@@ -18,7 +18,7 @@ public class Scp007Model<T extends Scp007Entity> extends EntityModel<T> {
 	private final ModelRenderer rightarm;
 	private final ModelRenderer leftarm;
 
-	public Scp007Model() {
+	public SCP007Model() {
 		texWidth = 64;
 		texHeight = 64;
 
