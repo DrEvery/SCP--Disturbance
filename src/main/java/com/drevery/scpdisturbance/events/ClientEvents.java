@@ -15,6 +15,7 @@ import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
+import static net.minecraft.client.renderer.ItemBlockRenderTypes.setRenderLayer;
 import static net.minecraft.client.renderer.RenderTypeLookup.setRenderLayer;
 
 //Client Events are less common as they are mostly for rendering setup, however it's here if needed
