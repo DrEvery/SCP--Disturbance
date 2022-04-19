@@ -1,24 +1,20 @@
-package com.drevery.scpdisturbance.client.model.scp529;
-// Made with Blockbench 4.1.5
-// Exported for Minecraft version 1.15 - 1.16 with Mojang mappings
-// Paste this class into your mod and generate all required imports
+package com.drevery.scpdisturbance.client.model.scp;
 
-
-import com.drevery.scpdisturbance.entity.scp529.JosieEntity;
+import com.drevery.scpdisturbance.entity.scp.SCP529Entity;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import net.minecraft.client.renderer.entity.model.EntityModel;
 import net.minecraft.client.renderer.model.ModelRenderer;
 import net.minecraft.util.math.MathHelper;
 
-public class JosieModel<T extends JosieEntity> extends EntityModel<T> {
+public class SCP529Model<T extends SCP529Entity> extends EntityModel<T> {
 	private final ModelRenderer body;
 	private final ModelRenderer body_r1;
 	private final ModelRenderer head;
 	private final ModelRenderer frontLegL;
 	private final ModelRenderer frontLegR;
 
-	public JosieModel() {
+	public SCP529Model() {
 		texWidth = 64;
 		texHeight = 32;
 
@@ -50,8 +46,6 @@ public class JosieModel<T extends JosieEntity> extends EntityModel<T> {
 		body.addChild(frontLegR);
 		frontLegR.texOffs(40, 0).addBox(-1.0F, -1.9978F, -1.1429F, 2.0F, 10.0F, 2.0F, 0.0F, false);
 	}
-
-
 
 	@Override
 	public void renderToBuffer(MatrixStack matrixStack, IVertexBuilder buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha){
