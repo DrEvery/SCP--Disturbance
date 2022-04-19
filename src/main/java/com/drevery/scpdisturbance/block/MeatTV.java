@@ -10,6 +10,8 @@ import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.util.math.shapes.VoxelShapes;
 import net.minecraft.world.IBlockReader;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
 import java.util.stream.Stream;
 
@@ -29,10 +31,14 @@ public class MeatTV extends BaseHorizontalBlock {
                     Block.box(3, 0, 5, 5, 8, 6),
                     Block.box(12, 0, 5, 13, 8, 6),
                     Block.box(5, 2, 5.5, 12, 7, 6.5)
-            ).reduce((v1, v2) -> VoxelShapes.join(v1, v2, IBooleanFunction.OR)).get());
+            ).reduce((v1, v2) -> VoxelShape.join(v1, v2, IBooleanFunction.OR)).get());
 
     public MeatTV(Properties builder) {
         super(builder);
+    }
+
+    public MeatTV(BlockBehaviour.Properties strength) {
+        super();
     }
 
     @Override
