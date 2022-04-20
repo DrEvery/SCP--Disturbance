@@ -3,11 +3,11 @@ package io.github.connortron110.connorsapi.datagen.client;
 import com.drevery.scpdisturbance.SCPDisturbance;
 import com.drevery.scpdisturbance.registration.ModItems;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.item.Item;
+import net.minecraft.world.item.Item;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import net.minecraftforge.fml.RegistryObject;
+import net.minecraftforge.registries.RegistryObject;
 
 public class ModItemModelProvider extends ItemModelProvider {
     public ModItemModelProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
@@ -28,6 +28,6 @@ public class ModItemModelProvider extends ItemModelProvider {
     }
 
     private String getPath(RegistryObject<?> reg) {
-        return reg.get().getRegistryName().getPath();
+        return reg.getId().getPath();
     }
 }

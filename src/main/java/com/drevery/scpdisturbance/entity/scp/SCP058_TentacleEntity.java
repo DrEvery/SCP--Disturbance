@@ -1,32 +1,32 @@
 package com.drevery.scpdisturbance.entity.scp;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.ai.goal.LookAtGoal;
-import net.minecraft.entity.ai.goal.MeleeAttackGoal;
-import net.minecraft.entity.ai.goal.NearestAttackableTargetGoal;
-import net.minecraft.entity.monster.MonsterEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.potion.EffectInstance;
-import net.minecraft.potion.Effects;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.SoundEvent;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
+import net.minecraft.core.BlockPos;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
+import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
+import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
+import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
 
-public class SCP058_TentacleEntity extends MonsterEntity {
+public class SCP058_TentacleEntity extends Monster {
 
-    public SCP058_TentacleEntity(EntityType<? extends MonsterEntity> type, World worldIn) {
+    public SCP058_TentacleEntity(EntityType<? extends Monster> type, Level worldIn) {
         super(type, worldIn);
     }
 
     @Override
     protected void registerGoals() {
-        this.goalSelector.addGoal(1, new LookAtGoal(this, PlayerEntity.class, 8.0F));
+        this.goalSelector.addGoal(1, new LookAtPlayerGoal(this, Player.class, 8.0F));
         this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 5.0D, false));
-        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, PlayerEntity.class, true));
+        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
     }
     //TODO Sounds
     @Override
@@ -51,7 +51,7 @@ public class SCP058_TentacleEntity extends MonsterEntity {
     public boolean doHurtTarget(Entity pEntity) {
         boolean flag = super.doHurtTarget(pEntity);
         if (flag && pEntity instanceof LivingEntity) {
-            ((LivingEntity)pEntity).addEffect(new EffectInstance(Effects.WITHER,  20, 2));
+            ((LivingEntity)pEntity).addEffect(new MobEffectInstance(MobEffects.WITHER,  20, 2));
         }
         return flag;
     }

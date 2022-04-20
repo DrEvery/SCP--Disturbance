@@ -1,15 +1,10 @@
 package com.drevery.scpdisturbance.block.base;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.HorizontalBlock;
-import net.minecraft.item.BlockItemUseContext;
-import net.minecraft.state.StateContainer;
+import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.levelgen.feature.configurations.BlockStateConfiguration;
-import net.minecraftforge.common.property.Properties;
+import net.minecraft.world.level.block.state.StateDefinition;
 
 /**
  * Use this class if you intend the block to have Horizontal Rotation features. <br>
@@ -20,13 +15,13 @@ public class BaseHorizontalBlock extends HorizontalDirectionalBlock {
         super(builder);
     }
 
-   @Override
-    protected void createBlockStateDefinition(BlockStateConfiguration.Builder<Block, BlockState> builder) {
-        builder.add(FACING);
+    @Override
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
+        pBuilder.add(FACING);
     }
 
     @Override
-    public BlockState getStateForPlacement(BlockItemUseContext context) {
-        return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite());
+    public BlockState getStateForPlacement(BlockPlaceContext pContext) {
+        return this.defaultBlockState().setValue(FACING, pContext.getHorizontalDirection().getOpposite());
  }
 }

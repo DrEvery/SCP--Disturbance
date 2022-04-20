@@ -1,22 +1,21 @@
 package com.drevery.scpdisturbance.block;
 
 import com.drevery.scpdisturbance.ModDamageSources;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.entity.Entity;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.vector.Vector3d;
-import net.minecraft.world.World;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec3;
 
 public class SkinFloor extends Block {
-    public SkinFloor(AbstractBlock.Properties properties) {
+    public SkinFloor(Properties properties) {
         super(properties);
     }
 
     @Override
-    public void entityInside(BlockState state, World worldIn, BlockPos pos, Entity entityIn) {
-        entityIn.makeStuckInBlock(state, new Vector3d(0.25D, 0.05D, 0.25D));
-        entityIn.hurt(ModDamageSources.SCP_002_SINK, 4F);
+    public void entityInside(BlockState pState, Level pLevel, BlockPos pPos, Entity pEntity) {
+        pEntity.makeStuckInBlock(pState, new Vec3(0.25D, 0.05D, 0.25D));
+        pEntity.hurt(ModDamageSources.SCP_002_SINK, 4F);
     }
 }

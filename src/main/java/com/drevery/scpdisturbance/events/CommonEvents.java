@@ -4,14 +4,14 @@ import com.drevery.scpdisturbance.ModDamageSources;
 import com.drevery.scpdisturbance.SCPDisturbance;
 import com.drevery.scpdisturbance.registration.ModBlocks;
 import com.google.common.collect.ImmutableList;
-import net.minecraft.block.Block;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.util.Direction;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
-import net.minecraft.world.server.ServerWorld;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.util.Lazy;
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
@@ -30,15 +30,15 @@ public class CommonEvents { //Forge Events used on normal events IE. LivingDeath
     @SubscribeEvent
     public static void onLivingDieTo002(LivingDeathEvent event) {
         Entity entity = event.getEntity();
-        World world = entity.getCommandSenderWorld();
+        Level level = entity.getCommandSenderWorld();
         if (event.getSource() == ModDamageSources.SCP_002_SINK) {
             BlockPos startPos = entity.blockPosition();
             BlockPos pos = startPos;
 
-            if (!world.getBlockState(pos).is(ModBlocks.SKIN_FLOOR.get()) && !world.getBlockState(pos).is(ModBlocks.FACE_SKIN_FLOOR.get())) {
+            if (!level.getBlockState(pos).is(ModBlocks.SKIN_FLOOR.get()) && !level.getBlockState(pos).is(ModBlocks.FACE_SKIN_FLOOR.get())) {
                 for (Direction direction : Direction.values()) {
-                    if (world.getBlockState(pos.relative(direction)).is(ModBlocks.SKIN_FLOOR.get()) ||
-                            world.getBlockState(pos.relative(direction)).is(ModBlocks.FACE_SKIN_FLOOR.get())) {
+                    if (level.getBlockState(pos.relative(direction)).is(ModBlocks.SKIN_FLOOR.get()) ||
+                            level.getBlockState(pos.relative(direction)).is(ModBlocks.FACE_SKIN_FLOOR.get())) {
                         pos = pos.relative(direction);
                         break;
                     }
@@ -46,25 +46,25 @@ public class CommonEvents { //Forge Events used on normal events IE. LivingDeath
                 if (startPos.equals(pos)) return;
             }
 
-            while(!world.isEmptyBlock(pos)) {
+            while(!level.isEmptyBlock(pos)) {
                 pos = pos.above();
                 if (pos.getY() - startPos.getY() > 10) return;
             }
-            world.setBlockAndUpdate(pos, SCP002_SKIN_PLACEABLES.get(world.random.nextInt(SCP002_SKIN_PLACEABLES.size())).get().defaultBlockState());
+            level.setBlockAndUpdate(pos, SCP002_SKIN_PLACEABLES.get(level.random.nextInt(SCP002_SKIN_PLACEABLES.size())).get().defaultBlockState());
         }
         else if (event.getSource() == ModDamageSources.SCP_002_BED) {
-            if (world.isEmptyBlock(entity.blockPosition())) {
-                world.setBlockAndUpdate(entity.blockPosition(),
-                        SCP002_BED_PLACEABLES.get(world.random.nextInt(SCP002_BED_PLACEABLES.size())).get().defaultBlockState());
+            if (level.isEmptyBlock(entity.blockPosition())) {
+                level.setBlockAndUpdate(entity.blockPosition(),
+                        SCP002_BED_PLACEABLES.get(level.random.nextInt(SCP002_BED_PLACEABLES.size())).get().defaultBlockState());
             }
         }
     }
 
     @SubscribeEvent(priority = EventPriority.LOWEST) //Calls the killed function on the entity that killed it to allow for some custom features
     public static void onPlayerDeath(LivingDeathEvent event) { //priority == Low so we have to make sure that the player has actually died
-        if (event.getEntity() instanceof PlayerEntity) {
+        if (event.getEntity() instanceof Player) {
             if (event.getSource().getEntity() != null) {
-                event.getSource().getEntity().killed((ServerWorld) event.getEntity().level, (LivingEntity) event.getSource().getEntity());
+                event.getSource().getEntity().killed((ServerLevel) event.getEntity().level, (LivingEntity) event.getSource().getEntity());
             }
         }
     }

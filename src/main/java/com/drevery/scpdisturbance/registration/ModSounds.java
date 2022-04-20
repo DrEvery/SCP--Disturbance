@@ -4,10 +4,10 @@ import com.drevery.scpdisturbance.SCPDisturbance;
 import com.drevery.scpdisturbance.utils.Utils;
 import io.github.connortron110.connorsapi.datagen.SoundsProvider;
 import io.github.connortron110.connorsapi.datagen.SoundsProvider.ModSoundDefinition;
-import net.minecraft.util.SoundEvent;
-import net.minecraftforge.fml.RegistryObject;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
 /**
  * When you add a sound here, remember to runData before you run the client, otherwise the sound would be registered, but no way of minecraft knowing where the sound is.

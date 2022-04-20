@@ -1,9 +1,9 @@
 package io.github.connortron110.connorsapi.events.blocktickschedule;
 
 import com.drevery.scpdisturbance.SCPDisturbance;
-import net.minecraft.block.BlockState;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockReader;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -55,7 +55,7 @@ public class BlockScheduleHandler {
     }
 
     //Stores the information for each world
-    private static final HashMap<IBlockReader, List<Info>> scheduledBlocks = new HashMap<>();
+    private static final HashMap<LevelAccessor, List<Info>> scheduledBlocks = new HashMap<>();
 
     /**
      * Call this method if you want to schedule a block event
@@ -64,7 +64,7 @@ public class BlockScheduleHandler {
      * @param state The state the block is in, Used to determine if the block is still there to avoid crashes
      * @param ticks The amount of ticks to pass
      */
-    public static void scheduleEvent(IBlockReader level, BlockPos pos, BlockState state, int ticks) {
+    public static void scheduleEvent(LevelAccessor level, BlockPos pos, BlockState state, int ticks) {
         Info info = new Info(pos, state, ticks);
         List<Info> list = scheduledBlocks.getOrDefault(level, new ArrayList<>());
         list.add(info);
@@ -72,7 +72,7 @@ public class BlockScheduleHandler {
     }
 
     //Used internally to check if the block still exists
-    private static boolean checkShouldTrigger(IBlockReader level, BlockPos pos, BlockState state) {
+    private static boolean checkShouldTrigger(LevelAccessor level, BlockPos pos, BlockState state) {
         return level.getBlockState(pos).getBlock() == state.getBlock();
     }
 

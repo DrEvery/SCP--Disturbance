@@ -1,18 +1,18 @@
 package com.drevery.scpdisturbance.entity.scp;
 
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.ai.goal.TemptGoal;
-import net.minecraft.entity.passive.AnimalEntity;
-import net.minecraft.entity.passive.CatEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.Items;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.util.Hand;
-import net.minecraft.world.World;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.ai.goal.TemptGoal;
+import net.minecraft.world.entity.animal.Animal;
+import net.minecraft.world.entity.animal.Cat;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.Level;
 
-public class SCP529Entity extends CatEntity {
-    public SCP529Entity(EntityType<? extends CatEntity> type, World worldIn) {
+public class SCP529Entity extends Cat {
+    public SCP529Entity(EntityType<? extends SCP529Entity> type, Level worldIn) {
         super(type, worldIn);
     }
 
@@ -23,7 +23,7 @@ public class SCP529Entity extends CatEntity {
     }
 
     @Override
-    public boolean canMate(AnimalEntity p_70878_1_) {
+    public boolean canMate(Animal pOtherAnimal) {
         return false;
     }
 
@@ -32,11 +32,11 @@ public class SCP529Entity extends CatEntity {
     }
 
     @Override
-    public void tame(PlayerEntity pPlayer) {
+    public void tame(Player pPlayer) {
     }
 
     @Override
-    public ActionResultType mobInteract(PlayerEntity pPlayer, Hand pHand) {
-    return ActionResultType.FAIL;
+    public InteractionResult mobInteract(Player pPlayer, InteractionHand pHand) {
+        return InteractionResult.FAIL;
     }
 }

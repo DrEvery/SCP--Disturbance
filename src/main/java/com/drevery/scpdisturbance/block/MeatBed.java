@@ -2,31 +2,31 @@ package com.drevery.scpdisturbance.block;
 
 import com.drevery.scpdisturbance.ModDamageSources;
 import com.drevery.scpdisturbance.utils.Utils;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
-import net.minecraft.block.HorizontalBlock;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.BlockItemUseContext;
-import net.minecraft.item.ItemStack;
-import net.minecraft.state.EnumProperty;
-import net.minecraft.state.StateContainer;
-import net.minecraft.state.properties.BedPart;
-import net.minecraft.state.properties.BlockStateProperties;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.util.Direction;
-import net.minecraft.util.Hand;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.BlockRayTraceResult;
-import net.minecraft.util.math.shapes.IBooleanFunction;
-import net.minecraft.util.math.shapes.ISelectionContext;
-import net.minecraft.util.math.shapes.VoxelShape;
-import net.minecraft.util.math.shapes.VoxelShapes;
-import net.minecraft.util.math.vector.Vector3i;
-import net.minecraft.world.IBlockReader;
-import net.minecraft.world.IWorld;
-import net.minecraft.world.World;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.core.Vec3i;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.HorizontalDirectionalBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BedPart;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.shapes.BooleanOp;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
 import javax.annotation.Nullable;
 import java.util.stream.Stream;
@@ -34,7 +34,7 @@ import java.util.stream.Stream;
 /**
  * Places Foot part of the bed
  */
-public class MeatBed extends HorizontalBlock {
+public class MeatBed extends HorizontalDirectionalBlock {
 
     public static final EnumProperty<BedPart> BED_PART = BlockStateProperties.BED_PART;
     private static final VoxelShape[] SHAPE = Utils.makeHorizontalShapes(Stream.of(
@@ -45,7 +45,7 @@ public class MeatBed extends HorizontalBlock {
             Block.box(0, 0, 13, 3, 4, 16),
             Block.box(3, 9, 8.5, 13, 11, 15.5),
             Block.box(13, 0, 13, 16, 4, 16)
-    ).reduce((v1, v2) -> VoxelShapes.join(v1, v2, IBooleanFunction.OR)).get());
+    ).reduce((v1, v2) -> Shapes.join(v1, v2, BooleanOp.OR)).get());
 
     public MeatBed(Properties builder) {
         super(builder);
@@ -53,43 +53,43 @@ public class MeatBed extends HorizontalBlock {
     }
 
     @Override
-    public ActionResultType use(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockRayTraceResult blockRayTraceResult) {
-        player.hurt(ModDamageSources.SCP_002_BED, player.getMaxHealth());
-        return super.use(state, world, pos, player, hand, blockRayTraceResult);
+    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
+        pPlayer.hurt(ModDamageSources.SCP_002_BED, pPlayer.getMaxHealth());
+        return super.use(pState, pLevel, pPos, pPlayer, pHand, pHit);
     }
 
     @Override
-    public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-        if (state.getValue(BED_PART) == BedPart.FOOT) {
-            Vector3i v = state.getValue(FACING).getNormal();
-            return SHAPE[state.getValue(FACING).getOpposite().get2DDataValue()].move(v.getX(), v.getY(), v.getZ());
+    public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+        if (pState.getValue(BED_PART) == BedPart.FOOT) {
+            Vec3i v = pState.getValue(FACING).getNormal();
+            return SHAPE[pState.getValue(FACING).getOpposite().get2DDataValue()].move(v.getX(), v.getY(), v.getZ());
         }
-        else return SHAPE[state.getValue(FACING).getOpposite().get2DDataValue()];
+        else return SHAPE[pState.getValue(FACING).getOpposite().get2DDataValue()];
     }
 
     @Override
-    protected void createBlockStateDefinition(StateContainer.Builder<Block, BlockState> builder) {
-        builder.add(FACING).add(BED_PART);
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
+        pBuilder.add(FACING).add(BED_PART);
     }
 
     @Nullable
     @Override
-    public BlockState getStateForPlacement(BlockItemUseContext context) {
-        if (context.getLevel().getBlockState(context.getClickedPos().relative(context.getHorizontalDirection())).canBeReplaced(context)) {
-            return this.defaultBlockState().setValue(FACING, context.getHorizontalDirection());
+    public BlockState getStateForPlacement(BlockPlaceContext pContext) {
+        if (pContext.getLevel().getBlockState(pContext.getClickedPos().relative(pContext.getHorizontalDirection())).canBeReplaced(pContext)) {
+            return this.defaultBlockState().setValue(FACING, pContext.getHorizontalDirection());
         } else return null;
     }
 
     @Override
-    public void setPlacedBy(World worldIn, BlockPos pos, BlockState state, @Nullable LivingEntity livingEntity, ItemStack stack) {
+    public void setPlacedBy(Level pLevel, BlockPos pPos, BlockState pState, @Nullable LivingEntity pPlacer, ItemStack pStack) {
         //getStateForPlacement was successful, lower block has been placed now place head with facing state
-        worldIn.setBlockAndUpdate(pos.relative(state.getValue(FACING)),
-                this.defaultBlockState().setValue(BED_PART, BedPart.HEAD).setValue(FACING, state.getValue(FACING)));
+        pLevel.setBlockAndUpdate(pPos.relative(pState.getValue(FACING)),
+                this.defaultBlockState().setValue(BED_PART, BedPart.HEAD).setValue(FACING, pState.getValue(FACING)));
     }
 
     @Override
-    public BlockState updateShape(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
-        BlockPos otherPartPos = stateIn.getValue(BED_PART) == BedPart.HEAD ? currentPos.relative(stateIn.getValue(FACING).getOpposite()) : currentPos.relative(stateIn.getValue(FACING));
-        return (worldIn.getBlockState(otherPartPos).is(this)) ? stateIn : Blocks.AIR.defaultBlockState();
+    public BlockState updateShape(BlockState pState, Direction pDirection, BlockState pNeighborState, LevelAccessor pLevel, BlockPos pCurrentPos, BlockPos pNeighborPos) {
+        BlockPos otherPartPos = pState.getValue(BED_PART) == BedPart.HEAD ? pCurrentPos.relative(pState.getValue(FACING).getOpposite()) : pCurrentPos.relative(pState.getValue(FACING));
+        return (pLevel.getBlockState(otherPartPos).is(this)) ? pState : Blocks.AIR.defaultBlockState();
     }
 }

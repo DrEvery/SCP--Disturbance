@@ -1,24 +1,23 @@
 package com.drevery.scpdisturbance.block;
 
 import com.drevery.scpdisturbance.block.base.BaseTwoTallHorizontalBlock;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.shapes.ISelectionContext;
-import net.minecraft.util.math.shapes.VoxelShape;
-import net.minecraft.world.IBlockReader;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class IndustrialLamp extends BaseTwoTallHorizontalBlock {
 
     private static final VoxelShape SHAPE = Block.box(3, 0, 3, 13, 17, 13);
 
-    public IndustrialLamp(AbstractBlock.Properties properties) {
+    public IndustrialLamp(Properties properties) {
         super(properties);
     }
 
     @Override
-    public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
+    public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
         return SHAPE;
     }
 }

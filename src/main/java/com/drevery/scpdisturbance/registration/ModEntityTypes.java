@@ -3,44 +3,44 @@ package com.drevery.scpdisturbance.registration;
 import com.drevery.scpdisturbance.SCPDisturbance;
 import com.drevery.scpdisturbance.entity.scp.*;
 import com.drevery.scpdisturbance.utils.Utils;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityClassification;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.MobEntity;
-import net.minecraft.entity.ai.attributes.AttributeModifierMap;
-import net.minecraft.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
 @Mod.EventBusSubscriber(modid = SCPDisturbance.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModEntityTypes {
     public static DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITIES, SCPDisturbance.MOD_ID);
 
     public static final RegistryObject<EntityType<SCP529Entity>> SCP_529 =
-            registerWithEgg("scp_529", EntityType.Builder.of(SCP529Entity::new, EntityClassification.MONSTER).sized(0.6F, 0.7F), 0x7b7e80, 0x67c514);
+            registerWithEgg("scp_529", EntityType.Builder.of(SCP529Entity::new, MobCategory.MONSTER).sized(0.6F, 0.7F), 0x7b7e80, 0x67c514);
 
     public static final RegistryObject<EntityType<SCP058Entity>> SCP_058 =
-            registerWithEgg("scp_058", EntityType.Builder.of(SCP058Entity::new, EntityClassification.MONSTER).sized(0.8F, 1.1F), 0xad2727, 0x540f0f);
+            registerWithEgg("scp_058", EntityType.Builder.of(SCP058Entity::new, MobCategory.MONSTER).sized(0.8F, 1.1F), 0xad2727, 0x540f0f);
 
     public static final RegistryObject<EntityType<SCP007Entity>> SCP_007 =
-            registerWithEgg("scp_007", EntityType.Builder.of(SCP007Entity::new, EntityClassification.CREATURE).sized(0.6F, 2F), 0x146aba, 0x0b7010);
+            registerWithEgg("scp_007", EntityType.Builder.of(SCP007Entity::new, MobCategory.CREATURE).sized(0.6F, 2F), 0x146aba, 0x0b7010);
 
     public static final RegistryObject<EntityType<SCP049Entity>> SCP_049 =
-            registerWithEgg("scp_049", EntityType.Builder.of(SCP049Entity::new, EntityClassification.MONSTER).sized(0.6F, 2F), 0x146aba, 0x0b7010);
+            registerWithEgg("scp_049", EntityType.Builder.of(SCP049Entity::new, MobCategory.MONSTER).sized(0.6F, 2F), 0x146aba, 0x0b7010);
 
     public static final RegistryObject<EntityType<SCP049_JEntity>> SCP_049J =
-            registerWithEgg("scp_049j", EntityType.Builder.of(SCP049_JEntity::new, EntityClassification.MONSTER).sized(0.6F, 2F), 0x146aba, 0x0b7010);
+            registerWithEgg("scp_049j", EntityType.Builder.of(SCP049_JEntity::new, MobCategory.MONSTER).sized(0.6F, 2F), 0x146aba, 0x0b7010);
 
     public static final RegistryObject<EntityType<SCP049_CuredEntity>> SCP_049_2 =
-            registerWithEgg("scp_049_2", EntityType.Builder.of(SCP049_CuredEntity::new, EntityClassification.MONSTER).sized(0.6F, 2F), 0x146aba, 0x0b7010);
+            registerWithEgg("scp_049_2", EntityType.Builder.of(SCP049_CuredEntity::new, MobCategory.MONSTER).sized(0.6F, 2F), 0x146aba, 0x0b7010);
 
     public static final RegistryObject<EntityType<SCP058_TentacleEntity>> SCP_058_TENTACLE =
-            registerWithEgg("scp_058_tentacle", EntityType.Builder.of(SCP058_TentacleEntity::new, EntityClassification.MONSTER).sized(0.8F, 1.6F), 0, 0);
+            registerWithEgg("scp_058_tentacle", EntityType.Builder.of(SCP058_TentacleEntity::new, MobCategory.MONSTER).sized(0.8F, 1.6F), 0, 0);
 
     @SubscribeEvent
     public static void onEntityAttributeCreation(EntityAttributeCreationEvent e) {
@@ -62,8 +62,8 @@ public class ModEntityTypes {
      * @param attackKnockback Knock-back that the entity gives
      * @return Builder to append more Attributes if needed
      */
-    private static AttributeModifierMap.MutableAttribute createBaseAttributes(double health, double moveSpeed, double attackDamage, double attackKnockback) {
-        return MobEntity.createLivingAttributes()
+    private static AttributeSupplier.Builder createBaseAttributes(double health, double moveSpeed, double attackDamage, double attackKnockback) {
+        return Mob.createLivingAttributes()
                 .add(Attributes.MAX_HEALTH, health)
                 .add(Attributes.FOLLOW_RANGE, 32)
                 .add(Attributes.MOVEMENT_SPEED, moveSpeed)
@@ -71,7 +71,7 @@ public class ModEntityTypes {
                 .add(Attributes.ATTACK_KNOCKBACK, attackKnockback);
     }
 
-    private static <E extends Entity> RegistryObject<EntityType<E>> registerWithEgg(String name, EntityType.Builder<E> builder, int backgroundColor, int highlightColour) {
+    private static <E extends Mob> RegistryObject<EntityType<E>> registerWithEgg(String name, EntityType.Builder<E> builder, int backgroundColor, int highlightColour) {
         RegistryObject<EntityType<E>> registryObject = register(name, builder);
         ModItems.ITEMS.register(name + "_spawn_egg", properties -> new ForgeSpawnEggItem(registryObject, backgroundColor, highlightColour, properties)).tab(ModItemGroup.ITEM_GROUP).build();
         return registryObject;

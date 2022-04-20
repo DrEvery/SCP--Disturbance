@@ -1,15 +1,15 @@
 package com.drevery.scpdisturbance.block;
 
-import com.drevery.scpdisturbance.utils.Utils;
 import com.drevery.scpdisturbance.block.base.BaseHorizontalBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.shapes.IBooleanFunction;
-import net.minecraft.util.math.shapes.ISelectionContext;
-import net.minecraft.util.math.shapes.VoxelShape;
-import net.minecraft.util.math.shapes.VoxelShapes;
-import net.minecraft.world.IBlockReader;
+import com.drevery.scpdisturbance.utils.Utils;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.shapes.BooleanOp;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
 import java.util.stream.Stream;
 
@@ -23,15 +23,15 @@ public class Painting extends BaseHorizontalBlock {
                     Block.box(1, 0, 14, 15, 1, 15),
                     Block.box(1, 15, 14, 15, 16, 15),
                     Block.box(4, 5, 14, 12, 13, 15)
-            ).reduce((v1, v2) -> VoxelShapes.join(v1, v2, IBooleanFunction.OR)).get());
+            ).reduce((v1, v2) -> Shapes.join(v1, v2, BooleanOp.OR)).get());
 
     public Painting(Properties builder) {
         super(builder);
     }
 
     @Override
-    public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-        return SHAPE[state.getValue(FACING).get2DDataValue()];
+    public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+        return SHAPE[pState.getValue(FACING).get2DDataValue()];
     }
 }
 
