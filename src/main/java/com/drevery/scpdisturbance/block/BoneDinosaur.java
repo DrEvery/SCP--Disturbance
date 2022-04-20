@@ -1,13 +1,13 @@
 package com.drevery.scpdisturbance.block;
 
-import com.drevery.scpdisturbance.utils.Utils;
 import com.drevery.scpdisturbance.block.base.BaseHorizontalBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.shapes.ISelectionContext;
-import net.minecraft.util.math.shapes.VoxelShape;
-import net.minecraft.world.IBlockReader;
+import com.drevery.scpdisturbance.utils.Utils;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class BoneDinosaur extends BaseHorizontalBlock {
     public BoneDinosaur(Properties builder) {
@@ -17,7 +17,7 @@ public class BoneDinosaur extends BaseHorizontalBlock {
     private static final VoxelShape[] SHAPE = Utils.makeHorizontalShapes(Block.box(5, 0, 0, 11, 7, 16));
 
     @Override
-    public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-        return SHAPE[state.getValue(FACING).get2DDataValue()];
+    public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
+        return SHAPE[pState.getValue(FACING).get2DDataValue()];
     }
 }

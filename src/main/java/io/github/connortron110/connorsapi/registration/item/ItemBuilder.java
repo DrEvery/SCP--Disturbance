@@ -2,9 +2,9 @@ package io.github.connortron110.connorsapi.registration.item;
 
 import io.github.connortron110.connorsapi.registration.Builder;
 import io.github.connortron110.connorsapi.registration.Factory;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraftforge.fml.RegistryObject;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
+import net.minecraftforge.registries.RegistryObject;
 
 import javax.annotation.Nullable;
 
@@ -31,7 +31,7 @@ public class ItemBuilder<I extends Item> implements Builder<I> {
      * @param group the group you want the item to be set to
      * @return the builder instance
      */
-    public ItemBuilder<I> tab(@Nullable ItemGroup group) {
+    public ItemBuilder<I> tab(@Nullable CreativeModeTab group) {
         properties.tab(group);
         return this;
     }

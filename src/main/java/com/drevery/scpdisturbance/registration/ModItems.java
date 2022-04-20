@@ -4,7 +4,7 @@ import com.drevery.scpdisturbance.SCPDisturbance;
 import com.drevery.scpdisturbance.item.TestingItem;
 import io.github.connortron110.connorsapi.registration.item.ItemDeferredRegister;
 import io.github.connortron110.connorsapi.registration.item.ItemRegistryObject;
-import net.minecraft.item.Item;
+import net.minecraft.world.item.Item;
 
 public class ModItems {
     public static final ItemDeferredRegister ITEMS = ItemDeferredRegister.create(SCPDisturbance.MOD_ID)

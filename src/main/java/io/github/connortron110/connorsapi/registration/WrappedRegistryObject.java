@@ -1,7 +1,7 @@
 package io.github.connortron110.connorsapi.registration;
 
-import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.IForgeRegistryEntry;
+import net.minecraftforge.registries.RegistryObject;
 
 import java.util.function.Supplier;
 

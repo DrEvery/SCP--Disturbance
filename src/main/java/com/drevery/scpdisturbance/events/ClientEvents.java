@@ -5,18 +5,17 @@ import com.drevery.scpdisturbance.client.model.scp.*;
 import com.drevery.scpdisturbance.client.render.RendererGenericEntity;
 import com.drevery.scpdisturbance.registration.ModBlocks;
 import com.drevery.scpdisturbance.registration.ModEntityTypes;
+import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.renderer.RenderType;
-import net.minecraft.client.renderer.entity.EntityRendererManager;
-import net.minecraft.client.renderer.entity.model.EntityModel;
-import net.minecraft.entity.MobEntity;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.world.entity.Mob;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 
 import static net.minecraft.client.renderer.ItemBlockRenderTypes.setRenderLayer;
-import static net.minecraft.client.renderer.RenderTypeLookup.setRenderLayer;
 
 //Client Events are less common as they are mostly for rendering setup, however it's here if needed
 @Mod.EventBusSubscriber(value = Dist.CLIENT, modid = SCPDisturbance.MOD_ID)
@@ -28,7 +27,6 @@ public class ClientEvents { //Forge Events used on normal events IE. LivingDeath
         @SubscribeEvent
         public static void clientSetupEvent(FMLClientSetupEvent event) {
             setBlockLayers();
-            setupEntityRenderers();
         }
 
         //Separating different client events to save mental stress in the future
@@ -64,17 +62,29 @@ public class ClientEvents { //Forge Events used on normal events IE. LivingDeath
             setRenderLayer(ModBlocks.SCP_902.get(), RenderType.cutout());
         }
 
-        private static void setupEntityRenderers() {
-            RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.SCP_529.get(), manager -> genericEntityRenderer(manager, new SCP529Model<>(), 0.6F, "textures/entity/scp529.png"));
-            RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.SCP_058.get(), manager -> genericEntityRenderer(manager, new SCP058Model<>(), 0.7F, "textures/entity/scp058.png"));
-            RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.SCP_058_TENTACLE.get(), manager -> genericEntityRenderer(manager, new SCP058_TentacleModel<>(), 0.7F, "textures/entity/scp058-tentacle.png"));
-            RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.SCP_007.get(), manager -> genericEntityRenderer(manager, new SCP007Model<>(), 0.6F, "textures/entity/scp007.png"));
-            RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.SCP_049.get(), manager -> genericEntityRenderer(manager, new SCP049Model<>(), 0.6F, "textures/entity/scp049.png"));
-            RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.SCP_049J.get(), manager -> genericEntityRenderer(manager, new SCP049_JModel<>(), 0.7F, "textures/entity/scp049-j.png"));
-            RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.SCP_049_2.get(), manager -> genericEntityRenderer(manager, new SCP049_CuredModel<>(), 0.6F, "textures/entity/scp049-cured.png"));
+        @SubscribeEvent
+        public static void registerEntityLayers(EntityRenderersEvent.RegisterLayerDefinitions event) {
+            event.registerLayerDefinition(SCP007Model.LAYER_LOCATION, SCP007Model::createBodyLayer);
+            event.registerLayerDefinition(SCP049Model.LAYER_LOCATION, SCP049Model::createBodyLayer);
+            event.registerLayerDefinition(SCP049_CuredModel.LAYER_LOCATION, SCP049_CuredModel::createBodyLayer);
+            event.registerLayerDefinition(SCP049_JModel.LAYER_LOCATION, SCP049_JModel::createBodyLayer);
+            event.registerLayerDefinition(SCP058Model.LAYER_LOCATION, SCP058Model::createBodyLayer);
+            event.registerLayerDefinition(SCP058_TentacleModel.LAYER_LOCATION, SCP058_TentacleModel::createBodyLayer);
+
+            //RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.SCP_529.get(), manager -> genericEntityRenderer(manager, new SCP529Model<>(), 0.6F, "textures/entity/scp529.png"));
         }
 
-        private static <E extends MobEntity, M extends EntityModel<E>> RendererGenericEntity<E, M> genericEntityRenderer(EntityRendererManager entityRenderDispatcher, M model, float shadowRadius, String textureLocation) {
+        @SubscribeEvent
+        public static void registerEntityRenderer(EntityRenderersEvent.RegisterRenderers event) {
+            event.registerEntityRenderer(ModEntityTypes.SCP_007.get(), context -> genericEntityRenderer(context, new SCP007Model<>(context.bakeLayer(SCP007Model.LAYER_LOCATION)), 0.6F, "textures/entity/scp007.png"));
+            event.registerEntityRenderer(ModEntityTypes.SCP_049.get(), context -> genericEntityRenderer(context, new SCP049Model<>(context.bakeLayer(SCP049Model.LAYER_LOCATION)), 0.6F, "textures/entity/scp049.png"));
+            event.registerEntityRenderer(ModEntityTypes.SCP_049_2.get(), context -> genericEntityRenderer(context, new SCP049_CuredModel<>(context.bakeLayer(SCP049_CuredModel.LAYER_LOCATION)), 0.6F, "textures/entity/scp049-cured.png"));
+            event.registerEntityRenderer(ModEntityTypes.SCP_049J.get(), context -> genericEntityRenderer(context, new SCP049_JModel<>(context.bakeLayer(SCP049_JModel.LAYER_LOCATION)), 0.7F, "textures/entity/scp049-j.png"));
+            event.registerEntityRenderer(ModEntityTypes.SCP_058.get(), context -> genericEntityRenderer(context, new SCP058Model<>(context.bakeLayer(SCP058Model.LAYER_LOCATION)), 0.7F, "textures/entity/scp058.png"));
+            event.registerEntityRenderer(ModEntityTypes.SCP_058_TENTACLE.get(), context -> genericEntityRenderer(context, new SCP058_TentacleModel<>(context.bakeLayer(SCP058_TentacleModel.LAYER_LOCATION)), 0.7F, "textures/entity/scp058-tentacle.png"));
+        }
+
+        private static <E extends Mob, M extends EntityModel<E>> RendererGenericEntity<E, M> genericEntityRenderer(EntityRendererProvider.Context entityRenderDispatcher, M model, float shadowRadius, String textureLocation) {
             return new RendererGenericEntity<>(entityRenderDispatcher, model, shadowRadius, textureLocation);
         }
     }

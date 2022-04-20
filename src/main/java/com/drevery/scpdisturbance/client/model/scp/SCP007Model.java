@@ -1,92 +1,87 @@
 package com.drevery.scpdisturbance.client.model.scp;
 
-
+import com.drevery.scpdisturbance.SCPDisturbance;
 import com.drevery.scpdisturbance.entity.scp.SCP007Entity;
-import com.mojang.blaze3d.matrix.MatrixStack;
-import com.mojang.blaze3d.vertex.IVertexBuilder;
-import net.minecraft.client.renderer.entity.model.EntityModel;
-import net.minecraft.client.renderer.model.ModelRenderer;
-import net.minecraft.util.math.MathHelper;
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
+import net.minecraft.client.model.EntityModel;
+import net.minecraft.client.model.geom.ModelLayerLocation;
+import net.minecraft.client.model.geom.ModelPart;
+import net.minecraft.client.model.geom.PartPose;
+import net.minecraft.client.model.geom.builders.*;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.Mth;
 
 public class SCP007Model<T extends SCP007Entity> extends EntityModel<T> {
+	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(SCPDisturbance.MOD_ID, "scp_007"), "main");
+	private final ModelPart head;
+	private final ModelPart torso;
+	private final ModelPart planet;
+	private final ModelPart rightleg;
+	private final ModelPart leftleg;
+	private final ModelPart rightarm;
+	private final ModelPart leftarm;
 
-	private final ModelRenderer head;
-	private final ModelRenderer torso;
-	private final ModelRenderer planet;
-	private final ModelRenderer rightleg;
-	private final ModelRenderer leftleg;
-	private final ModelRenderer rightarm;
-	private final ModelRenderer leftarm;
+	public SCP007Model(ModelPart root) {
+		this.head = root.getChild("head");
+		this.torso = root.getChild("torso");
+		this.planet = root.getChild("planet");
+		this.rightleg = root.getChild("rightleg");
+		this.leftleg = root.getChild("leftleg");
+		this.rightarm = root.getChild("rightarm");
+		this.leftarm = root.getChild("leftarm");
+	}
 
-	public SCP007Model() {
-		texWidth = 64;
-		texHeight = 64;
+	public static LayerDefinition createBodyLayer() {
+		MeshDefinition meshdefinition = new MeshDefinition();
+		PartDefinition partdefinition = meshdefinition.getRoot();
 
-		head = new ModelRenderer(this);
-		head.setPos(0.0F, 0.0F, 0.0F);
-		head.texOffs(0, 0).addBox(-4.0F, -8.0F, -4.0F, 8.0F, 8.0F, 8.0F, 0.0F, false);
+		PartDefinition head = partdefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(0, 0).addBox(-4.0F, -8.0F, -4.0F, 8.0F, 8.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
 
-		torso = new ModelRenderer(this);
-		torso.setPos(0.0F, 8.0F, 0.0F);
-		torso.texOffs(0, 16).addBox(-4.0F, -8.0F, -2.0F, 8.0F, 5.0F, 4.0F, 0.0F, false);
+		PartDefinition torso = partdefinition.addOrReplaceChild("torso", CubeListBuilder.create().texOffs(0, 16).addBox(-4.0F, -8.0F, -2.0F, 8.0F, 5.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 8.0F, 0.0F));
 
-		planet = new ModelRenderer(this);
-		planet.setPos(-0.0368F, 0.5F, -0.4096F);
-		torso.addChild(planet);
-		setRotationAngle(planet, 0.3054F, 0.0F, 0.0F);
-		planet.texOffs(19, 20).addBox(-2.5132F, -2.5F, -2.0904F, 5.0F, 5.0F, 5.0F, 0.0F, false);
+		PartDefinition planet = torso.addOrReplaceChild("planet", CubeListBuilder.create().texOffs(19, 20).addBox(-2.5132F, -2.5F, -2.0904F, 5.0F, 5.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-0.0368F, 0.5F, -0.4096F, 0.3054F, 0.0F, 0.0F));
 
-		rightleg = new ModelRenderer(this);
-		rightleg.setPos(-2.0F, 12.0F, 0.0F);
-		rightleg.texOffs(39, 20).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 6.0F, 4.0F, 0.0F, false);
-		rightleg.texOffs(16, 40).addBox(-2.0F, 6.0F, -2.0F, 4.0F, 6.0F, 4.0F, 0.0F, false);
+		PartDefinition rightleg = partdefinition.addOrReplaceChild("rightleg", CubeListBuilder.create().texOffs(39, 20).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 6.0F, 4.0F, new CubeDeformation(0.0F))
+				.texOffs(16, 40).addBox(-2.0F, 6.0F, -2.0F, 4.0F, 6.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(-2.0F, 12.0F, 0.0F));
 
-		leftleg = new ModelRenderer(this);
-		leftleg.setPos(2.0F, 12.0F, 0.0F);
-		leftleg.texOffs(0, 35).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 6.0F, 4.0F, 0.0F, false);
-		leftleg.texOffs(32, 30).addBox(-2.0F, 6.0F, -2.0F, 4.0F, 6.0F, 4.0F, 0.0F, false);
+		PartDefinition leftleg = partdefinition.addOrReplaceChild("leftleg", CubeListBuilder.create().texOffs(0, 35).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 6.0F, 4.0F, new CubeDeformation(0.0F))
+				.texOffs(32, 30).addBox(-2.0F, 6.0F, -2.0F, 4.0F, 6.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(2.0F, 12.0F, 0.0F));
 
-		rightarm = new ModelRenderer(this);
-		rightarm.setPos(-4.0F, 2.0F, 0.0F);
-		rightarm.texOffs(16, 30).addBox(-4.0F, -2.0F, -2.0F, 4.0F, 6.0F, 4.0F, 0.0F, false);
-		rightarm.texOffs(0, 25).addBox(-4.0F, 4.0F, -2.0F, 4.0F, 6.0F, 4.0F, 0.0F, false);
+		PartDefinition rightarm = partdefinition.addOrReplaceChild("rightarm", CubeListBuilder.create().texOffs(16, 30).addBox(-4.0F, -2.0F, -2.0F, 4.0F, 6.0F, 4.0F, new CubeDeformation(0.0F))
+				.texOffs(0, 25).addBox(-4.0F, 4.0F, -2.0F, 4.0F, 6.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(-4.0F, 2.0F, 0.0F));
 
-		leftarm = new ModelRenderer(this);
-		leftarm.setPos(4.0F, 2.0F, 0.0F);
-		leftarm.texOffs(32, 10).addBox(0.0F, -2.0F, -2.0F, 4.0F, 6.0F, 4.0F, 0.0F, false);
-		leftarm.texOffs(32, 0).addBox(0.0F, 4.0F, -2.0F, 4.0F, 6.0F, 4.0F, 0.0F, false);
+		PartDefinition leftarm = partdefinition.addOrReplaceChild("leftarm", CubeListBuilder.create().texOffs(32, 10).addBox(0.0F, -2.0F, -2.0F, 4.0F, 6.0F, 4.0F, new CubeDeformation(0.0F))
+				.texOffs(32, 0).addBox(0.0F, 4.0F, -2.0F, 4.0F, 6.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(4.0F, 2.0F, 0.0F));
+
+		return LayerDefinition.create(meshdefinition, 64, 64);
 	}
 
 	@Override
-	public void setupAnim(T pEntity, float pLimbSwing, float pLimbSwingAmount, float pAgeInTicks, float pNetHeadYaw, float pHeadPitch) {
-		this.head.xRot = pHeadPitch * ((float)Math.PI / 180F);
-		this.head.yRot = pNetHeadYaw * ((float)Math.PI / 180F);
+	public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		this.head.xRot = headPitch * ((float)Math.PI / 180F);
+		this.head.yRot = netHeadYaw * ((float)Math.PI / 180F);
 
 		final float degreeOfRotation = 75F;
 		final float speedOfRotation = 0.6662F;
 
-		this.leftleg.xRot = (float) (Math.toRadians(degreeOfRotation/2 * MathHelper.sin(pLimbSwing*speedOfRotation)) * pLimbSwingAmount);
-		this.rightleg.xRot = (float) (Math.toRadians(degreeOfRotation/2 * MathHelper.sin(-pLimbSwing*speedOfRotation )) * pLimbSwingAmount);
+		this.leftleg.xRot = (float) (Math.toRadians(degreeOfRotation/2 * Mth.sin(limbSwing*speedOfRotation)) * limbSwingAmount);
+		this.rightleg.xRot = (float) (Math.toRadians(degreeOfRotation/2 * Mth.sin(-limbSwing*speedOfRotation )) * limbSwingAmount);
 
-		this.rightarm.xRot = (float) (Math.toRadians(degreeOfRotation/2 * MathHelper.sin(pLimbSwing*speedOfRotation)) * pLimbSwingAmount);
-		this.leftarm.xRot = (float) (Math.toRadians(degreeOfRotation/2 * MathHelper.sin(-pLimbSwing*speedOfRotation )) * pLimbSwingAmount);
+		this.rightarm.xRot = (float) (Math.toRadians(degreeOfRotation/2 * Mth.sin(limbSwing*speedOfRotation)) * limbSwingAmount);
+		this.leftarm.xRot = (float) (Math.toRadians(degreeOfRotation/2 * Mth.sin(-limbSwing*speedOfRotation )) * limbSwingAmount);
 
-		this.planet.yRot = (float) (Math.toRadians(degreeOfRotation/2) * pAgeInTicks/50);
+		this.planet.yRot = (float) (Math.toRadians(degreeOfRotation/2) * ageInTicks/50);
 	}
 
 	@Override
-	public void renderToBuffer(MatrixStack matrixStack, IVertexBuilder buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha){
-		head.render(matrixStack, buffer, packedLight, packedOverlay);
-		torso.render(matrixStack, buffer, packedLight, packedOverlay);
-		rightleg.render(matrixStack, buffer, packedLight, packedOverlay);
-		leftleg.render(matrixStack, buffer, packedLight, packedOverlay);
-		rightarm.render(matrixStack, buffer, packedLight, packedOverlay);
-		leftarm.render(matrixStack, buffer, packedLight, packedOverlay);
-	}
-
-	public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
-		modelRenderer.xRot = x;
-		modelRenderer.yRot = y;
-		modelRenderer.zRot = z;
+	public void renderToBuffer(PoseStack poseStack, VertexConsumer buffer, int packedLight, int packedOverlay, float red, float green, float blue, float alpha) {
+		head.render(poseStack, buffer, packedLight, packedOverlay);
+		torso.render(poseStack, buffer, packedLight, packedOverlay);
+		planet.render(poseStack, buffer, packedLight, packedOverlay);
+		rightleg.render(poseStack, buffer, packedLight, packedOverlay);
+		leftleg.render(poseStack, buffer, packedLight, packedOverlay);
+		rightarm.render(poseStack, buffer, packedLight, packedOverlay);
+		leftarm.render(poseStack, buffer, packedLight, packedOverlay);
 	}
 }

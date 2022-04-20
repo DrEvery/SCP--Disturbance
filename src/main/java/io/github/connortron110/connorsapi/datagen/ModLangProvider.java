@@ -3,9 +3,9 @@ package io.github.connortron110.connorsapi.datagen;
 import com.drevery.scpdisturbance.SCPDisturbance;
 import com.drevery.scpdisturbance.registration.ModEntityTypes;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.entity.EntityType;
+import net.minecraft.world.entity.EntityType;
 import net.minecraftforge.common.data.LanguageProvider;
-import net.minecraftforge.fml.RegistryObject;
+import net.minecraftforge.registries.RegistryObject;
 
 public class ModLangProvider extends LanguageProvider {
     public ModLangProvider(DataGenerator gen, String locale) {

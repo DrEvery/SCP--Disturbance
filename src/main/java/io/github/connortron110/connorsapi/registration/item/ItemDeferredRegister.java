@@ -2,9 +2,9 @@ package io.github.connortron110.connorsapi.registration.item;
 
 import io.github.connortron110.connorsapi.registration.DeferredRegisterWrapper;
 import io.github.connortron110.connorsapi.registration.Factory;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
+import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import javax.annotation.Nullable;
@@ -15,7 +15,7 @@ import javax.annotation.Nullable;
 public class ItemDeferredRegister extends DeferredRegisterWrapper<Item> {
 
     @Nullable
-    private ItemGroup defaultItemGroup;
+    private CreativeModeTab defaultItemGroup;
 
     private ItemDeferredRegister(String modId) {
         super(ForgeRegistries.ITEMS, modId);
@@ -26,11 +26,11 @@ public class ItemDeferredRegister extends DeferredRegisterWrapper<Item> {
     }
 
     @Nullable
-    public ItemGroup getDefaultItemGroup() {
+    public CreativeModeTab getDefaultItemGroup() {
         return defaultItemGroup;
     }
 
-    public ItemDeferredRegister setDefaultItemGroup(@Nullable ItemGroup itemGroup) {
+    public ItemDeferredRegister setDefaultItemGroup(@Nullable CreativeModeTab itemGroup) {
         this.defaultItemGroup = itemGroup;
         return this;
     }

@@ -1,3 +1,4 @@
+/*
 package com.drevery.scpdisturbance.client.model.scp;
 
 import com.drevery.scpdisturbance.entity.scp.SCP529Entity;
@@ -67,3 +68,5 @@ public class SCP529Model<T extends SCP529Entity> extends EntityModel<T> {
 		this.frontLegR.xRot = (float) ((75 * MathHelper.sin(-(pLimbSwing*0.6662F))) * (Math.PI/180) * pLimbSwingAmount);
 	}
 }
+
+ */
