@@ -3,7 +3,6 @@ package com.drevery.scpdisturbance.registration;
 import com.drevery.scpdisturbance.SCPDisturbance;
 import com.drevery.scpdisturbance.block.*;
 import com.drevery.scpdisturbance.block.base.BaseHorizontalBlock;
-import io.github.connortron110.connorsapi.registration.block.BlockDeferredRegister;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.DoorBlock;
