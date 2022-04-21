@@ -70,8 +70,7 @@ public class ClientEvents { //Forge Events used on normal events IE. LivingDeath
             event.registerLayerDefinition(SCP049_JModel.LAYER_LOCATION, SCP049_JModel::createBodyLayer);
             event.registerLayerDefinition(SCP058Model.LAYER_LOCATION, SCP058Model::createBodyLayer);
             event.registerLayerDefinition(SCP058_TentacleModel.LAYER_LOCATION, SCP058_TentacleModel::createBodyLayer);
-
-            //RenderingRegistry.registerEntityRenderingHandler(ModEntityTypes.SCP_529.get(), manager -> genericEntityRenderer(manager, new SCP529Model<>(), 0.6F, "textures/entity/scp529.png"));
+            event.registerLayerDefinition(SCP529Model.LAYER_LOCATION, SCP529Model::createBodyLayer);
         }
 
         @SubscribeEvent
@@ -82,6 +81,7 @@ public class ClientEvents { //Forge Events used on normal events IE. LivingDeath
             event.registerEntityRenderer(ModEntityTypes.SCP_049J.get(), context -> genericEntityRenderer(context, new SCP049_JModel<>(context.bakeLayer(SCP049_JModel.LAYER_LOCATION)), 0.7F, "textures/entity/scp049-j.png"));
             event.registerEntityRenderer(ModEntityTypes.SCP_058.get(), context -> genericEntityRenderer(context, new SCP058Model<>(context.bakeLayer(SCP058Model.LAYER_LOCATION)), 0.7F, "textures/entity/scp058.png"));
             event.registerEntityRenderer(ModEntityTypes.SCP_058_TENTACLE.get(), context -> genericEntityRenderer(context, new SCP058_TentacleModel<>(context.bakeLayer(SCP058_TentacleModel.LAYER_LOCATION)), 0.7F, "textures/entity/scp058-tentacle.png"));
+            event.registerEntityRenderer(ModEntityTypes.SCP_529.get(), context -> genericEntityRenderer(context, new SCP529Model<>(context.bakeLayer(SCP529Model.LAYER_LOCATION)), 0.6F, "textures/entity/scp529.png"));
         }
 
         private static <E extends Mob, M extends EntityModel<E>> RendererGenericEntity<E, M> genericEntityRenderer(EntityRendererProvider.Context entityRenderDispatcher, M model, float shadowRadius, String textureLocation) {
