@@ -40,7 +40,7 @@ public class SCP058Egg extends BaseHorizontalBlock implements IScheduledBlockEve
         BlockScheduleHandler.scheduleEvent(pLevel, pPos, pState, 400);
         super.onPlace(pState, pLevel, pPos, pOldState, pIsMoving);
     }
-    @Nullable
+
     @Override
     public void handleEvent(Level level, BlockPos pos, BlockState state) {
         level.setBlockAndUpdate(pos, Blocks.AIR.defaultBlockState());

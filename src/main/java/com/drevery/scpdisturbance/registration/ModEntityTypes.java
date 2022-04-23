@@ -57,7 +57,7 @@ public class ModEntityTypes {
     @SubscribeEvent
     public static void onEntityAttributeCreation(EntityAttributeCreationEvent e) {
         e.put(SCP_529.get(), createBaseAttributes(5, 0.15, 3, 0).build());
-        e.put(SCP_058.get(), createBaseAttributes(500, 0.8, 4.5, 0.1).build());
+        e.put(SCP_058.get(), createBaseAttributes(500, 0.8, 10, 0.1).build());
         e.put(SCP_007.get(), createBaseAttributes(10, 0.3, 0, 0).build());
         e.put(SCP_049.get(), createBaseAttributes(200, 0.25, 999999999, 0).add(Attributes.KNOCKBACK_RESISTANCE, 2) .build());
         e.put(SCP_049J.get(), createBaseAttributes(50, 0.25, 0, 0).build());
