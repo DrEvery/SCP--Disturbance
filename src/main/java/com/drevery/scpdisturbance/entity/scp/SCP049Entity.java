@@ -58,8 +58,8 @@ public class SCP049Entity extends Monster {
 
     @Override
     public void killed(ServerLevel pLevel, LivingEntity pKilledEntity) {
-        SCP049_CuredEntity entity_a = ModEntityTypes.SCP_049_CURED.get().create(pLevel);
-            entity_a.setPos(pKilledEntity.getX(), pKilledEntity.getY(), pKilledEntity.getZ());
-            pLevel.addFreshEntity(entity_a);
+        SCP049_CuredEntity entity = ModEntityTypes.SCP_049_CURED.get().create(pLevel);
+            entity.setPos(pKilledEntity.getX(), pKilledEntity.getY(), pKilledEntity.getZ());
+            pLevel.addFreshEntity(entity);
         }
     }
