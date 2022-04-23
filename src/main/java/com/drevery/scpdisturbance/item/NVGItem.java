@@ -1,8 +1,10 @@
 package com.drevery.scpdisturbance.item;
 
+import com.drevery.scpdisturbance.SCPDisturbance;
 import com.drevery.scpdisturbance.client.model.NVGModel;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.HumanoidModel;
+import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ArmorItem;
@@ -16,6 +18,12 @@ import java.util.function.Consumer;
 public class NVGItem extends ArmorItem {
     public NVGItem(ArmorMaterial pMaterial, EquipmentSlot pSlot, Properties pProperties) {
         super(pMaterial, pSlot, pProperties);
+    }
+
+    @javax.annotation.Nullable
+    @Override
+    public String getArmorTexture(ItemStack stack, Entity entity, EquipmentSlot slot, String type) {
+        return SCPDisturbance.MOD_ID + ":textures/entity/nvg.png";
     }
 
     @Override

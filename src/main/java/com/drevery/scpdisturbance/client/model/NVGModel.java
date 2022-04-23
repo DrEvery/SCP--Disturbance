@@ -14,21 +14,19 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 
 public class NVGModel<T extends LivingEntity> extends HumanoidModel<T> {
-    // This layer location should be baked with EntityRendererProvider.Context in the entity renderer and passed into this model's constructor
     public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(SCPDisturbance.MOD_ID, "nvg"), "main");
     private final ModelPart Root;
 
     public NVGModel(ModelPart root) {
         super(root);
-        this.Root = root.getChild("Root");
-
+        this.Root = root.getChild("head");
     }
 
     public static LayerDefinition createBodyLayer() {
-        MeshDefinition meshdefinition = new MeshDefinition();
+        MeshDefinition meshdefinition = HumanoidModel.createMesh(CubeDeformation.NONE, 0.0F);
         PartDefinition partdefinition = meshdefinition.getRoot();
 
-        PartDefinition Root = partdefinition.addOrReplaceChild("Root", CubeListBuilder.create().texOffs(12, 3).addBox(-0.5F, -29.0F, -8.0F, 1.0F, 1.0F, 1.0F, new CubeDeformation(0.0F))
+        PartDefinition Root = partdefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(12, 3).addBox(-0.5F, -29.0F, -8.0F, 1.0F, 1.0F, 1.0F, new CubeDeformation(0.0F))
                 .texOffs(0, 9).addBox(-4.0F, -30.0F, -7.0F, 8.0F, 4.0F, 3.0F, new CubeDeformation(0.0F))
                 .texOffs(0, 16).addBox(-5.0F, -29.0F, -4.0F, 1.0F, 2.0F, 8.0F, new CubeDeformation(0.0F))
                 .texOffs(14, 8).addBox(4.0F, -29.0F, -4.0F, 1.0F, 2.0F, 8.0F, new CubeDeformation(0.0F))
@@ -44,7 +42,6 @@ public class NVGModel<T extends LivingEntity> extends HumanoidModel<T> {
 
     @Override
     public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-    // this.Root.copyFrom(this.head);
     }
 
     @Override
