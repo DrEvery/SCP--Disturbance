@@ -9,6 +9,7 @@ import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
 import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
 import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
+import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
@@ -22,11 +23,12 @@ public class SCP049_JEntity extends Monster {
     }
 
     protected void registerGoals() {
-        this.goalSelector.addGoal(1, new RandomLookAroundGoal(this));
-        this.goalSelector.addGoal(1, new LookAtPlayerGoal(this, Player.class, 10.0F));
-        this.goalSelector.addGoal(2, new WaterAvoidingRandomStrollGoal(this, 0.8D));
-        this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 5.0D, false));
-        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
+        this.goalSelector.addGoal(4, new MeleeAttackGoal(this, 1.0D, false));
+        this.goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 0.8D));
+        this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 8.0F));
+        this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
+        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
+        this.targetSelector.addGoal(2, new HurtByTargetGoal(this));
     }
 
 

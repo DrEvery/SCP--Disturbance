@@ -1,6 +1,7 @@
 package com.drevery.scpdisturbance.events;
 
 import com.drevery.scpdisturbance.SCPDisturbance;
+import com.drevery.scpdisturbance.client.model.NVGModel;
 import com.drevery.scpdisturbance.client.model.scp.*;
 import com.drevery.scpdisturbance.client.render.RendererGenericEntity;
 import com.drevery.scpdisturbance.registration.ModBlocks;
@@ -71,17 +72,20 @@ public class ClientEvents { //Forge Events used on normal events IE. LivingDeath
             event.registerLayerDefinition(SCP058Model.LAYER_LOCATION, SCP058Model::createBodyLayer);
             event.registerLayerDefinition(SCP058_TentacleModel.LAYER_LOCATION, SCP058_TentacleModel::createBodyLayer);
             event.registerLayerDefinition(SCP529Model.LAYER_LOCATION, SCP529Model::createBodyLayer);
+            event.registerLayerDefinition(SCP049_Cured_RunnerModel.LAYER_LOCATION, SCP049_Cured_RunnerModel::createBodyLayer);
+            event.registerLayerDefinition(NVGModel.LAYER_LOCATION, NVGModel::createBodyLayer);
         }
 
         @SubscribeEvent
         public static void registerEntityRenderer(EntityRenderersEvent.RegisterRenderers event) {
             event.registerEntityRenderer(ModEntityTypes.SCP_007.get(), context -> genericEntityRenderer(context, new SCP007Model<>(context.bakeLayer(SCP007Model.LAYER_LOCATION)), 0.6F, "textures/entity/scp007.png"));
             event.registerEntityRenderer(ModEntityTypes.SCP_049.get(), context -> genericEntityRenderer(context, new SCP049Model<>(context.bakeLayer(SCP049Model.LAYER_LOCATION)), 0.6F, "textures/entity/scp049.png"));
-            event.registerEntityRenderer(ModEntityTypes.SCP_049_2.get(), context -> genericEntityRenderer(context, new SCP049_CuredModel<>(context.bakeLayer(SCP049_CuredModel.LAYER_LOCATION)), 0.6F, "textures/entity/scp049-cured.png"));
+            event.registerEntityRenderer(ModEntityTypes.SCP_049_CURED.get(), context -> genericEntityRenderer(context, new SCP049_CuredModel<>(context.bakeLayer(SCP049_CuredModel.LAYER_LOCATION)), 0.6F, "textures/entity/scp_049_cured.png"));
             event.registerEntityRenderer(ModEntityTypes.SCP_049J.get(), context -> genericEntityRenderer(context, new SCP049_JModel<>(context.bakeLayer(SCP049_JModel.LAYER_LOCATION)), 0.7F, "textures/entity/scp049-j.png"));
             event.registerEntityRenderer(ModEntityTypes.SCP_058.get(), context -> genericEntityRenderer(context, new SCP058Model<>(context.bakeLayer(SCP058Model.LAYER_LOCATION)), 0.7F, "textures/entity/scp058.png"));
             event.registerEntityRenderer(ModEntityTypes.SCP_058_TENTACLE.get(), context -> genericEntityRenderer(context, new SCP058_TentacleModel<>(context.bakeLayer(SCP058_TentacleModel.LAYER_LOCATION)), 0.7F, "textures/entity/scp058-tentacle.png"));
             event.registerEntityRenderer(ModEntityTypes.SCP_529.get(), context -> genericEntityRenderer(context, new SCP529Model<>(context.bakeLayer(SCP529Model.LAYER_LOCATION)), 0.6F, "textures/entity/scp529.png"));
+            event.registerEntityRenderer(ModEntityTypes.SCP_049_CURED_RUNNER.get(), context -> genericEntityRenderer(context, new SCP049_Cured_RunnerModel<>(context.bakeLayer(SCP049_Cured_RunnerModel.LAYER_LOCATION)), 0.6F, "textures/entity/scp_049_cured_runner.png"));
         }
 
         private static <E extends Mob, M extends EntityModel<E>> RendererGenericEntity<E, M> genericEntityRenderer(EntityRendererProvider.Context entityRenderDispatcher, M model, float shadowRadius, String textureLocation) {

@@ -43,4 +43,3 @@ public class BarbedWire extends BaseHorizontalBlock {
         pEntity.hurt(ModDamageSources.BARBED_WIRE, 4F);
     }
 }
-

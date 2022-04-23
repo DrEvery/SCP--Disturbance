@@ -1,7 +1,7 @@
 package com.drevery.scpdisturbance.client.model.scp;
 
 import com.drevery.scpdisturbance.SCPDisturbance;
-import com.drevery.scpdisturbance.entity.scp.SCP049_CuredEntity;
+import com.drevery.scpdisturbance.entity.scp.SCP049_Cured_RunnerEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.model.EntityModel;
@@ -10,50 +10,55 @@ import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.Mth;
 
-public class SCP049_CuredModel<T extends SCP049_CuredEntity> extends EntityModel<T> {
-    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(SCPDisturbance.MOD_ID, "scp_049_cured"), "main");
+public class SCP049_Cured_RunnerModel<T extends SCP049_Cured_RunnerEntity> extends EntityModel<T> {
+    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(SCPDisturbance.MOD_ID, "scp_049_cured_runner"), "main");
     // Made with Blockbench 4.2.2
 // Exported for Minecraft version 1.17 with Mojang mappings
 // Paste this class into your mod and generate all required imports
         private final ModelPart leftarm;
-        private final ModelPart rightarm;
         private final ModelPart leftleg;
         private final ModelPart rightleg;
         private final ModelPart head;
         private final ModelPart torso;
+        private final ModelPart rightarm;
 
-        public SCP049_CuredModel(ModelPart root) {
+        public SCP049_Cured_RunnerModel(ModelPart root) {
             this.leftarm = root.getChild("leftarm");
-            this.rightarm = root.getChild("rightarm");
             this.leftleg = root.getChild("leftleg");
             this.rightleg = root.getChild("rightleg");
             this.head = root.getChild("head");
             this.torso = root.getChild("torso");
+            this.rightarm = root.getChild("rightarm");
         }
 
         public static LayerDefinition createBodyLayer() {
             MeshDefinition meshdefinition = new MeshDefinition();
             PartDefinition partdefinition = meshdefinition.getRoot();
 
-            PartDefinition leftarm = partdefinition.addOrReplaceChild("leftarm", CubeListBuilder.create().texOffs(32, 0).addBox(-0.375F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(4.0F, 2.0F, 0.0F, -1.4021F, 0.045F, -0.258F));
+            PartDefinition leftarm = partdefinition.addOrReplaceChild("leftarm", CubeListBuilder.create().texOffs(32, 29).addBox(0.0F, -2.0F, -2.0F, 4.0F, 6.0F, 4.0F, new CubeDeformation(0.0F))
+                    .texOffs(28, 39).addBox(0.0F, 4.0F, -2.0F, 4.0F, 6.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(4.0F, 4.0F, -3.0F, 0.5239F, 0.3934F, -0.2169F));
 
-            PartDefinition rightarm = partdefinition.addOrReplaceChild("rightarm", CubeListBuilder.create().texOffs(0, 32).addBox(-4.0F, -2.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-4.0F, 2.0F, 0.0F, -1.2217F, 0.0F, 0.0F));
+            PartDefinition leftleg = partdefinition.addOrReplaceChild("leftleg", CubeListBuilder.create().texOffs(16, 29).addBox(-2.0F, -1.0F, -2.0F, 4.0F, 6.0F, 4.0F, new CubeDeformation(0.0F))
+                    .texOffs(40, 6).addBox(-2.0F, 5.0F, -1.0F, 4.0F, 6.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(2.0F, 13.0F, 0.0F, 0.0275F, -0.3042F, -0.0915F));
 
-            PartDefinition leftleg = partdefinition.addOrReplaceChild("leftleg", CubeListBuilder.create().texOffs(16, 32).addBox(-1.5F, 0.125F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(2.0F, 11.75F, 0.0F, 0.0F, 0.0F, -0.1309F));
+            PartDefinition rightleg = partdefinition.addOrReplaceChild("rightleg", CubeListBuilder.create().texOffs(28, 12).addBox(-2.0F, -1.0F, -2.0F, 4.0F, 6.0F, 4.0F, new CubeDeformation(0.0F))
+                    .texOffs(14, 39).addBox(-2.0F, 5.0F, -1.0F, 4.0F, 6.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-2.0F, 13.0F, 0.0F, 0.0F, 0.3491F, 0.0873F));
 
-            PartDefinition rightleg = partdefinition.addOrReplaceChild("rightleg", CubeListBuilder.create().texOffs(24, 16).addBox(-2.0F, 0.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-2.0F, 12.0F, 0.0F, 0.0051F, 0.011F, -0.0445F));
+            PartDefinition head = partdefinition.addOrReplaceChild("head", CubeListBuilder.create().texOffs(0, 0).addBox(-4.0F, -8.0647F, -5.4816F, 8.0F, 8.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 2.0F, -4.0F, 0.0873F, 0.0F, 0.0F));
 
-            PartDefinition head = partdefinition.addOrReplaceChild("head", CubeListBuilder.create(), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, 0.2182F, 0.0F, 0.0F));
+            PartDefinition torso = partdefinition.addOrReplaceChild("torso", CubeListBuilder.create(), PartPose.offsetAndRotation(0.0F, 12.0F, 0.0F, 0.7418F, 0.0F, 0.0F));
 
-            PartDefinition cube_r1 = head.addOrReplaceChild("cube_r1", CubeListBuilder.create().texOffs(0, 0).addBox(-4.5F, -8.0F, -4.0F, 8.0F, 8.0F, 8.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, -0.1308F, -0.0057F, -0.0433F));
+            PartDefinition cube_r1 = torso.addOrReplaceChild("cube_r1", CubeListBuilder.create().texOffs(20, 22).addBox(-8.0F, -3.0F, -3.0F, 8.0F, 3.0F, 4.0F, new CubeDeformation(0.0F))
+                    .texOffs(24, 0).addBox(-7.5F, -6.0F, -2.0F, 7.0F, 3.0F, 3.0F, new CubeDeformation(0.0F))
+                    .texOffs(0, 16).addBox(-8.0F, -12.0F, -3.0F, 8.0F, 6.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(4.0F, 1.2066F, 0.9983F, -0.3054F, 0.0F, 0.0F));
 
-            PartDefinition torso = partdefinition.addOrReplaceChild("torso", CubeListBuilder.create().texOffs(0, 16).addBox(-3.225F, -6.0F, -3.0F, 8.0F, 12.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-1.0F, 6.0F, 1.0F, 0.0F, 0.0F, -0.0873F));
+            PartDefinition rightarm = partdefinition.addOrReplaceChild("rightarm", CubeListBuilder.create().texOffs(0, 26).addBox(-4.0F, -2.0F, -2.0F, 4.0F, 6.0F, 4.0F, new CubeDeformation(0.0F))
+                    .texOffs(0, 36).addBox(-4.0F, 4.0F, -2.0F, 4.0F, 6.0F, 3.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-4.0F, 4.0F, -3.0F, 0.5239F, -0.3934F, 0.2169F));
 
             return LayerDefinition.create(meshdefinition, 64, 64);
         }
-
+        
         @Override
         public void setupAnim(T entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
             this.head.xRot = headPitch * ((float)Math.PI / 180F);

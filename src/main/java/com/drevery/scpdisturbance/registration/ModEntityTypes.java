@@ -21,36 +21,49 @@ import net.minecraftforge.registries.RegistryObject;
 public class ModEntityTypes {
     public static DeferredRegister<EntityType<?>> ENTITY_TYPES = DeferredRegister.create(ForgeRegistries.ENTITIES, SCPDisturbance.MOD_ID);
 
-    public static final RegistryObject<EntityType<SCP529Entity>> SCP_529 =
-            registerWithEgg("scp_529", EntityType.Builder.of(SCP529Entity::new, MobCategory.MONSTER).sized(0.6F, 0.7F), 0x7b7e80, 0x67c514);
+
+    //SCP-058
 
     public static final RegistryObject<EntityType<SCP058Entity>> SCP_058 =
-            registerWithEgg("scp_058", EntityType.Builder.of(SCP058Entity::new, MobCategory.MONSTER).sized(0.8F, 1.1F), 0xad2727, 0x540f0f);
+            registerWithEgg("scp_058", EntityType.Builder.of(SCP058Entity::new, MobCategory.CREATURE).sized(0.8F, 1.1F), 0xad2727, 0x540f0f);
+
+    public static final RegistryObject<EntityType<SCP058_TentacleEntity>> SCP_058_TENTACLE =
+            registerWithEgg("scp_058_tentacle", EntityType.Builder.of(SCP058_TentacleEntity::new, MobCategory.CREATURE).sized(0.8F, 1.6F), 0, 0);
+
+    //SCP-049, SCP-049-J and SCP-049-2
+
+    public static final RegistryObject<EntityType<SCP049Entity>> SCP_049 =
+            registerWithEgg("scp_049", EntityType.Builder.of(SCP049Entity::new, MobCategory.CREATURE).sized(0.6F, 2F), 0x146aba, 0x0b7010);
+
+    public static final RegistryObject<EntityType<SCP049_JEntity>> SCP_049J =
+            registerWithEgg("scp_049j", EntityType.Builder.of(SCP049_JEntity::new, MobCategory.CREATURE).sized(0.6F, 2F), 0x146aba, 0x0b7010);
+
+    public static final RegistryObject<EntityType<SCP049_CuredEntity>> SCP_049_CURED =
+            registerWithEgg("scp_049_cured", EntityType.Builder.of(SCP049_CuredEntity::new, MobCategory.CREATURE).sized(0.6F, 2F), 0x146aba, 0x0b7010);
+
+    public static final RegistryObject<EntityType<SCP049_Cured_RunnerEntity>> SCP_049_CURED_RUNNER =
+            registerWithEgg("scp_049_cured_runner", EntityType.Builder.of(SCP049_Cured_RunnerEntity::new, MobCategory.CREATURE).sized(0.6F, 2F), 0x146aba, 0x0b7010);
+
+    //SCP-529
+
+    public static final RegistryObject<EntityType<SCP529Entity>> SCP_529 =
+            registerWithEgg("scp_529", EntityType.Builder.of(SCP529Entity::new, MobCategory.CREATURE).sized(0.6F, 0.7F), 0x7b7e80, 0x67c514);
+
+    //SCP-007
 
     public static final RegistryObject<EntityType<SCP007Entity>> SCP_007 =
             registerWithEgg("scp_007", EntityType.Builder.of(SCP007Entity::new, MobCategory.CREATURE).sized(0.6F, 2F), 0x146aba, 0x0b7010);
 
-    public static final RegistryObject<EntityType<SCP049Entity>> SCP_049 =
-            registerWithEgg("scp_049", EntityType.Builder.of(SCP049Entity::new, MobCategory.MONSTER).sized(0.6F, 2F), 0x146aba, 0x0b7010);
-
-    public static final RegistryObject<EntityType<SCP049_JEntity>> SCP_049J =
-            registerWithEgg("scp_049j", EntityType.Builder.of(SCP049_JEntity::new, MobCategory.MONSTER).sized(0.6F, 2F), 0x146aba, 0x0b7010);
-
-    public static final RegistryObject<EntityType<SCP049_CuredEntity>> SCP_049_2 =
-            registerWithEgg("scp_049_2", EntityType.Builder.of(SCP049_CuredEntity::new, MobCategory.MONSTER).sized(0.6F, 2F), 0x146aba, 0x0b7010);
-
-    public static final RegistryObject<EntityType<SCP058_TentacleEntity>> SCP_058_TENTACLE =
-            registerWithEgg("scp_058_tentacle", EntityType.Builder.of(SCP058_TentacleEntity::new, MobCategory.MONSTER).sized(0.8F, 1.6F), 0, 0);
-
     @SubscribeEvent
     public static void onEntityAttributeCreation(EntityAttributeCreationEvent e) {
         e.put(SCP_529.get(), createBaseAttributes(5, 0.15, 3, 0).build());
-        e.put(SCP_058.get(), createBaseAttributes(500, 0.5, 4.5, 0.1).build());
+        e.put(SCP_058.get(), createBaseAttributes(500, 0.8, 4.5, 0.1).build());
         e.put(SCP_007.get(), createBaseAttributes(10, 0.3, 0, 0).build());
-        e.put(SCP_049.get(), createBaseAttributes(200, 0.2, 999999999, 0) .build());
-        e.put(SCP_049J.get(), createBaseAttributes(50, 0.2, 0, 0).build());
-        e.put(SCP_049_2.get(), createBaseAttributes(20, 0.1, 2, 0).build());
-        e.put(SCP_058_TENTACLE.get(), createBaseAttributes(20, 0, 4, 0).add(Attributes.ATTACK_SPEED, 1.5).add(Attributes.KNOCKBACK_RESISTANCE, 100).add(Attributes.FOLLOW_RANGE, 2).build());
+        e.put(SCP_049.get(), createBaseAttributes(200, 0.25, 999999999, 0).add(Attributes.KNOCKBACK_RESISTANCE, 2) .build());
+        e.put(SCP_049J.get(), createBaseAttributes(50, 0.25, 0, 0).build());
+        e.put(SCP_049_CURED.get(), createBaseAttributes(20,0.25, 4, 0).build());
+        e.put(SCP_058_TENTACLE.get(), createBaseAttributes(20, 0.0, 4, 0).add(Attributes.ATTACK_SPEED, 0.75).add(Attributes.KNOCKBACK_RESISTANCE, 100).add(Attributes.FOLLOW_RANGE, 2).build());
+        e.put(SCP_049_CURED_RUNNER.get(), createBaseAttributes(12, 0.8, 2, 0).add(Attributes.ATTACK_SPEED, 0.5).build());
     }
 
     /**

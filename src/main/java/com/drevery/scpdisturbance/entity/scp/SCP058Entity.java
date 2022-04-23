@@ -8,10 +8,8 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.PathfinderMob;
-import net.minecraft.world.entity.ai.goal.LeapAtTargetGoal;
-import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
-import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
-import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
+import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
@@ -25,11 +23,13 @@ public class SCP058Entity extends PathfinderMob {
 
     @Override
     protected void registerGoals() {
-        this.goalSelector.addGoal(1, new LookAtPlayerGoal(this, Player.class, 8.0F));
-        this.goalSelector.addGoal(3, new LeapAtTargetGoal(this, 0.4F));
-        this.goalSelector.addGoal(2, new WaterAvoidingRandomStrollGoal(this, 0.8D));
-        this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 4.0D, false));
-        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
+        this.goalSelector.addGoal(1, new LeapAtTargetGoal(this, 0.4F));
+        this.goalSelector.addGoal(4, new MeleeAttackGoal(this, 1.0D, false));
+        this.goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 0.8D));
+        this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 8.0F));
+        this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
+        this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Player.class, true));
+        this.targetSelector.addGoal(2, new HurtByTargetGoal(this));
     }
 
     //TODO Sounds

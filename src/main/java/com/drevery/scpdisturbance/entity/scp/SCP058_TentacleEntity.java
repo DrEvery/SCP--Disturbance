@@ -25,8 +25,8 @@ public class SCP058_TentacleEntity extends Monster {
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(1, new LookAtPlayerGoal(this, Player.class, 8.0F));
-        this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 5.0D, false));
-        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, true));
+        this.goalSelector.addGoal(2, new MeleeAttackGoal(this, 0D, false));
+        this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, false));
     }
     //TODO Sounds
     @Override
