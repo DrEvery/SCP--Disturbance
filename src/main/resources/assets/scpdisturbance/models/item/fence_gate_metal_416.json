@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "scpdisturbance:item/fence_gate_metal_416"
+  }
+}

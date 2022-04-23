@@ -28,21 +28,21 @@ public class ModEntityTypes {
             registerWithEgg("scp_058", EntityType.Builder.of(SCP058Entity::new, MobCategory.CREATURE).sized(0.8F, 1.1F), 0xad2727, 0x540f0f);
 
     public static final RegistryObject<EntityType<SCP058_TentacleEntity>> SCP_058_TENTACLE =
-            registerWithEgg("scp_058_tentacle", EntityType.Builder.of(SCP058_TentacleEntity::new, MobCategory.CREATURE).sized(0.8F, 1.6F), 0, 0);
+            registerWithEgg("scp_058_tentacle", EntityType.Builder.of(SCP058_TentacleEntity::new, MobCategory.CREATURE).sized(0.8F, 1.6F), 0x540f0f, 0xad2727);
 
     //SCP-049, SCP-049-J and SCP-049-2
 
     public static final RegistryObject<EntityType<SCP049Entity>> SCP_049 =
-            registerWithEgg("scp_049", EntityType.Builder.of(SCP049Entity::new, MobCategory.CREATURE).sized(0.6F, 2F), 0x146aba, 0x0b7010);
+            registerWithEgg("scp_049", EntityType.Builder.of(SCP049Entity::new, MobCategory.CREATURE).sized(0.6F, 2F), 0x0f1012, 0x242426);
 
     public static final RegistryObject<EntityType<SCP049_JEntity>> SCP_049J =
-            registerWithEgg("scp_049j", EntityType.Builder.of(SCP049_JEntity::new, MobCategory.CREATURE).sized(0.6F, 2F), 0x146aba, 0x0b7010);
+            registerWithEgg("scp_049j", EntityType.Builder.of(SCP049_JEntity::new, MobCategory.CREATURE).sized(0.6F, 2F), 0x121217, 0x2f2f30);
 
     public static final RegistryObject<EntityType<SCP049_CuredEntity>> SCP_049_CURED =
-            registerWithEgg("scp_049_cured", EntityType.Builder.of(SCP049_CuredEntity::new, MobCategory.CREATURE).sized(0.6F, 2F), 0x146aba, 0x0b7010);
+            registerWithEgg("scp_049_cured", EntityType.Builder.of(SCP049_CuredEntity::new, MobCategory.CREATURE).sized(0.6F, 2F), 0x304a32, 0x4ed459);
 
     public static final RegistryObject<EntityType<SCP049_Cured_RunnerEntity>> SCP_049_CURED_RUNNER =
-            registerWithEgg("scp_049_cured_runner", EntityType.Builder.of(SCP049_Cured_RunnerEntity::new, MobCategory.CREATURE).sized(0.6F, 2F), 0x146aba, 0x0b7010);
+            registerWithEgg("scp_049_cured_runner", EntityType.Builder.of(SCP049_Cured_RunnerEntity::new, MobCategory.CREATURE).sized(0.6F, 2F), 0x197d21, 0x6ed476);
 
     //SCP-529
 

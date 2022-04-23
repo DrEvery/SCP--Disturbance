@@ -33,6 +33,7 @@
   "block.scpdisturbance.fence_bottom": "Fence Bottom",
   "block.scpdisturbance.fence_middle": "Fence Middle",
   "block.scpdisturbance.fence_top": "Fence Top",
+  "block.scpdisturbance.fence_gate_metal_416": "Fence Gate",
   "block.scpdisturbance.barbed_wire": "Barbed Wire",
   "block.scpdisturbance.grandidier_wood": "Grandidier Log",
   "block.scpdisturbance.joshua_tree": "Joshua Log",
@@ -60,6 +61,8 @@
   "item.scpdisturbance.scp_058_spawn_egg": "SCP-058 Spawn Egg",
   "item.scpdisturbance.scp_007_spawn_egg": "SCP-007 Spawn Egg",
   "item.scpdisturbance.scp_049_spawn_egg": "SCP-049 Spawn Egg",
+  "item.scpdisturbance.scp_049_cured_spawn_egg": "SCP-049 Cured Spawn Egg",
+  "item.scpdisturbance.scp_049_cured_runner_spawn_egg": "SCP-049 Cured Runner Spawn Egg",
   "item.scpdisturbance.scp_049j_spawn_egg": "SCP-049-J Spawn Egg",
 
   "itemGroup.scpBlockTab": "SCP: Disturbance Blocks",

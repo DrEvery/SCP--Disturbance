@@ -159,7 +159,7 @@ public class ModBlocks {
 
     //SCP-902
     public static final RegistryObject<Block> SCP_902 = registerBlock("scp_902",
-            () -> new BaseHorizontalBlock(BlockBehaviour.Properties.of(Material.METAL).strength(1f).requiresCorrectToolForDrops().sound(SoundType.METAL)
+            () -> new SCP902(BlockBehaviour.Properties.of(Material.METAL).strength(1f).requiresCorrectToolForDrops().sound(SoundType.METAL)
                     .noOcclusion().explosionResistance(999999)));
 
 
