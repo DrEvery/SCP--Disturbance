@@ -51,7 +51,7 @@ public class SCP058_TentacleEntity extends Monster {
     public boolean doHurtTarget(Entity pEntity) {
         boolean flag = super.doHurtTarget(pEntity);
         if (flag && pEntity instanceof LivingEntity) {
-            ((LivingEntity)pEntity).addEffect(new MobEffectInstance(MobEffects.WITHER,  20, 2));
+            ((LivingEntity)pEntity).addEffect(new MobEffectInstance(MobEffects.WITHER,  200, 2));
         }
         return flag;
     }
