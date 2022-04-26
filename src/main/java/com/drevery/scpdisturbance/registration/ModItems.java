@@ -1,6 +1,7 @@
 package com.drevery.scpdisturbance.registration;
 
 import com.drevery.scpdisturbance.SCPDisturbance;
+import com.drevery.scpdisturbance.item.MicroHIDItem;
 import com.drevery.scpdisturbance.item.NVGItem;
 import com.drevery.scpdisturbance.item.TestingItem;
 import io.github.connortron110.connorsapi.registration.item.ItemDeferredRegister;
@@ -22,6 +23,8 @@ public class ModItems {
     public static final ItemRegistryObject<Item> LIVER = ITEMS.register("liver", Item::new).stacksTo(1).build();
     public static final ItemRegistryObject<Item> KIDNEY = ITEMS.register("kidney", Item::new).stacksTo(1).build();
     public static final ItemRegistryObject<Item> LUNGS = ITEMS.register("lungs", Item::new).stacksTo(1).build();
+
+    public static final ItemRegistryObject<MicroHIDItem> MICROHID = ITEMS.register("microhid", MicroHIDItem::new).stacksTo(1).build();
 
     //Night Vision Goggles
     public static final ItemRegistryObject<NVGItem> NVG = ITEMS.register("nvg", input -> new NVGItem(ArmorMaterials.GOLD, EquipmentSlot.HEAD, input)).stacksTo(64).build();

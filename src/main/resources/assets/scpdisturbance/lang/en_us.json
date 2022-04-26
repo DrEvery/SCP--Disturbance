@@ -47,6 +47,9 @@
   "item.scpdisturbance.lungs": "Lungs",
   "item.scpdisturbance.nvg": "Night Vision Goggles",
 
+  "item.scpdisturbance.microhid": "Micro H.I.D.",
+  "item.scpdisturbance.microhid.depleted": "Micro H.I.D. (Depleted)",
+
   "entity.scpdisturbance.scp_058": "SCP-058",
   "entity.scpdisturbance.scp_058_tentacle": "SCP-058 Tentacle",
   "entity.scpdisturbance.scp_529": "SCP-529",
