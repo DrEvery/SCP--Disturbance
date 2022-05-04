@@ -42,7 +42,6 @@ public class ClientEvents { //Forge Events used on normal events IE. LivingDeath
             Minecraft.getInstance().gameRenderer.loadEffect(new ResourceLocation("shaders/post/creeper.json"));
             player.addEffect(new MobEffectInstance(MobEffects.NIGHT_VISION, 40, 0), player);
         }
-        player.curePotionEffects()
         else Minecraft.getInstance().gameRenderer.checkEntityPostEffect(null);
     }
     }
