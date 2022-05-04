@@ -3,7 +3,6 @@ package com.drevery.scpdisturbance.events;
 import com.drevery.scpdisturbance.ModDamageSources;
 import com.drevery.scpdisturbance.SCPDisturbance;
 import com.drevery.scpdisturbance.registration.ModBlocks;
-import com.drevery.scpdisturbance.registration.ModEntityTypes;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

@@ -1,4 +1,4 @@
-package com.drevery.scpdisturbance.client.model;
+package com.drevery.scpdisturbance.client.model.armor;
 
 import com.drevery.scpdisturbance.SCPDisturbance;
 import com.mojang.blaze3d.vertex.PoseStack;

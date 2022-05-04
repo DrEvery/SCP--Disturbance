@@ -1,7 +1,7 @@
 package com.drevery.scpdisturbance.item;
 
 import com.drevery.scpdisturbance.SCPDisturbance;
-import com.drevery.scpdisturbance.client.model.NVGModel;
+import com.drevery.scpdisturbance.client.model.armor.NVGModel;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.world.entity.Entity;

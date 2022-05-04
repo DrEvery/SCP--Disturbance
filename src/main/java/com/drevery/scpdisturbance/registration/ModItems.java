@@ -27,5 +27,5 @@ public class ModItems {
     public static final ItemRegistryObject<MicroHIDItem> MICROHID = ITEMS.register("microhid", MicroHIDItem::new).stacksTo(1).build();
 
     //Night Vision Goggles
-    public static final ItemRegistryObject<NVGItem> NVG = ITEMS.register("nvg", input -> new NVGItem(ArmorMaterials.GOLD, EquipmentSlot.HEAD, input)).stacksTo(64).build();
+    public static final ItemRegistryObject<NVGItem> NVG = ITEMS.register("nvg", input -> new NVGItem(ArmorMaterials.DIAMOND, EquipmentSlot.HEAD, input)).stacksTo(1).build();
 }
